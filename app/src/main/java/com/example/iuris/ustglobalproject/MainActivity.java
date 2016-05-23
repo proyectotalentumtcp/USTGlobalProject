@@ -15,6 +15,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.util.Log;
 
+/**
+ * Created by Ernesto Mediavilla on 23/05/2016.
+ * Edited by Miguel Rodríguez on 23/05/2016
+ */
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buscar;
