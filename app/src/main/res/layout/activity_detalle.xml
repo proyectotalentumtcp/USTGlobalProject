@@ -47,6 +47,28 @@
         />
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="TelefonoDetalle"
+        android:id="@+id/telefonoDetalle"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="CorreoDetalle"
+        android:id="@+id/correoDetalle"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        />
+
+
 
 
 </LinearLayout>
