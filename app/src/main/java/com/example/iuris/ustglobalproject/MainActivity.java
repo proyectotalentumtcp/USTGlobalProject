@@ -10,18 +10,40 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.app.Activity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button buscar;
+    private EditText textoBusqueda;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        buscar = (Button)findViewById(R.id.buscar);
+        textoBusqueda = (EditText)findViewById(R.id.textoBusqueda);
+
     }
 
     int identificador;
+
+
+    public void buscar(View v){
+
+        Intent intent = new Intent(this, BusquedaActivity.class);
+
+        startActivity(intent);
+
+
+
+    }
+
 
     @Override
     public void onClick(View v) { //SI NECESITAIS TOCAR ALGO DE ESTA FUNCIÓN, AVISAD ANTES
