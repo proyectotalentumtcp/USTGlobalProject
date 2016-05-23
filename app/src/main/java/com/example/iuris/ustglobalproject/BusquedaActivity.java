@@ -40,12 +40,13 @@ public class BusquedaActivity extends AppCompatActivity {
         lManager = new LinearLayoutManager(this);
         listaUsuarios.setLayoutManager(lManager);
 
-        usuarios.add(new Usuario("Miguel", "Rodríguez", "Ruiz de los Paños", R.drawable.usuario));
-        usuarios.add(new Usuario("Juan Luis", "Rodríguez","Ruiz de los Paños", R.drawable.usuario));
-        usuarios.add(new Usuario("Ernesto", "Mediavilla", "", R.drawable.usuario));
-        usuarios.add(new Usuario("Andrea", "Agudo", "", R.drawable.usuario));
-        usuarios.add(new Usuario("Isabel", "Yeves", "", R.drawable.usuario));
-        usuarios.add(new Usuario("Adrían","Álvarez", "Fernández", R.drawable.usuario));
+        usuarios.add(new Usuario("Miguel", "Rodríguez", "Ruiz de los Paños", "676664804", "miguel.rodriguezruiz1@gmail.com", R.drawable.usuario));
+        usuarios.add(new Usuario("Juan Luis", "Rodríguez","Ruiz de los Paños", "", "", R.drawable.usuario));
+        usuarios.add(new Usuario("Ernesto", "Mediavilla", "del Río", "649023872", "lehmer5@gmail.com", R.drawable.usuario));
+        usuarios.add(new Usuario("Andrea", "Agudo", "", "658968812", "andreaagudo3@gmail.com", R.drawable.usuario));
+        usuarios.add(new Usuario("Isabel", "Yeves", "", "636515445", "isabelyeves@hotmail.com", R.drawable.usuario));
+        usuarios.add(new Usuario("Pablo", "Moyano", "Alcántara", "676101967", "pablomoyanoalcantara89@gmail.com", R.drawable.usuario));
+        usuarios.add(new Usuario("Adrían","Álvarez", "Fernández", "", "", R.drawable.usuario));
 
 
         adaptador = new AdaptadorUsuario(usuarios);
