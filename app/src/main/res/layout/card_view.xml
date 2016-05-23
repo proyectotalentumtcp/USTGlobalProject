@@ -52,26 +52,59 @@
                         android:textSize="18sp"
                         android:text="Apellido1"
                         android:id="@+id/apellido1"
+                        android:layout_toRightOf="@+id/nombre"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18sp"
+                        android:text="Apellido2"
+                        android:id="@+id/apellido2"
+                        android:layout_toRightOf="@+id/apellido1"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18sp"
+                        android:text="Teléfono"
+                        android:id="@+id/telefono"
+                        android:layout_toRightOf="@+id/imagen"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18sp"
+                        android:text="E-Mail"
+                        android:id="@+id/correo"
                         android:layout_toRightOf="@+id/imagen"
                         android:layout_alignParentTop="true"
                         android:gravity="center"
                         />
 
-
                 </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="18sp"
-                    android:text="Apellido2"
-                    android:id="@+id/apellido2"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center"
-                    />
-
-
 
 
             </LinearLayout>

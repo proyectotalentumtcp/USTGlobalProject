@@ -32,6 +32,8 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         public TextView nombre;
         public TextView apellido1;
         public TextView apellido2;
+        public TextView telefono;
+        public TextView correo;
         public ImageView imagen;
 
         public final View vista;
@@ -42,6 +44,8 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             nombre = (TextView)v.findViewById(R.id.nombre);
             apellido1 = (TextView)v.findViewById(R.id.apellido1);
             apellido2 = (TextView)v.findViewById(R.id.apellido2);
+            telefono = (TextView)v.findViewById(R.id.telefono);
+            correo = (TextView)v.findViewById(R.id.correo);
             imagen = (ImageView)v.findViewById(R.id.imagen);
 
         }
