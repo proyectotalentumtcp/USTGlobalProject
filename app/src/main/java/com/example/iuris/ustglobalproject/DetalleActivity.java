@@ -16,7 +16,7 @@ import com.example.iuris.ustglobalproject.R;
 
 import Modelo.Usuario;
 
-public class DetalleActivity extends AppCompatActivity implements View.OnClickListener {
+public class DetalleActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
 
     TextView nombreDetalle;
@@ -59,6 +59,11 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         } else if (v.getTag().toString().equals("EnviarCorreo")) {
             mail(tv);
         }
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        return false;
     }
 
     private void mail(TextView tv){
