@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -15,15 +14,13 @@ import android.widget.Toast;
 public class LoginActivity extends Activity {
     Button blogin,bcancelar;
     EditText ed1,ed2;
-
-    TextView txtintentos;
     int contador = 3;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_activity);
 
         blogin=(Button)findViewById(R.id.button);
         ed1=(EditText)findViewById(R.id.editText);
