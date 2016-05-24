@@ -53,8 +53,12 @@
         android:textSize="18sp"
         android:text="TelefonoDetalle"
         android:id="@+id/telefonoDetalle"
+        android:tag="@string/telefono"
         android:layout_alignParentTop="true"
         android:gravity="center"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
         />
 
 
@@ -64,8 +68,12 @@
         android:textSize="18sp"
         android:text="CorreoDetalle"
         android:id="@+id/correoDetalle"
+        android:tag="@string/correo"
         android:layout_alignParentTop="true"
         android:gravity="center"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
         />
 
 

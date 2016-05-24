@@ -32,6 +32,8 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         public TextView nombre;
         public TextView apellido1;
         public TextView apellido2;
+        public TextView telefono;
+        public TextView correo;
         public ImageView imagen;
 
         public final View vista;
@@ -89,6 +91,8 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 user.setApellido1(usuarios.get(position).getApellido1());
                 user.setApellido2(usuarios.get(position).getApellido2());
                 user.setImagen(usuarios.get(position).getImagen());
+                user.setTelefono(usuarios.get(position).getTelefono());
+                user.setCorreo(usuarios.get(position).getCorreo());
 
                 intent.putExtra("usuario", user);
 

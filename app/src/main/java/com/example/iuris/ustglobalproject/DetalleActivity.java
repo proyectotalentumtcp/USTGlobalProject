@@ -53,10 +53,12 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         int identificador;
         identificador = v.getId();
         TextView tv = (TextView) this.findViewById(identificador);
-        String datosDestino = (String) tv.getText();
-        call(tv);
-        //mail(tv);
 
+        if (v.getTag().toString().equals("Llamar")){
+            call(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            mail(tv);
+        }
     }
 
     private void mail(TextView tv){
