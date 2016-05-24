@@ -87,6 +87,7 @@
         android:background="#f61b40"
         android:textColor="#ffffff"
         android:fontFamily="sans-serif-medium"
+        android:layout_gravity="center"
         />
 
 </LinearLayout>
