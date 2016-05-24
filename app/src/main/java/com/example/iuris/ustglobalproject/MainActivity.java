@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buscar;
     private EditText textoBusqueda;
-    private static final int PHONE_CALL = 0;
-    Intent callIntent, emailIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
-
     public void buscar(View v){
 
         Intent intent = new Intent(this, BusquedaActivity.class);
 
         startActivity(intent);
-
-
 
     }
 
