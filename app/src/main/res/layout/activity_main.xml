@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,32 +9,84 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.iuris.ustglobalproject.MainActivity">
+    tools:context="com.example.iuris.ustglobalproject.MainActivity"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bordes"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agenda"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:textColor="#00a8e6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+
+            />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:src="@drawable/LOGOUST"
+            android:layout_marginLeft="30dp"
+            />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/Usuario3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textSize="18sp"
+            android:textColor="#00a8e6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buscador" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Introduzca el texto a buscar contenido en los datos del empleado." />
+        android:text="Buscador"
+        android:layout_marginTop="130dp"
+        android:layout_gravity="center"
+        android:textSize="24dp"
+        android:textColor="#00a8e6"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario:"
-        android:id="@+id/textoBusqueda"/>
+        android:hint="Introduzca el contenido a buscar"
+        android:id="@+id/textoBusqueda"
+        android:layout_marginTop="30dp"
+        android:textColor="#666"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/bordes"
+        android:textAlignment="center"
+        />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Buscar"
         android:onClick="buscar"
-        android:id="@+id/buscar"/>
-
-
-
+        android:id="@+id/buscar"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:background="#f61b40"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-medium"
+        />
 
 </LinearLayout>
