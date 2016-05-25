@@ -11,12 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.iuris.ustglobalproject.R;
+//import com.example.iuris.ustglobalproject.R;
 
 import Modelo.Usuario;
 
-public class DetalleActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
+public class DetalleActivity extends AppCompatActivity implements View.OnClickListener { //}, View.OnLongClickListener {
 
 
     TextView nombreDetalle;
@@ -45,6 +46,13 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         apellido2Detalle.setText(userDetalle.getApellido2());
         telefonoDetalle.setText(userDetalle.getTelefono());
         correoDetalle.setText(userDetalle.getCorreo());
+
+
+        TextView tv1 = (TextView) findViewById(R.id.telefonoDetalle);
+
+        tv1.setOnClickListener(this);
+//        tv1.setOnLongClickListener(this);
+
     }
 
     @Override
@@ -55,15 +63,37 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         TextView tv = (TextView) this.findViewById(identificador);
 
         if (v.getTag().toString().equals("Llamar")){
+            Log.i("ShortClick","call");
+            Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
             call(tv);
         } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            Log.i("ShortClick","mail");
+            Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
             mail(tv);
+        } else if (v.getTag().toString().equals("GuardarContacto")) {
+            Log.i("ShortClick","save");
+            Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            memorizar(tv);
         }
     }
 
-    @Override
+/*    @Override
     public boolean onLongClick(View v) {
-        return false;
+
+        int identificador;
+        identificador = v.getId();
+        TextView tv = (TextView) this.findViewById(identificador);
+
+        Log.i("LongClick","ok");
+        // TODO Auto-generated method stub
+        Toast.makeText(getApplicationContext(), "LongClick", Toast.LENGTH_SHORT).show();
+        memorizar(tv);
+        return true;
+    }*/
+
+    private void memorizar(TextView tv){
+        Log.i("Memorizar","ok");
+
     }
 
     private void mail(TextView tv){
