@@ -57,6 +57,7 @@
         android:fontFamily="sans-serif-medium"
         android:background="@drawable/bordes"
         android:textAlignment="center"
+        android:inputType="textPassword"
         android:hint="Contraseña"
         />
 
