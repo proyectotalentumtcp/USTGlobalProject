@@ -40,6 +40,7 @@ public class BusquedaActivity extends AppCompatActivity {
         listaUsuarios.setLayoutManager(lManager);
 
         usuarios.add(new Usuario("Miguel", "Rodríguez", "Ruiz de los Paños", "", "676664804", "miguel.rodriguezruiz1@gmail.com", R.drawable.usuario));
+        usuarios.add(new Usuario("AAAAAA", "BBBBBBB", "CCCCCCCCCC", "999999999999", "66666666666", "abc@gmail.com", R.drawable.usuario));
         usuarios.add(new Usuario("Juan Luis", "Rodríguez","Ruiz de los Paños", "", "", "", R.drawable.usuario));
         usuarios.add(new Usuario("Ernesto", "Mediavilla", "del Río", "914150650", "649023872", "lehmer5@gmail.com", R.drawable.usuario));
         usuarios.add(new Usuario("Andrea", "Agudo", "Martínez", "", "658968812", "andreaagudo3@gmail.com", R.drawable.usuario));
