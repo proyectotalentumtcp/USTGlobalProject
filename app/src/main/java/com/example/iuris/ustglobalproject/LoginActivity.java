@@ -40,10 +40,11 @@ public class LoginActivity extends Activity {
                     contador--;
 
                     if (contador != 0) {
-                        Toast.makeText(getApplicationContext(), "Demasiados intentos, login deshabilitado",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos",Toast.LENGTH_SHORT).show();
+
 
                     }else{
-                        Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Demasiados intentos, login deshabilitado",Toast.LENGTH_SHORT).show();
                         blogin.setEnabled(false);
                     }
                 }
