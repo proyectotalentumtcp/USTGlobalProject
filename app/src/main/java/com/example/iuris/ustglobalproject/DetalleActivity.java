@@ -120,8 +120,6 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         contactIntent = new Intent(Intent.ACTION_INSERT);
         contactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
         contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellido1) + " " + String.valueOf(Apellido2));
-        //contactIntent.putExtra(ContactsContract.Intents.Insert.XXXX, "John");
-        //contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, "John");
         contactIntent.putExtra(ContactsContract.Intents.Insert.PHONE, String.valueOf(TelefonoMovil));
         contactIntent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, String.valueOf(TelefonoDirecto));
         contactIntent.putExtra(ContactsContract.Intents.Insert.EMAIL, String.valueOf(Correo));
