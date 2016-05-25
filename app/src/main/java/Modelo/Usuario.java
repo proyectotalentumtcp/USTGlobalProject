@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 
     }
 
-    public Usuario(){};
+    public Usuario() {};
 
     // Métodos Setters
     public void setNombre(String nombre) {

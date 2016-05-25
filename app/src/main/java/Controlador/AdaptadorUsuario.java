@@ -52,7 +52,6 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     }
 
 
-
     public AdaptadorUsuario(List<Usuario> usuarios){
 
         this.usuarios = usuarios;

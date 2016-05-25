@@ -139,7 +139,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    //Paso 1. Verificar permiso
+    //Paso 1. Verificar permisos
     private boolean verifyCallPermission() {
 
         // CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
