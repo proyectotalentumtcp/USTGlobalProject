@@ -53,51 +53,51 @@
         android:layout_marginLeft="20dp"
         >
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/usuario3"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Nombre"
-        android:textStyle="bold"
-        android:id="@+id/nombreDetalle"
-        android:textColor="#666"
-        android:layout_toRightOf="@+id/imagen"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/usuario3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Nombre"
+            android:textStyle="bold"
+            android:id="@+id/nombreDetalle"
+            android:textColor="#666"
+            android:layout_toRightOf="@+id/imagen"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
 
-        />
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Apellido1"
-        android:textStyle="bold"
-        android:textColor="#666"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/apellido1Detalle"
-        android:layout_toRightOf="@+id/imagen"
-        android:layout_alignParentTop="true"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Apellido1"
+            android:textStyle="bold"
+            android:textColor="#666"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/apellido1Detalle"
+            android:layout_toRightOf="@+id/imagen"
+            android:layout_alignParentTop="true"
+            />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Apellido2"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/apellido2Detalle"
-        android:layout_alignParentTop="true"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Apellido2"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/apellido2Detalle"
+            android:layout_alignParentTop="true"
+            />
 
-        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -107,8 +107,8 @@
         android:layout_marginTop="40dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:id="@+id/telefonoDetalle"
-        android:tag="@string/telefono"
+        android:id="@+id/telefonoMovilDetalle"
+        android:tag="@string/telefonoMovil"
         android:clickable="true"
         android:longClickable="true"
         android:onClick="onClick"
@@ -122,8 +122,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:id="@+id/telefonoDetalle"
-        android:tag="@string/telefono"
+        android:id="@+id/telefonoDirectoDetalle"
+        android:tag="@string/telefonoDirecto"
         android:clickable="true"
         android:longClickable="true"
         android:onClick="onClick"
@@ -157,6 +157,5 @@
         android:layout_marginTop="220dp"
         android:clickable="true"
         />
-
 
 </LinearLayout>
