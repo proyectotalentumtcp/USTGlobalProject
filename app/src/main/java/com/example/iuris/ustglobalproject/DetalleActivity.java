@@ -130,9 +130,9 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
     //Paso 1. Verificar permiso
     private boolean verifyCallPermission() {
 
-        //CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
+        // CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
         // ADD_VOICEMAIL, USE_SIP y PROCESS_OUTGOING_CALLS porque pertenecen al mismo
-        //grupo de permisos
+        // grupo de permisos
 
         int callPermission = checkSelfPermission(Manifest.permission.CALL_PHONE); //no es problema pues solo se llama a partir de la API 23
 
