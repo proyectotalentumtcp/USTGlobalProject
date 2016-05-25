@@ -62,7 +62,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         identificador = v.getId();
         TextView tv = (TextView) this.findViewById(identificador);
 
-        if (v.getTag().toString().equals("Llamar")){
+        if (v.getTag().toString().equals("Llamar")) {
             Log.i("ShortClick","call");
             Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
             call(tv);
