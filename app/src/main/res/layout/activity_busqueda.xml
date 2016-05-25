@@ -34,7 +34,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/Usuario3"
+            android:src="@drawable/usuario3"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="5dp"
             />
@@ -75,10 +75,7 @@
             />
 
         </LinearLayout>
-
-
-
-    </LinearLayout>
+    
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/listaUsuarios"
