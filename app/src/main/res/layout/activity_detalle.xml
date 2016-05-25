@@ -10,8 +10,6 @@
     android:orientation="vertical"
     tools:context="com.example.iuris.ustglobalproject.DetalleActivity">
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,7 +59,6 @@
         android:onClick="onClick"
         />
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +73,12 @@
         android:onClick="onClick"
         />
 
-
+    <Button android:id="@+id/agenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="@string/guardar"
+        android:text="Agregar a la agenda"
+        android:onClick="onClick" />
 
 
 </LinearLayout>

@@ -2,4 +2,5 @@
     <string name="app_name">USTGlobalProject</string>
     <string name="telefono">Llamar</string>
     <string name="correo">EnviarCorreo</string>
+    <string name="guardar">GuardarContacto</string>
 </resources>
