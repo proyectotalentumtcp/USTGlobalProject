@@ -11,23 +11,25 @@ public class Usuario implements Serializable {
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private String telefono;
+    private String telefonoDirecto;
+    private String telefonoMovil;
     private String correo;
     private int imagen;
 
     // Constructor con parametros
-    public Usuario(String nombre, String apellido1, String apellido2, String telefono, String correo, int imagen){
+    public Usuario(String nombre, String apellido1, String apellido2, String telefonoDirecto, String telefonoMovil, String correo, int imagen){
 
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
-        this.telefono = telefono;
+        this.telefonoDirecto = telefonoDirecto;
+        this.telefonoMovil = telefonoMovil;
         this.correo = correo;
         this.imagen = imagen;
 
     }
 
-    public Usuario(){};
+    public Usuario() {};
 
     // Métodos Setters
     public void setNombre(String nombre) {
@@ -42,8 +44,12 @@ public class Usuario implements Serializable {
         this.apellido2 = apellido2;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefonoDirecto(String telefono) {
+        this.telefonoDirecto = telefono;
+    }
+
+    public void setTelefonoMovil(String telefono) {
+        this.telefonoMovil = telefono;
     }
 
     public void setCorreo(String correo) {
@@ -67,8 +73,12 @@ public class Usuario implements Serializable {
         return apellido2;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTelefonoDirecto() {
+        return telefonoDirecto;
+    }
+
+    public String getTelefonoMovil() {
+        return telefonoMovil;
     }
 
     public String getCorreo() {

@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +26,12 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
     TextView nombreDetalle;
     TextView apellido1Detalle;
     TextView apellido2Detalle;
-    TextView telefonoDetalle;
+    TextView telefonoDirectoDetalle;
+    TextView telefonoMovilDetalle;
     TextView correoDetalle;
+    Button agenda;
     private static final int PHONE_CALL = 0;
-    Intent callIntent, emailIntent;
+    Intent callIntent, emailIntent, contactIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +41,23 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         nombreDetalle = (TextView)findViewById(R.id.nombreDetalle);
         apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
         apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
-        telefonoDetalle = (TextView)findViewById(R.id.telefonoDetalle);
+        telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
+        telefonoMovilDetalle = (TextView)findViewById(R.id.telefonoMovilDetalle);
         correoDetalle = (TextView)findViewById(R.id.correoDetalle);
+        agenda = (Button)findViewById(R.id.agenda);
 
         Usuario userDetalle = (Usuario)getIntent().getSerializableExtra("usuario");
 
         nombreDetalle.setText(userDetalle.getNombre());
         apellido1Detalle.setText(userDetalle.getApellido1());
         apellido2Detalle.setText(userDetalle.getApellido2());
-        telefonoDetalle.setText(userDetalle.getTelefono());
+        telefonoDirectoDetalle.setText(userDetalle.getTelefonoDirecto());
+        telefonoMovilDetalle.setText(userDetalle.getTelefonoMovil());
         correoDetalle.setText(userDetalle.getCorreo());
 
+        //TextView tv1 = (TextView) findViewById(R.id.telefonoDetalle);
 
-        TextView tv1 = (TextView) findViewById(R.id.telefonoDetalle);
-
-        tv1.setOnClickListener(this);
+        //tv1.setOnClickListener(this);
 //        tv1.setOnLongClickListener(this);
 
     }
@@ -91,8 +98,20 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         return true;
     }*/
 
-    private void memorizar(TextView tv){
+    private void memorizar(TextView tv){ //entramos aquí
         Log.i("Memorizar","ok");
+        CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
+        CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
+        CharSequence Correo = correoDetalle.getText();
+        Log.i("Telefono", String.valueOf(TelefonoDirecto));
+        Log.i("Telefono", String.valueOf(TelefonoMovil));
+        Log.i("Correo", String.valueOf(Correo));
+
+        // Creates a new Intent to insert a contact
+        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
+        EditText mDirectPhoneNumber = (EditText) TelefonoDirecto;
+        EditText mMovilPhoneNumber = (EditText) TelefonoMovil;
+        EditText mEmailAddress = (EditText) Correo;
 
     }
 
@@ -120,12 +139,12 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    //Paso 1. Verificar permiso
+    //Paso 1. Verificar permisos
     private boolean verifyCallPermission() {
 
-        //CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
+        // CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
         // ADD_VOICEMAIL, USE_SIP y PROCESS_OUTGOING_CALLS porque pertenecen al mismo
-        //grupo de permisos
+        // grupo de permisos
 
         int callPermission = checkSelfPermission(Manifest.permission.CALL_PHONE); //no es problema pues solo se llama a partir de la API 23
 

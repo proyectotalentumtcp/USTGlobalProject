@@ -64,7 +64,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/buscar"
             android:onClick="buscar"
             android:textStyle="bold"
@@ -75,6 +75,7 @@
             android:text="Buscar"
             android:textColor="#ffffff"
             android:background="#f61b40"
+            android:fontFamily="sans-serif-medium"
             />
         </LinearLayout>
     <android.support.v7.widget.RecyclerView
