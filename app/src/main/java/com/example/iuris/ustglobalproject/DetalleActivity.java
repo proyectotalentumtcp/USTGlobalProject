@@ -108,11 +108,17 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         Log.i("Correo", String.valueOf(Correo));
 
         // Creates a new Intent to insert a contact
-        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
-        EditText mDirectPhoneNumber = (EditText) TelefonoDirecto;
+        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION); //hasta aquí funciona bien
+
+        /*EditText mDirectPhoneNumber = (EditText) TelefonoDirecto;
         EditText mMovilPhoneNumber = (EditText) TelefonoMovil;
         EditText mEmailAddress = (EditText) Correo;
 
+        intent.putExtra(ContactsContract.Intents.Insert.EMAIL, mEmailAddress.getText());
+        intent.putExtra(ContactsContract.Intents.Insert.PHONE, mMovilPhoneNumber.getText());
+        intent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, mDirectPhoneNumber.getText());
+
+        startActivity(intent);*/
     }
 
     private void mail(TextView tv){
