@@ -26,7 +26,8 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
     TextView nombreDetalle;
     TextView apellido1Detalle;
     TextView apellido2Detalle;
-    TextView telefonoDetalle;
+    TextView telefonoDirectoDetalle;
+    TextView telefonoMovilDetalle;
     TextView correoDetalle;
     Button agenda;
     private static final int PHONE_CALL = 0;
@@ -40,7 +41,8 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         nombreDetalle = (TextView)findViewById(R.id.nombreDetalle);
         apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
         apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
-        telefonoDetalle = (TextView)findViewById(R.id.telefonoDetalle);
+        telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
+        telefonoMovilDetalle = (TextView)findViewById(R.id.telefonoMovilDetalle);
         correoDetalle = (TextView)findViewById(R.id.correoDetalle);
         agenda = (Button)findViewById(R.id.agenda);
 
@@ -49,7 +51,8 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         nombreDetalle.setText(userDetalle.getNombre());
         apellido1Detalle.setText(userDetalle.getApellido1());
         apellido2Detalle.setText(userDetalle.getApellido2());
-        telefonoDetalle.setText(userDetalle.getTelefono());
+        telefonoDirectoDetalle.setText(userDetalle.getTelefonoDirecto());
+        telefonoMovilDetalle.setText(userDetalle.getTelefonoMovil());
         correoDetalle.setText(userDetalle.getCorreo());
 
         //TextView tv1 = (TextView) findViewById(R.id.telefonoDetalle);
@@ -97,10 +100,19 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
 
     private void memorizar(TextView tv){ //entramos aquí
         Log.i("Memorizar","ok");
-        CharSequence Telefono = telefonoDetalle.getText();
+        CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
+        CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
         CharSequence Correo = correoDetalle.getText();
-        Log.i("Telefono", String.valueOf(Telefono));
+        Log.i("Telefono", String.valueOf(TelefonoDirecto));
+        Log.i("Telefono", String.valueOf(TelefonoMovil));
         Log.i("Correo", String.valueOf(Correo));
+
+        // Creates a new Intent to insert a contact
+        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
+        EditText mDirectPhoneNumber = (EditText) TelefonoDirecto;
+        EditText mMovilPhoneNumber = (EditText) TelefonoMovil;
+        EditText mEmailAddress = (EditText) Correo;
+
     }
 
     private void mail(TextView tv){
