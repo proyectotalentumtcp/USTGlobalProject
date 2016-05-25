@@ -53,69 +53,68 @@
         android:layout_marginLeft="20dp"
         >
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/usuario3"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Nombre"
-            android:textStyle="bold"
-            android:id="@+id/nombreDetalle"
-            android:textColor="#666"
-            android:layout_toRightOf="@+id/imagen"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Apellido1"
-            android:textStyle="bold"
-            android:textColor="#666"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/apellido1Detalle"
-            android:layout_toRightOf="@+id/imagen"
-            android:layout_alignParentTop="true"
-            />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Apellido2"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/apellido2Detalle"
-            android:layout_alignParentTop="true"
-            />
-
-    </LinearLayout>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/usuario3"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Nombre"
+        android:textStyle="bold"
+        android:id="@+id/nombreDetalle"
+        android:textColor="#666"
+        android:layout_toRightOf="@+id/imagen"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Apellido1"
+        android:textStyle="bold"
+        android:textColor="#666"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/apellido1Detalle"
+        android:layout_toRightOf="@+id/imagen"
+        android:layout_alignParentTop="true"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Apellido2"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/apellido2Detalle"
+        android:layout_alignParentTop="true"
+        />
+
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="Telefono Movil:"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:id="@+id/telefonoMovilDetalle"
-        android:tag="@string/telefonoMovil"
+        android:tag="@string/telefono"
         android:clickable="true"
         android:longClickable="true"
         android:onClick="onClick"
         />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="Telefono Directo:"
@@ -123,25 +122,133 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:id="@+id/telefonoDirectoDetalle"
-        android:tag="@string/telefonoDirecto"
+        android:tag="@string/telefono"
         android:clickable="true"
         android:longClickable="true"
         android:onClick="onClick"
         />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="CorreoDetalle"
+        android:text="Correo:"
         android:id="@+id/correoDetalle"
         android:tag="@string/correo"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:longClickable="true"
         android:onClick="onClick"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Correo Alternativo:"
+        android:id="@+id/correoAlternativoDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Dirección:"
+        android:id="@+id/direccionDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Extensión:"
+        android:id="@+id/extensionDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Centralita:"
+        android:id="@+id/centralitaDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Localización:"
+        android:id="@+id/localizacionDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Area:"
+        android:id="@+id/areaDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Empresa:"
+        android:id="@+id/empresaDetalle"
+        android:tag="@string/correo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:longClickable="true"
+        android:onClick="onClick"
+        />
+
+
 
     <Button android:id="@+id/agenda"
         android:layout_width="150dp"
@@ -154,8 +261,9 @@
         android:fontFamily="sans-serif-medium"
         android:onClick="onClick"
         android:layout_gravity="center"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         />
+
 
 </LinearLayout>
