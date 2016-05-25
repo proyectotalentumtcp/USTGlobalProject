@@ -69,7 +69,6 @@
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:background="#f61b40"
-        android:onClick="login"
         android:textColor="#ffffff"
         android:fontFamily="sans-serif-medium"
         />

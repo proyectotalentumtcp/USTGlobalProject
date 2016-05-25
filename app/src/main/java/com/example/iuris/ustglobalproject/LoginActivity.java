@@ -12,7 +12,7 @@ import android.widget.Toast;
  * Created by andreagudo3 on 24/05/2016.
  */
 public class LoginActivity extends Activity {
-    Button blogin,bcancelar;
+    Button blogin;
     EditText ed1,ed2;
     int contador = 3;
 
@@ -26,7 +26,6 @@ public class LoginActivity extends Activity {
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
 
-        bcancelar=(Button)findViewById(R.id.button2);
         blogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,12 +49,6 @@ public class LoginActivity extends Activity {
             }
         });
 
-        bcancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
 }

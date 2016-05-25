@@ -30,8 +30,13 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
+<<<<<<< HEAD
             android:src="@drawable/Usuario3"
             android:layout_marginLeft="160dp"
+=======
+            android:src="@drawable/usuario3"
+            android:layout_marginLeft="140dp"
+>>>>>>> 5ff883be1226d879b29da3320bc62ffb6acc5be3
             android:layout_marginTop="5dp"
             />
         <TextView
