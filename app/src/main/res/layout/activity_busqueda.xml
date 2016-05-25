@@ -77,7 +77,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
-            android:text="Buscar"
+            android:text="Andreita"
             android:textColor="#ffffff"
             android:background="#f61b40"
             />
