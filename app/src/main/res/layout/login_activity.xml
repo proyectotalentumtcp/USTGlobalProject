@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/usuario"
         android:hint="Usuario"
         android:layout_marginTop="30dp"
         android:textColor="#666"
@@ -49,7 +49,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/contra"
         android:textColor="#666"
         android:layout_marginTop="20sp"
         android:textSize="18sp"
