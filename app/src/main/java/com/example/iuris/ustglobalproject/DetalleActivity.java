@@ -15,8 +15,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.Context;
+import android.content.OperationApplicationException;
+import android.os.RemoteException;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.CommonDataKinds.StructuredName;
+import android.provider.ContactsContract.Data;
+import android.provider.ContactsContract.RawContacts;
 //import com.example.iuris.ustglobalproject.R;
+
+import java.util.ArrayList;
 
 import Modelo.Usuario;
 
@@ -71,15 +82,15 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
 
         if (v.getTag().toString().equals("Llamar")) {
             Log.i("ShortClick","call");
-            Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
             call(tv);
         } else if (v.getTag().toString().equals("EnviarCorreo")) {
             Log.i("ShortClick","mail");
-            Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
             mail(tv);
         } else if (v.getTag().toString().equals("GuardarContacto")) {
             Log.i("ShortClick","save");
-            Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
             memorizar(tv);
         }
     }
@@ -98,27 +109,25 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         return true;
     }*/
 
-    private void memorizar(TextView tv){ //entramos aquí
-        Log.i("Memorizar","ok");
+    private void memorizar(TextView tv){
+        CharSequence Nombre = nombreDetalle.getText();
+        CharSequence Apellido1 = apellido1Detalle.getText();
+        CharSequence Apellido2 = apellido2Detalle.getText();
         CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
         CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
         CharSequence Correo = correoDetalle.getText();
-        Log.i("Telefono", String.valueOf(TelefonoDirecto));
-        Log.i("Telefono", String.valueOf(TelefonoMovil));
-        Log.i("Correo", String.valueOf(Correo));
 
-        // Creates a new Intent to insert a contact
-        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION); //hasta aquí funciona bien
+        contactIntent = new Intent(Intent.ACTION_INSERT);
+        contactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
+        contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellido1) + " " + String.valueOf(Apellido2));
+        //contactIntent.putExtra(ContactsContract.Intents.Insert.XXXX, "John");
+        //contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, "John");
+        contactIntent.putExtra(ContactsContract.Intents.Insert.PHONE, String.valueOf(TelefonoMovil));
+        contactIntent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, String.valueOf(TelefonoDirecto));
+        contactIntent.putExtra(ContactsContract.Intents.Insert.EMAIL, String.valueOf(Correo));
 
-        /*EditText mDirectPhoneNumber = (EditText) TelefonoDirecto;
-        EditText mMovilPhoneNumber = (EditText) TelefonoMovil;
-        EditText mEmailAddress = (EditText) Correo;
+        startActivity(contactIntent);
 
-        intent.putExtra(ContactsContract.Intents.Insert.EMAIL, mEmailAddress.getText());
-        intent.putExtra(ContactsContract.Intents.Insert.PHONE, mMovilPhoneNumber.getText());
-        intent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, mDirectPhoneNumber.getText());
-
-        startActivity(intent);*/
     }
 
     private void mail(TextView tv){
@@ -193,4 +202,5 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         }
         //}
     }
+
 }
