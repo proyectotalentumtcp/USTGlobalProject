@@ -30,7 +30,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="80dp"
             android:src="@drawable/usuario3"
             android:layout_marginTop="5dp"
             />
