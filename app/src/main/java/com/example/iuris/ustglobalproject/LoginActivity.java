@@ -23,8 +23,8 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login_activity);
 
         blogin=(Button)findViewById(R.id.button);
-        ed1=(EditText)findViewById(R.id.editText);
-        ed2=(EditText)findViewById(R.id.editText2);
+        ed1=(EditText)findViewById(R.id.usuario);
+        ed2=(EditText)findViewById(R.id.contra);
 
         blogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +48,6 @@ public class LoginActivity extends Activity {
                 }
             }
         });
-
     }
 
 }
