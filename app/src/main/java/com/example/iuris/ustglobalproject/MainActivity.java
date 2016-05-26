@@ -34,7 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Edited by Miguel Rodríguez on 23/05/2016
  */
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     public  static final String URL = "ec2-52-19-159-183.eu-west-1.compute.amazonnaws.com:8088/restservices/rest/services/";
     Retrofit retrofit = new Retrofit.Builder()
