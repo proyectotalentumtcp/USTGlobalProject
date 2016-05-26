@@ -85,6 +85,8 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
                 Context contexto = v.getContext();
                 Intent intent = new Intent(contexto, DetalleActivity.class);
+                // La llamada al servicio Rest se hará en la siguiente actividad.
+
                 Usuario user = new Usuario();
 
                 user.setNombre(usuarios.get(position).getNombre());
