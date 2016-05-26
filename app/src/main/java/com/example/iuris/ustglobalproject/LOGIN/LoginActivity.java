@@ -26,12 +26,12 @@ public class LoginActivity extends Activity {
     EditText ed1, ed2;
     int contador = 3;
 
-    public static final String BASE_URL = "http://api.myservice.com/";
+   /* public static final String BASE_URL = "http://api.myservice.com/";
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
