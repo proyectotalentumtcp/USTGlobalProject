@@ -48,384 +48,395 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView" />
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        >
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/usuario3"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Nombre"
-        android:textStyle="bold"
-        android:id="@+id/nombreDetalle"
-        android:textColor="#666"
-        android:layout_toRightOf="@+id/imagen"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Apellido1"
-        android:textStyle="bold"
-        android:textColor="#666"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/apellido1Detalle"
-        android:layout_toRightOf="@+id/imagen"
-        android:layout_alignParentTop="true"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Apellido2"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/apellido2Detalle"
-        android:layout_alignParentTop="true"
-        />
-    </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            >
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Teléfono Móvil:"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="698848484"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:id="@+id/telefonoMovilDetalle"
-        android:tag="@string/telefonoMovil"
-        android:clickable="true"
-        android:longClickable="true"
-        android:onClick="onClick"
-        />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Teléfono Directo:"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="698848484"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:id="@+id/telefonoDirectoDetalle"
-        android:tag="@string/telefonoDirecto"
-        android:clickable="true"
-        android:longClickable="true"
-        android:onClick="onClick"
-        />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Correo:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-
-        />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/usuario3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Nombre"
+            android:textStyle="bold"
+            android:id="@+id/nombreDetalle"
+            android:textColor="#666"
+            android:layout_toRightOf="@+id/imagen"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="isabelyeves@"
             android:textSize="18sp"
+            android:text="Apellido1"
+            android:textStyle="bold"
+            android:textColor="#666"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/apellido1Detalle"
+            android:layout_toRightOf="@+id/imagen"
+            android:layout_alignParentTop="true"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Apellido2"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/apellido2Detalle"
+            android:layout_alignParentTop="true"
+            />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Teléfono Móvil:"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="698848484"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/telefonoMovilDetalle"
+            android:tag="@string/telefonoMovil"
             android:clickable="true"
             android:longClickable="true"
             android:onClick="onClick"
-            android:id="@+id/correoDetalle"
-            android:tag="@string/correo"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Teléfono Directo:"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Correo Alternativo:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="vacio"
-        android:textSize="18sp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:longClickable="true"
-        android:onClick="onClick"
-        android:id="@+id/correoAlternativoDetalle"
-        android:tag="@string/correo"
-        />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Dirección:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="isla de arosa"
+            android:text="698848484"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/telefonoDirectoDetalle"
+            android:tag="@string/telefonoDirecto"
+            android:clickable="true"
+            android:longClickable="true"
+            android:onClick="onClick"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Correo:"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="isabelyeves@"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/correoDetalle"
+                android:tag="@string/correo"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Correo Alternativo:"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vacio"
             android:textSize="18sp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:clickable="true"
             android:longClickable="true"
             android:onClick="onClick"
-            android:id="@+id/direccionDetalle"
+            android:id="@+id/correoAlternativoDetalle"
             android:tag="@string/correo"
             />
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Extensión:"
-
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="3"
+            android:text="Dirección:"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:longClickable="true"
-            android:onClick="onClick"
-            android:id="@+id/extensionDetalle"
-            android:tag="@string/correo"
             />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="isla de arosa"
+                android:textSize="18sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/direccionDetalle"
+                android:tag="@string/correo"
+                />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Centralita:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        />
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="000"
-            android:textSize="18sp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:longClickable="true"
-            android:onClick="onClick"
-            android:id="@+id/centralitaDetalle"
-            android:tag="@string/correo"
-            />
-    </LinearLayout>
+            android:orientation="horizontal"
+            >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Localización:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="3"
+            android:text="Extensión:"
+
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:longClickable="true"
-            android:onClick="onClick"
-            android:id="@+id/localizacionDetalle"
-            android:tag="@string/correo"
             />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="3"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/extensionDetalle"
+                android:tag="@string/correo"
+                />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Area:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-
-        />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="dfxh"
             android:textSize="18sp"
+            android:text="Centralita:"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000"
+                android:textSize="18sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/centralitaDetalle"
+                android:tag="@string/correo"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Localización:"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="3"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/localizacionDetalle"
+                android:tag="@string/correo"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Area:"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dfxh"
+                android:textSize="18sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/areaDetalle"
+                android:tag="@string/correo"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Empresa:"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="dfghj"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:clickable="true"
             android:longClickable="true"
             android:onClick="onClick"
-            android:id="@+id/areaDetalle"
+            android:id="@+id/empresaDetalle"
             android:tag="@string/correo"
             />
+        </LinearLayout>
+
+        <Button android:id="@+id/agenda"
+            android:layout_width="150dp"
+            android:background="#f61b40"
+            android:textStyle="bold"
+            android:layout_height="30dp"
+            android:tag="@string/guardar"
+            android:text="Agregar Contacto"
+            android:textColor="#ffffff"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="onClick"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            />
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Empresa:"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="dfghj"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:longClickable="true"
-        android:onClick="onClick"
-        android:id="@+id/empresaDetalle"
-        android:tag="@string/correo"
-        />
-    </LinearLayout>
-
-    <Button android:id="@+id/agenda"
-        android:layout_width="150dp"
-        android:background="#f61b40"
-        android:textStyle="bold"
-        android:layout_height="30dp"
-        android:tag="@string/guardar"
-        android:text="Agregar Contacto"
-        android:textColor="#ffffff"
-        android:fontFamily="sans-serif-medium"
-        android:onClick="onClick"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        />
+    </ScrollView>
 
 </LinearLayout>
