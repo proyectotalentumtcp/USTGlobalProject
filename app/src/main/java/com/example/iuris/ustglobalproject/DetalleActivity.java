@@ -12,8 +12,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
@@ -33,13 +37,19 @@ import Modelo.Usuario;
 
 public class DetalleActivity extends AppCompatActivity implements View.OnClickListener { //}, View.OnLongClickListener {
 
-
     TextView nombreDetalle;
     TextView apellido1Detalle;
     TextView apellido2Detalle;
-    TextView telefonoDirectoDetalle;
     TextView telefonoMovilDetalle;
+    TextView telefonoDirectoDetalle;
     TextView correoDetalle;
+    TextView correoAlternativoDetalle;
+    TextView direccionDetalle;
+    TextView extensionDetalle;
+    TextView centralitaDetalle;
+    TextView localizacionDetalle;
+    TextView areaDetalle;
+    TextView empresaDetalle;
     Button agenda;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
@@ -52,9 +62,16 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         nombreDetalle = (TextView)findViewById(R.id.nombreDetalle);
         apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
         apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
-        telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
         telefonoMovilDetalle = (TextView)findViewById(R.id.telefonoMovilDetalle);
+        telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
         correoDetalle = (TextView)findViewById(R.id.correoDetalle);
+        correoAlternativoDetalle = (TextView)findViewById(R.id.correoAlternativoDetalle);
+        direccionDetalle = (TextView)findViewById(R.id.direccionDetalle);
+        extensionDetalle = (TextView)findViewById(R.id.extensionDetalle);
+        centralitaDetalle = (TextView)findViewById(R.id.centralitaDetalle);
+        localizacionDetalle = (TextView)findViewById(R.id.localizacionDetalle);
+        areaDetalle = (TextView)findViewById(R.id.areaDetalle);
+        empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
 
         Usuario userDetalle = (Usuario)getIntent().getSerializableExtra("usuario");
@@ -62,9 +79,16 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         nombreDetalle.setText(userDetalle.getNombre());
         apellido1Detalle.setText(userDetalle.getApellido1());
         apellido2Detalle.setText(userDetalle.getApellido2());
-        telefonoDirectoDetalle.setText(userDetalle.getTelefonoDirecto());
         telefonoMovilDetalle.setText(userDetalle.getTelefonoMovil());
+        telefonoDirectoDetalle.setText(userDetalle.getTelefonoDirecto());
         correoDetalle.setText(userDetalle.getCorreo());
+        correoAlternativoDetalle.setText(userDetalle.getCorreoAlternativo());
+        direccionDetalle.setText(userDetalle.getDireccion());
+        extensionDetalle.setText(userDetalle.getExtension());
+        centralitaDetalle.setText(userDetalle.getCentralita());
+        localizacionDetalle.setText(userDetalle.getLocalizacion());
+        areaDetalle.setText(userDetalle.getArea());
+        empresaDetalle.setText(userDetalle.getEmpresa());
 
         //TextView tv1 = (TextView) findViewById(R.id.telefonoDetalle);
 
@@ -113,9 +137,11 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         CharSequence Nombre = nombreDetalle.getText();
         CharSequence Apellido1 = apellido1Detalle.getText();
         CharSequence Apellido2 = apellido2Detalle.getText();
-        CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
         CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
+        CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
         CharSequence Correo = correoDetalle.getText();
+        CharSequence CorreoAlternativo = correoAlternativoDetalle.getText();
+        CharSequence Direccion = direccionDetalle.getText();
 
         contactIntent = new Intent(Intent.ACTION_INSERT);
         contactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
@@ -123,6 +149,8 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         contactIntent.putExtra(ContactsContract.Intents.Insert.PHONE, String.valueOf(TelefonoMovil));
         contactIntent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, String.valueOf(TelefonoDirecto));
         contactIntent.putExtra(ContactsContract.Intents.Insert.EMAIL, String.valueOf(Correo));
+        contactIntent.putExtra(ContactsContract.Intents.Insert.SECONDARY_EMAIL, String.valueOf(CorreoAlternativo));
+        contactIntent.putExtra(ContactsContract.Intents.Insert.POSTAL, String.valueOf(Direccion));
 
         startActivity(contactIntent);
 

@@ -97,9 +97,6 @@
         />
     </LinearLayout>
 
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Telefono Movil:"
+        android:text="Teléfono Móvil:"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -140,7 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Telefono Directo:"
+        android:text="Teléfono Directo:"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -198,7 +195,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -261,8 +257,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
-
 
     <TextView
         android:layout_width="wrap_content"
