@@ -18,7 +18,7 @@ import Controlador.AdaptadorUsuario;
 import Modelo.Usuario;
 
 
-public class BusquedaActivity extends AppCompatActivity {
+public class BusquedaActivity extends Activity {
 
     private RecyclerView listaUsuarios;
     private RecyclerView.Adapter adaptador;

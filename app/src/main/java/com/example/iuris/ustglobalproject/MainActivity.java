@@ -34,14 +34,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Edited by Miguel Rodríguez on 23/05/2016
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     public  static final String URL = "ec2-52-19-159-183.eu-west-1.compute.amazonnaws.com:8088/restservices/rest/services/";
-    Retrofit retrofit = new Retrofit.Builder()
+    /*Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
+*/
     private Button buscar;
     private EditText textoBusqueda;
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void buscar(View v){
 
         //LLamada del servicio REST
-       final Context context = v.getContext();
+     /*  final Context context = v.getContext();
 
         final BusquedaInterface busquedaInterface = retrofit.create(BusquedaInterface.class);
 
@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(retrofit2.Call<BusquedaJSON> call, Response<BusquedaJSON> response) {
 
                 BusquedaJSON busquedaJSON = response.body();
+*/
+              /*  Intent intent = new Intent(this, BusquedaActivity.class);
+               // intent.putExtra("empleados",busquedaJSON);
 
-                Intent intent = new Intent(context, BusquedaActivity.class);
-                intent.putExtra("empleados",busquedaJSON);
-
-                context.startActivity(intent);
+                startActivity(intent);
 
 
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(retrofit2.Call<BusquedaJSON> call, Throwable t) {
 
             }
-        });
+        });*/
 
 
 

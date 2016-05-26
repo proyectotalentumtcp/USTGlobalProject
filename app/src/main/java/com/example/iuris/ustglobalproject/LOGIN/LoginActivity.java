@@ -1,4 +1,4 @@
-package com.example.iuris.ustglobalproject;
+package com.example.iuris.ustglobalproject.LOGIN;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.iuris.ustglobalproject.MainActivity;
+import com.example.iuris.ustglobalproject.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,18 +43,19 @@ public class LoginActivity extends Activity {
 
 
 
-        /*LoginJSON user = new LoginJSON("Hola", "John Doe");
-        Call<LoginJSON> call = apiService.createuser(user);
-        call.enqueue(new Callback<LoginJSON>() {
+        /*User apiService =
+                retrofit.create(User.class);
+        Call<User> call = apiService.createUser(user);
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<LoginJSON> call, Response<LoginJSON> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 Toast.makeText(getApplicationContext(), "Cargando...", Toast.LENGTH_SHORT).show();
                 Intent ventanaSearch = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(ventanaSearch);
             }
 
             @Override
-            public void onFailure(Call<LoginJSON> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 contador--;
 
                 if (contador != 0) {
@@ -89,3 +93,5 @@ public class LoginActivity extends Activity {
         });
     }
 }
+
+

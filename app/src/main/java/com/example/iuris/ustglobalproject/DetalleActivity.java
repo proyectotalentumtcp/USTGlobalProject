@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 import Modelo.Usuario;
 
-public class DetalleActivity extends AppCompatActivity implements View.OnClickListener { //}, View.OnLongClickListener {
+public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
     TextView nombreDetalle;
     TextView apellido1Detalle;
