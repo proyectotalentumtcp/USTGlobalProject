@@ -32,9 +32,6 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         public TextView nombre;
         public TextView apellido1;
         public TextView apellido2;
-        public TextView telefonoDirecto;
-        public TextView telefonoMovil;
-        public TextView correo;
         public ImageView imagen;
 
         public final View vista;
@@ -96,6 +93,13 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 user.setTelefonoDirecto(usuarios.get(position).getTelefonoDirecto());
                 user.setTelefonoMovil(usuarios.get(position).getTelefonoMovil());
                 user.setCorreo(usuarios.get(position).getCorreo());
+                user.setCorreoAlternativo(usuarios.get(position).getCorreoAlternativo());
+                user.setDireccion(usuarios.get(position).getDireccion());
+                user.setExtension(usuarios.get(position).getExtension());
+                user.setCentralita(usuarios.get(position).getCentralita());
+                user.setLocalizacion(usuarios.get(position).getLocalizacion());
+                user.setArea(usuarios.get(position).getArea());
+                user.setEmpresa(usuarios.get(position).getEmpresa());
 
                 intent.putExtra("usuario", user);
 
