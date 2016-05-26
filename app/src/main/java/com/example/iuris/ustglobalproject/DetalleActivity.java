@@ -166,6 +166,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         startActivity(emailIntent);
     }
 
+    //Función de llamada
     private void call(TextView tv) {
         callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + tv.getText()));
