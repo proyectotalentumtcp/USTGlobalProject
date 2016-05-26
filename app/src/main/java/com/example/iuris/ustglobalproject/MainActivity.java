@@ -22,6 +22,7 @@ import java.io.Serializable;
 
 import Modelo.BusquedaInterface;
 import Modelo.BusquedaJSON;
+import Modelo.ListaEmpleados;
 import Modelo.PeticionBusquedaJSON;
 import Modelo.Session;
 import retrofit2.Callback;
@@ -64,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
         final BusquedaInterface busquedaInterface = retrofit.create(BusquedaInterface.class);
 
         PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON(textoBusqueda.getText().toString(), "id_session");
-        retrofit2.Call<PeticionBusquedaJSON> call = busquedaInterface.postBusqueda(peticionBusquedaJSON, new Callback<BusquedaJSON>() {
+        retrofit2.Call<PeticionBusquedaJSON> call = busquedaInterface.postBusqueda(peticionBusquedaJSON, new Callback<ListaEmpleados>() {
             @Override
-            public void onResponse(retrofit2.Call<BusquedaJSON> call, Response<BusquedaJSON> response) {
+            public void onResponse(retrofit2.Call<BusquedaJSON> call, Response<ListaEmpleados> response) {
 
-                BusquedaJSON busquedaJSON = response.body();
+                ListaEmpleados listaEmpleados = response.body();
 
                 Intent intent = new Intent(context, BusquedaActivity.class);
-                intent.putExtra("empleados",busquedaJSON);
+                intent.putExtra("empleados",listaEmpleados);
 
                 context.startActivity(intent);
 
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(retrofit2.Call<BusquedaJSON> call, Throwable t) {
+            public void onFailure(retrofit2.Call<ListaEmpleados> call, Throwable t) {
 
             }
         });

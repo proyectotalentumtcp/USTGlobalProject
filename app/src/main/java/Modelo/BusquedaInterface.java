@@ -12,5 +12,5 @@ import retrofit2.http.POST;
 public interface BusquedaInterface {
 
     @POST("get_ust_workers")
-    Call<PeticionBusquedaJSON> postBusqueda(@Body PeticionBusquedaJSON peticionBusquedaJSON, Callback<BusquedaJSON> empleado);
+    Call<PeticionBusquedaJSON> postBusqueda(@Body PeticionBusquedaJSON peticionBusquedaJSON, Callback<ListaEmpleados> empleados);
 }
