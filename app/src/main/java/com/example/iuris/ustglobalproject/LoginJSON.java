@@ -10,36 +10,14 @@ public class LoginJSON {
 
         @SerializedName("login")
         @Expose
-        private String login;
+         String login;
         @SerializedName("password")
         @Expose
-        private String password;
+         String password;
 
-        /**
-         * @return The login
-         */
-        public String getLogin() {
-            return login;
-        }
 
-        /**
-         * @param login The login
-         */
-        public void setLogin(String login) {
-            this.login = login;
-        }
-
-        /**
-         * @return The password
-         */
-        public String getPassword() {
-            return password;
-        }
-
-        /**
-         * @param password The password
-         */
-        public void setPassword(String password) {
-            this.password = password;
-        }
+    public LoginJSON(String usuario, String contra ) {
+        this.login = usuario;
+        this.password = contra;
+    }
 }
