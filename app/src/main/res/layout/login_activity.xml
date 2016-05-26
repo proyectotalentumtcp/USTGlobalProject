@@ -12,13 +12,6 @@
     android:orientation="vertical"
     >
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logoust"
-        />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +24,14 @@
             android:orientation="vertical">
 
 
-        <TextView
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logoust"
+                />
+
+            <TextView
             android:text="Iniciar sesión"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             />
 
 
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
