@@ -20,7 +20,7 @@ import android.util.Log;
  * Edited by Miguel Rodríguez on 23/05/2016
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private Button buscar;
     private EditText textoBusqueda;
