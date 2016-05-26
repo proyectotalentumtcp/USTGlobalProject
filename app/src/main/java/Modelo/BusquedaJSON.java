@@ -6,7 +6,9 @@ package Modelo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BusquedaJSON {
+import java.io.Serializable;
+
+public class BusquedaJSON implements Serializable{
 
     @SerializedName("id")
     @Expose
