@@ -14,10 +14,17 @@ public class Usuario implements Serializable {
     private String telefonoDirecto;
     private String telefonoMovil;
     private String correo;
+    private String correoAlternativo;
+    private String direccion;
+    private String extension;
+    private String centralita;
+    private String localizacion;
+    private String area;
+    private String empresa;
     private int imagen;
 
     // Constructor con parametros
-    public Usuario(String nombre, String apellido1, String apellido2, String telefonoDirecto, String telefonoMovil, String correo, int imagen){
+    public Usuario(String nombre, String apellido1, String apellido2, String telefonoDirecto, String telefonoMovil, String correo, String correoAlternativo, String direccion, String extension, String centralita, String localizacion, String area, String empresa, int imagen){
 
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -25,6 +32,13 @@ public class Usuario implements Serializable {
         this.telefonoDirecto = telefonoDirecto;
         this.telefonoMovil = telefonoMovil;
         this.correo = correo;
+        this.correoAlternativo = correoAlternativo;
+        this.direccion = direccion;
+        this.extension = extension;
+        this.centralita = centralita;
+        this.localizacion = localizacion;
+        this.area = area;
+        this.empresa = empresa;
         this.imagen = imagen;
 
     }
@@ -56,6 +70,34 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
 
+    public void setCorreoAlternativo(String correo) {
+        this.correoAlternativo = correo;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setExtension(String Extension) {
+        this.extension = Extension;
+    }
+
+    public void setCentralita(String Centralita) {
+        this.centralita = Centralita;
+    }
+
+    public void setLocalizacion(String Localizacion) {
+        this.localizacion = Localizacion;
+    }
+
+    public void setArea(String Area) {
+        this.area = Area;
+    }
+
+    public void setEmpresa(String Empresa) {
+        this.empresa = Empresa;
+    }
+
     public void setImagen(int imagen) {
         this.imagen = imagen;
     }
@@ -83,6 +125,34 @@ public class Usuario implements Serializable {
 
     public String getCorreo() {
         return correo;
+    }
+
+    public String getCorreoAlternativo() {
+        return correoAlternativo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public String getCentralita() {
+        return centralita;
+    }
+
+    public String getLocalizacion() {
+        return localizacion;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public String getEmpresa() {
+        return empresa;
     }
 
     public int getImagen() {
