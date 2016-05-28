@@ -38,8 +38,9 @@ import Modelo.Usuario;
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
     TextView nombreDetalle;
-    TextView apellido1Detalle;
-    TextView apellido2Detalle;
+//    TextView apellido1Detalle;
+//    TextView apellido2Detalle;
+    TextView apellidosDetalle;
     TextView telefonoMovilDetalle;
     TextView telefonoDirectoDetalle;
     TextView correoDetalle;
@@ -60,8 +61,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         setContentView(R.layout.activity_detalle);
 
         nombreDetalle = (TextView)findViewById(R.id.nombreDetalle);
-        apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
-        apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
+//        apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
+//        apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
+        apellidosDetalle = (TextView)findViewById(R.id.apellidosDetalle);
         telefonoMovilDetalle = (TextView)findViewById(R.id.telefonoMovilDetalle);
         telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
         correoDetalle = (TextView)findViewById(R.id.correoDetalle);
@@ -77,8 +79,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         Usuario userDetalle = (Usuario)getIntent().getSerializableExtra("usuario");
 
         nombreDetalle.setText(userDetalle.getNombre());
-        apellido1Detalle.setText(userDetalle.getApellido1());
-        apellido2Detalle.setText(userDetalle.getApellido2());
+//        apellido1Detalle.setText(userDetalle.getApellido1());
+//        apellido2Detalle.setText(userDetalle.getApellido2());
+        apellidosDetalle.setText(userDetalle.getApellidos());
         telefonoMovilDetalle.setText(userDetalle.getTelefonoMovil());
         telefonoDirectoDetalle.setText(userDetalle.getTelefonoDirecto());
         correoDetalle.setText(userDetalle.getCorreo());
@@ -135,8 +138,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
     private void memorizar(TextView tv){
         CharSequence Nombre = nombreDetalle.getText();
-        CharSequence Apellido1 = apellido1Detalle.getText();
-        CharSequence Apellido2 = apellido2Detalle.getText();
+//        CharSequence Apellido1 = apellido1Detalle.getText();
+//        CharSequence Apellido2 = apellido2Detalle.getText();
+        CharSequence Apellidos = apellidosDetalle.getText();
         CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
         CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
         CharSequence Correo = correoDetalle.getText();
@@ -145,7 +149,8 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         contactIntent = new Intent(Intent.ACTION_INSERT);
         contactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
-        contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellido1) + " " + String.valueOf(Apellido2));
+//        contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellido1) + " " + String.valueOf(Apellido2));
+        contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellidos));
         contactIntent.putExtra(ContactsContract.Intents.Insert.PHONE, String.valueOf(TelefonoMovil));
         contactIntent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, String.valueOf(TelefonoDirecto));
         contactIntent.putExtra(ContactsContract.Intents.Insert.EMAIL, String.valueOf(Correo));

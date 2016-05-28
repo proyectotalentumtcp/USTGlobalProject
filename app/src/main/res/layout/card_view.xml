@@ -51,7 +51,7 @@
                         android:layout_marginRight="5dp"
                         />
 
-                    <TextView
+                    <!--TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="18sp"
@@ -60,11 +60,11 @@
                         android:layout_toRightOf="@+id/nombre"
                         android:layout_alignParentTop="true"
                         android:gravity="center"
-                        />
+                        /-->
 
                 </LinearLayout>
 
-                <LinearLayout
+                <!--LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
@@ -76,6 +76,23 @@
                         android:text="Apellido2"
                         android:id="@+id/apellido2"
                         android:layout_toRightOf="@+id/apellido1"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        />
+                </LinearLayout-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18sp"
+                        android:text="Apellidos"
+                        android:id="@+id/apellidos"
+                        android:layout_toRightOf="@+id/nombre"
                         android:layout_alignParentTop="true"
                         android:gravity="center"
                         />

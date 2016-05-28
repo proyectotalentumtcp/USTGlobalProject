@@ -30,8 +30,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
 
         public TextView nombre;
-        public TextView apellido1;
-        public TextView apellido2;
+//        public TextView apellido1;
+//        public TextView apellido2;
+        public TextView apellidos;
         public ImageView imagen;
 
         public final View vista;
@@ -40,8 +41,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             super(v);
             vista = v;
             nombre = (TextView)v.findViewById(R.id.nombre);
-            apellido1 = (TextView)v.findViewById(R.id.apellido1);
-            apellido2 = (TextView)v.findViewById(R.id.apellido2);
+//            apellido1 = (TextView)v.findViewById(R.id.apellido1);
+//            apellido2 = (TextView)v.findViewById(R.id.apellido2);
+            apellidos = (TextView)v.findViewById(R.id.apellidos);
             imagen = (ImageView)v.findViewById(R.id.imagen);
 
         }
@@ -71,8 +73,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
         viewHolder.imagen.setImageResource(usuarios.get(position).getImagen());
         viewHolder.nombre.setText(usuarios.get(position).getNombre());
-        viewHolder.apellido1.setText(usuarios.get(position).getApellido1());
-        viewHolder.apellido2.setText(usuarios.get(position).getApellido2());
+//        viewHolder.apellido1.setText(usuarios.get(position).getApellido1());
+//        viewHolder.apellido2.setText(usuarios.get(position).getApellido2());
+        viewHolder.apellidos.setText(usuarios.get(position).getApellidos());
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){
 
@@ -87,8 +90,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 Usuario user = new Usuario();
 
                 user.setNombre(usuarios.get(position).getNombre());
-                user.setApellido1(usuarios.get(position).getApellido1());
-                user.setApellido2(usuarios.get(position).getApellido2());
+//                user.setApellido1(usuarios.get(position).getApellido1());
+//                user.setApellido2(usuarios.get(position).getApellido2());
+                user.setApellidos(usuarios.get(position).getApellidos());
                 user.setImagen(usuarios.get(position).getImagen());
                 user.setTelefonoDirecto(usuarios.get(position).getTelefonoDirecto());
                 user.setTelefonoMovil(usuarios.get(position).getTelefonoMovil());
