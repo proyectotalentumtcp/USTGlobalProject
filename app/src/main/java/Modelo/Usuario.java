@@ -83,6 +83,7 @@ public class Usuario implements Serializable {
         this.area = area;
         this.empresa = empresa;
         this.imagen = imagen;
+        this.imageBase64 = imageBase64;
 
     }
 
@@ -153,6 +154,10 @@ public class Usuario implements Serializable {
         this.imagen = imagen;
     }
 
+//    public void setImagenBase64(int imagenBase64) {
+//        this.imagenBase64 = imagenBase64;
+//    }
+
     // Métodos Getter
     public Integer getId() {
         return id;
@@ -217,4 +222,8 @@ public class Usuario implements Serializable {
     public int getImagen() {
         return imagen;
     }
+
+//    public String getImagenBase64() {
+//        return imagenBase64;
+//    }
 }

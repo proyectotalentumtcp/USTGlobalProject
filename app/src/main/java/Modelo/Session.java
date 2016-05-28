@@ -19,17 +19,15 @@ public class Session {
 
     }
 
+    public String sessionId;
 
-    public String id_session;
-
-    public String getId_session() {
-        return id_session;
+    public String getSessionId() {
+        return sessionId;
     }
 
+    public void setSessionId(String sessionId){
 
-    public void setId_session(String id_session){
-
-        this.id_session = id_session;
+        this.sessionId = sessionId;
 
     }
 }
