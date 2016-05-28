@@ -17,14 +17,14 @@ public class Usuario implements Serializable {
     @SerializedName("nombre")
     @Expose
     private String nombre;
-    @SerializedName("apellidos")
-    @Expose
-//    private String apellido1;
 //    @SerializedName("apellido1")
 //    @Expose
-//    private String apellido2;
+//    private String apellido1;
 //    @SerializedName("apellido2")
 //    @Expose
+//    private String apellido2;
+    @SerializedName("apellidos")
+    @Expose
     private String apellidos;
     @SerializedName("correo")
     @Expose
@@ -38,21 +38,36 @@ public class Usuario implements Serializable {
     @SerializedName("telefono_movil")
     @Expose
     private String telefonoMovil;
-    @SerializedName("imageBase64")
+    @SerializedName("direccion")
     @Expose
     private String direccion;
+    @SerializedName("extension")
+    @Expose
     private String extension;
+    @SerializedName("centralita")
+    @Expose
     private String centralita;
+    @SerializedName("localizacion")
+    @Expose
     private String localizacion;
+    @SerializedName("area")
+    @Expose
     private String area;
+    @SerializedName("empresa")
+    @Expose
     private String empresa;
+    @SerializedName("imagen")
+    @Expose
     private int imagen;
+    @SerializedName("imageBase64")
+    @Expose
     private String imageBase64;
 
     // Constructor con parametros
     //public Usuario(String nombre, String apellido1, String apellido2, String telefonoDirecto, String telefonoMovil, String correo, String correoAlternativo, String direccion, String extension, String centralita, String localizacion, String area, String empresa, int imagen){
-    public Usuario(String nombre, String apellidos, String telefonoDirecto, String telefonoMovil, String correo, String correoAlternativo, String direccion, String extension, String centralita, String localizacion, String area, String empresa, int imagen){
+    public Usuario(Integer id, String nombre, String apellidos, String telefonoDirecto, String telefonoMovil, String correo, String correoAlternativo, String direccion, String extension, String centralita, String localizacion, String area, String empresa, int imagen){
 
+        this.id = id;
         this.nombre = nombre;
         //this.apellido1 = apellido1;
         //this.apellido2 = apellido2;
@@ -74,6 +89,10 @@ public class Usuario implements Serializable {
     public Usuario() {};
 
     // Métodos Setters
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -135,6 +154,10 @@ public class Usuario implements Serializable {
     }
 
     // Métodos Getter
+    public Integer getId() {
+        return id;
+    }
+
     public String getNombre() {
         return nombre;
     }

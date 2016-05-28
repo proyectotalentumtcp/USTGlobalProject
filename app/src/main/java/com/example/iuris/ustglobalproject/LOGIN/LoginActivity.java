@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by andreagudo3 on 24/05/2016.
  */
 public class LoginActivity extends Activity {
-    Button blogin;
+    Button bLogin;
     EditText ed1, ed2;
     int contador = 3;
 
@@ -37,7 +37,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-        blogin = (Button) findViewById(R.id.button);
+        bLogin = (Button) findViewById(R.id.button);
         ed1 = (EditText) findViewById(R.id.usuario);
         ed2 = (EditText) findViewById(R.id.contra);
 
@@ -64,13 +64,13 @@ public class LoginActivity extends Activity {
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Demasiados intentos, login deshabilitado", Toast.LENGTH_SHORT).show();
-                    blogin.setEnabled(false);
+                    bLogin.setEnabled(false);
                 }
             }
 
         });
     }*/
-        blogin.setOnClickListener(new View.OnClickListener() {
+        bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -86,7 +86,7 @@ public class LoginActivity extends Activity {
 
                     if (contador == 0) {
                         Toast.makeText(getApplicationContext(), "Demasiados intentos, login deshabilitado", Toast.LENGTH_SHORT).show();
-                        blogin.setEnabled(false);
+                        bLogin.setEnabled(false);
                     }
                 }
             }
