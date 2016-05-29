@@ -1,4 +1,7 @@
-package com.iuriX.ustglobalproject.login;
+package Modelo.Login;
+
+import com.iuriX.ustglobalproject.login.TokenRequest;
+import com.iuriX.ustglobalproject.login.TokenResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
