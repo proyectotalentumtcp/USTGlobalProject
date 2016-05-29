@@ -4,15 +4,15 @@ package com.iuriX.ustglobalproject.login;
  * Created by andreagudo3 on 29/05/2016.
  */
 public class TokenRequest {
-    private String username;
+    private String email;
     private String password;
 
     public String getEmail() {
-        return username;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.username = email;
+        this.email = email;
     }
 
     public String getPassword() {

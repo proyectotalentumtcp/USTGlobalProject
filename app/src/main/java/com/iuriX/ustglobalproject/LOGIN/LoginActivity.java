@@ -1,17 +1,16 @@
 package com.iuriX.ustglobalproject.login;
 
 import android.app.Activity;
-import android.nfc.Tag;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
-
 import com.iuriX.ustglobalproject.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,10 +22,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends Activity {
 
-    EditText username, mPass;
+    EditText mEmail, mPass;
     int contador = 3;
     private LogEasyApi service;
 
+    @BindView(R.id.bLogin)
     Button bLogin;
 
     @Override
@@ -36,11 +36,11 @@ public class LoginActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        username = (EditText) findViewById(R.id.usuario);
+        mEmail = (EditText) findViewById(R.id.usuario);
         mPass = (EditText) findViewById(R.id.contra);
 
         mPass.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) { attemptLogin(); } });﻿
+            @Override public void onClick(View view) { attemptLogin();}});
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -52,27 +52,34 @@ public class LoginActivity extends Activity {
 
     @OnClick(R.id.bLogin)
     public void attemptLogin() {
-        username.setError(null);
+        mEmail.setError(null);
         mPass.setError(null);
 
-        String user = username.getText().toString();
-        String password = username.getText().toString();
+        String email = mEmail.getText().toString();
+        String password = mPass.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPass.setError("Contraseña no válida");
+        if (password.equals("")) {
+            mPass.setError("Campo vacío");
             focusView = mPass;
             cancel = true;
         }
 
+        if (email.equals("")) {
+            mEmail.setError("Campo vacío");
+            focusView = mEmail;
+            cancel = true;
+        }
+
+
         if (cancel) {
             focusView.requestFocus();
         }else {
-            TokenRequest tokenRequest = new TokenRequest();
+            final TokenRequest tokenRequest = new TokenRequest();
 
-            tokenRequest.setEmail(username.getText().toString());
+            tokenRequest.setEmail(mEmail.getText().toString());
             tokenRequest.setPassword(mPass.getText().toString());
 
             Call<TokenResponse> tokenResponseCall = service.getTokenAccess(tokenRequest);
@@ -84,26 +91,21 @@ public class LoginActivity extends Activity {
                     TokenResponse tokenResponse = response.body();
 
                     Log.d("LoginActivity","onResponse: " + statusCode);
-                    Toast.makeText(getApplicationContext(), statusCode,Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext(), tokenResponse.getSession_id() ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), tokenResponse.getError_code() ,Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onFailure(Call<TokenResponse> call, Throwable t) {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
-                    Toast.makeText(getApplicationContext(), t.getMessage(),Toast.LENGTH_SHORT).show();
                 }
             });
 
         }
-
     }
-
-    private boolean isPasswordValid(String password) {
-        return password.length() > 4;
-    }
-
 }
-
     /*blogin.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
