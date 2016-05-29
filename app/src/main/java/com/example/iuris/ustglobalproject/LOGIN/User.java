@@ -1,26 +1,25 @@
-package com.example.iuris.ustglobalproject.LOGIN;
-
-import com.google.gson.annotations.SerializedName;
+package com.example.iuris.ustglobalproject.login;
 
 /**
  * Created by andreagudo3 on 26/05/2016.
  */
 public class User {
-    @SerializedName("login")
-    String login;
-    @SerializedName("password")
-    String password;
+        private String usuario;
+        private String contra;
 
-    public void setLogin(String login) {
-        this.login = login;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public User(String usuario, String contra ) {
-        this.login = usuario;
-        this.password = contra;
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
     }
 }
