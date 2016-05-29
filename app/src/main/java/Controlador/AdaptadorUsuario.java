@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.iuris.ustglobalproject.DetalleActivity;
-import com.example.iuris.ustglobalproject.R;
+import com.iuriX.ustglobalproject.DetalleActivity;
+import com.iuriX.ustglobalproject.R;
 
 import java.util.List;
 

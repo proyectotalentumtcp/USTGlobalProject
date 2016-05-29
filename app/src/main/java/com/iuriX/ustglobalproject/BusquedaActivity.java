@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.iuriX.ustglobalproject.R;
+//import com.iuriX.ustglobalproject.R;
 
 import java.util.ArrayList;
 import java.util.List;
