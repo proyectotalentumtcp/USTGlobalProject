@@ -1,34 +1,13 @@
-package com.example.iuris.ustglobalproject;
+package com.iuriX.ustglobalproject;
 
-import android.content.Context;
-import android.content.pm.PermissionInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.app.Activity;
-import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.util.Log;
 
-import java.io.Serializable;
-
-import Modelo.BusquedaInterface;
-import Modelo.BusquedaJSON;
-import Modelo.ListaEmpleados;
-import Modelo.PeticionBusquedaJSON;
-import Modelo.Session;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import com.iuriX.ustglobalproject.R;
 
 /**
  * Created by Ernesto Mediavilla on 23/05/2016.

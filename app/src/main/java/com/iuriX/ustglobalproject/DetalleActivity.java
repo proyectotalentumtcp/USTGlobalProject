@@ -1,4 +1,4 @@
-package com.example.iuris.ustglobalproject;
+package com.iuriX.ustglobalproject;
 
 import android.Manifest;
 import android.content.Intent;
@@ -7,31 +7,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import org.json.JSONException;
-import org.json.JSONObject;
 import android.app.Activity;
-import android.text.TextUtils;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.Context;
-import android.content.OperationApplicationException;
-import android.os.RemoteException;
-import android.provider.ContactsContract;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.provider.ContactsContract.CommonDataKinds.StructuredName;
-import android.provider.ContactsContract.Data;
-import android.provider.ContactsContract.RawContacts;
-//import com.example.iuris.ustglobalproject.R;
-
-import java.util.ArrayList;
+import com.iuriX.ustglobalproject.R;
+//import R;
 
 import Modelo.Usuario;
 

@@ -1,4 +1,4 @@
-package com.example.arranque1.ustglobalproject;
+package ustglobalproject.iuriX.ustglobalproject;
 
 import org.junit.Test;
 
