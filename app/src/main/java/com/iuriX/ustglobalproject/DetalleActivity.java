@@ -1,4 +1,4 @@
-package com.example.iuris.ustglobalproject;
+package com.iuriX.ustglobalproject;
 
 import android.Manifest;
 import android.content.Intent;
@@ -7,31 +7,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import org.json.JSONException;
-import org.json.JSONObject;
 import android.app.Activity;
-import android.text.TextUtils;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.Context;
-import android.content.OperationApplicationException;
-import android.os.RemoteException;
-import android.provider.ContactsContract;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.provider.ContactsContract.CommonDataKinds.StructuredName;
-import android.provider.ContactsContract.Data;
-import android.provider.ContactsContract.RawContacts;
-//import com.example.iuris.ustglobalproject.R;
-
-import java.util.ArrayList;
+//import R;
 
 import Modelo.Usuario;
 
@@ -58,23 +40,23 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle);
+        setContentView(com.iuriX.ustglobalproject.R.layout.activity_detalle);
 
-        nombreDetalle = (TextView)findViewById(R.id.nombreDetalle);
+        nombreDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.nombreDetalle);
 //        apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
 //        apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
-        apellidosDetalle = (TextView)findViewById(R.id.apellidosDetalle);
-        telefonoMovilDetalle = (TextView)findViewById(R.id.telefonoMovilDetalle);
-        telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
-        correoDetalle = (TextView)findViewById(R.id.correoDetalle);
-        correoAlternativoDetalle = (TextView)findViewById(R.id.correoAlternativoDetalle);
-        direccionDetalle = (TextView)findViewById(R.id.direccionDetalle);
-        extensionDetalle = (TextView)findViewById(R.id.extensionDetalle);
-        centralitaDetalle = (TextView)findViewById(R.id.centralitaDetalle);
-        localizacionDetalle = (TextView)findViewById(R.id.localizacionDetalle);
-        areaDetalle = (TextView)findViewById(R.id.areaDetalle);
-        empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
-        agenda = (Button)findViewById(R.id.agenda);
+        apellidosDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.apellidosDetalle);
+        telefonoMovilDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.telefonoMovilDetalle);
+        telefonoDirectoDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.telefonoDirectoDetalle);
+        correoDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.correoDetalle);
+        correoAlternativoDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.correoAlternativoDetalle);
+        direccionDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.direccionDetalle);
+        extensionDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.extensionDetalle);
+        centralitaDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.centralitaDetalle);
+        localizacionDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.localizacionDetalle);
+        areaDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.areaDetalle);
+        empresaDetalle = (TextView)findViewById(com.iuriX.ustglobalproject.R.id.empresaDetalle);
+        agenda = (Button)findViewById(com.iuriX.ustglobalproject.R.id.agenda);
 
         Usuario userDetalle = (Usuario)getIntent().getSerializableExtra("usuario");
 

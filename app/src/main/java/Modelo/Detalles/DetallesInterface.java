@@ -1,5 +1,6 @@
-package Modelo;
+package Modelo.Detalles;
 
+import Modelo.PeticionDetallesJSON;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.Body;

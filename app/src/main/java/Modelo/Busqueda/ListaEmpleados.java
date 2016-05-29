@@ -1,10 +1,12 @@
-package Modelo;
+package Modelo.Busqueda;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.List;
+
+import Modelo.Busqueda.BusquedaJSON;
 
 /**
  * Created by Miguel Rodríguez on 26/05/2016.

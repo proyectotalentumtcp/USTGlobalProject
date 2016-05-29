@@ -1,15 +1,11 @@
-package com.example.iuris.ustglobalproject;
+package com.iuriX.ustglobalproject;
 
 import android.app.Activity;
-import android.content.res.Resources;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
 
-import com.example.iuris.ustglobalproject.R;
+import com.iuriX.ustglobalproject.R;
 
 import java.util.ArrayList;
 import java.util.List;

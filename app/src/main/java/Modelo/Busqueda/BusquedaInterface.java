@@ -1,6 +1,6 @@
-package Modelo;
+package Modelo.Busqueda;
 
-import Modelo.PeticionBusquedaJSON;
+import Modelo.ListaEmpleados;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.Body;

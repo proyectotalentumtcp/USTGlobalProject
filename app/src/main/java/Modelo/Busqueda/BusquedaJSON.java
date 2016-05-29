@@ -1,14 +1,14 @@
-package Modelo;
+package Modelo.Busqueda;
 
+/**
+ * Created by Miguel Rodríguez on 26/05/2016.
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-/**
- * Created by lehmer on 28/05/16.
- */
-public class DetallesJSON implements Serializable {
+public class BusquedaJSON implements Serializable{
 
     @SerializedName("id")
     @Expose
@@ -25,30 +25,12 @@ public class DetallesJSON implements Serializable {
     @SerializedName("correo_alternativo")
     @Expose
     private String correoAlternativo;
-    @SerializedName("extension")
-    @Expose
-    private String extension;
     @SerializedName("telefono_directo")
     @Expose
     private String telefonoDirecto;
     @SerializedName("telefono_movil")
     @Expose
     private String telefonoMovil;
-    @SerializedName("centralita")
-    @Expose
-    private String centralita;
-    @SerializedName("direccion")
-    @Expose
-    private String direccion;
-    @SerializedName("localizacion")
-    @Expose
-    private String localizacion;
-    @SerializedName("area")
-    @Expose
-    private String area;
-    @SerializedName("empresa")
-    @Expose
-    private String empresa;
     @SerializedName("imageBase64")
     @Expose
     private String imageBase64;
@@ -93,13 +75,6 @@ public class DetallesJSON implements Serializable {
 
 
     /**
-     * @return The extension
-     */
-    public String getExtension() {
-        return extension;
-    }
-
-    /**
      * @return The telefonoDirecto
      */
     public String getTelefonoDirecto() {
@@ -116,49 +91,10 @@ public class DetallesJSON implements Serializable {
 
 
     /**
-     * @return The centralita
-     */
-    public String getCentralita() {
-        return centralita;
-    }
-
-
-    /**
-     * @return The direccion
-     */
-    public String getDireccion() {
-        return direccion;
-    }
-
-
-    /**
-     * @return The localizacion
-     */
-    public String getLocalizacion() {
-        return localizacion;
-    }
-
-
-    /**
-     * @return The area
-     */
-    public String getArea() {
-        return area;
-    }
-
-
-    /**
-     * @return The empresa
-     */
-    public String getEmpresa() {
-        return empresa;
-    }
-
-
-    /**
      * @return The imageBase64
      */
     public String getImageBase64() {
         return imageBase64;
     }
+
 }
