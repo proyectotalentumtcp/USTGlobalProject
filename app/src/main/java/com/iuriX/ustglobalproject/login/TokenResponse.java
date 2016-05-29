@@ -1,4 +1,4 @@
-package com.example.iuris.ustglobalproject.login;
+package com.iuriX.ustglobalproject.login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
