@@ -35,7 +35,7 @@
                 >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
 
@@ -82,7 +82,7 @@
                 </LinearLayout-->
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
 
@@ -92,13 +92,25 @@
                         android:textSize="18sp"
                         android:text="Apellidos"
                         android:id="@+id/apellidos"
-                        android:layout_toRightOf="@+id/nombre"
+                        android:layout_toRightOf="@+id/imagen"
                         android:layout_alignParentTop="true"
                         android:gravity="center"
                         />
                 </LinearLayout>
 
             </LinearLayout>
+
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@mipmap/telefono"
+                android:id="@+id/telefonoBoton" />
+
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@mipmap/sobre"
+                android:id="@+id/correoBoton" />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
