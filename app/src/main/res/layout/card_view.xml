@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     >
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -14,103 +15,53 @@
         card_view:cardElevation="4dp"
         card_view:cardUseCompatPadding="true"
         >
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-            <ImageView
-                android:id="@+id/imagen"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+       <ImageView
+           android:layout_width="60dp"
+           android:layout_height="60dp"
+           android:src="@drawable/usuario3"
+           />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apellidos"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="18sp"
-                        android:text="Nombre"
-                        android:id="@+id/nombre"
-                        android:layout_toRightOf="@+id/imagen"
-                        android:layout_alignParentTop="true"
-                        android:gravity="center"
-                        android:layout_marginRight="5dp"
-                        />
-
-                    <!--TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="18sp"
-                        android:text="Apellido1"
-                        android:id="@+id/apellido1"
-                        android:layout_toRightOf="@+id/nombre"
-                        android:layout_alignParentTop="true"
-                        android:gravity="center"
-                        /-->
-
-                </LinearLayout>
-
-                <!--LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="18sp"
-                        android:text="Apellido2"
-                        android:id="@+id/apellido2"
-                        android:layout_toRightOf="@+id/apellido1"
-                        android:layout_alignParentTop="true"
-                        android:gravity="center"
-                        />
-                </LinearLayout-->
-
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="18sp"
-                        android:text="Apellidos"
-                        android:id="@+id/apellidos"
-                        android:layout_toRightOf="@+id/imagen"
-                        android:layout_alignParentTop="true"
-                        android:gravity="center"
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
+                />
 
             <ImageButton
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@mipmap/telefono"
-                android:id="@+id/telefonoBoton" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/llamada2"
+                android:id="@+id/telefonoMovilBoton"
 
+                android:layout_gravity="center_vertical"
+                android:background="#ffffff"
+                />
             <ImageButton
-                android:layout_width="32dp"
+                android:layout_width="50dp"
                 android:layout_height="32dp"
-                android:src="@mipmap/sobre"
-                android:id="@+id/correoBoton" />
-
+                android:src="@drawable/correo"
+                android:elevation="4dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/correoAlternativoBoton"
+                />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

@@ -7,11 +7,11 @@ public class TokenRequest {
     private String username;
     private String password;
 
-    public String getEmail() {
+    public String getUsername() {
         return username;
     }
 
-    public void setEmail(String email) {
+    public void setUsername(String email) {
         this.username = email;
     }
 
