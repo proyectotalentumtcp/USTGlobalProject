@@ -50,13 +50,15 @@
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/llamada2"
                 android:id="@+id/telefonoMovilBoton"
+
                 android:layout_gravity="center_vertical"
                 android:background="#ffffff"
                 />
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="32dp"
-                android:src="@drawable/correo"
+                android:src="@drawable/correo2"
+                android:elevation="4dp"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/correoAlternativoBoton"
                 />
