@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import Modelo.busqueda.BusquedaInterface;
 import Modelo.Login.R;
+import Modelo.busqueda.PeticionBusquedaJSON;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -63,6 +64,12 @@ public class MainActivity extends Activity {
         if (cancel){
             focusView.requestFocus();
         }else{
+            final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
+
+
+            peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
+            //peticionBusquedaJSON.setSessionId(session.getSessionId);
+
 
 
 
