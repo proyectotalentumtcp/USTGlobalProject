@@ -1,4 +1,7 @@
+
 package modelo.busqueda;
+
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,5 +18,11 @@ public class ListaEmpleados implements Serializable {
     @Expose
     public List<BusquedaJSON> listaUsuarios;
 
+    public void setListaUsuarios(List<BusquedaJSON> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
 
+    public List<BusquedaJSON> getListaUsuarios() {
+        return listaUsuarios;
+    }
 }

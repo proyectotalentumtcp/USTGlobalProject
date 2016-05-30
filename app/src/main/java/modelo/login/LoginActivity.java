@@ -2,12 +2,16 @@ package modelo.login;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.iuriX.ustglobalproject.BusquedaActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -20,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends Activity {
 
     EditText mEmail, mPass;
-    int contador = 3;
+    // int contador = 3;
     private LogEasyApi service;
 
     @BindView(R.id.bLogin)
@@ -38,8 +42,6 @@ public class LoginActivity extends Activity {
 
         mPass.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) { attemptLogin();}});
-
-
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -95,7 +97,9 @@ public class LoginActivity extends Activity {
                     Toast.makeText(getApplicationContext(), tokenResponse.getSession_id() ,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), tokenResponse.getError_code() ,Toast.LENGTH_SHORT).show();
-
+                    
+                    Intent ventanaSearch = new Intent(getApplicationContext(), BusquedaActivity.class);
+                    startActivity(ventanaSearch);
                 }
 
                 @Override

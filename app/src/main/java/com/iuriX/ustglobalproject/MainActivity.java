@@ -3,13 +3,25 @@ package com.iuriX.ustglobalproject;
 import android.os.Bundle;
 import android.content.Intent;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import modelo.busqueda.BusquedaInterface;
+import modelo.busqueda.ListaEmpleados;
+import modelo.busqueda.PeticionBusquedaJSON;
+import modelo.login.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 import modelo.login.R;
 
-import modelo.busqueda.BusquedaInterface;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -63,6 +75,41 @@ public class MainActivity extends Activity {
         if (cancel){
             focusView.requestFocus();
         }else{
+            final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
+            final ListaEmpleados listaEmpleados = new ListaEmpleados();
+
+            peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
+            //peticionBusquedaJSON.setSessionId(session.getSessionId);
+
+            Call<ListaEmpleados> listaEmpleadosCall = service.getListaEmpleados(peticionBusquedaJSON);
+            listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
+                @Override
+                public void onResponse(Call<ListaEmpleados> call, Response<ListaEmpleados> response) {
+
+                    int statusCode = response.code();
+
+                    ListaEmpleados listaEmpleados1 = response.body();
+
+                    Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
+
+
+                    Intent intent = new Intent(getApplicationContext(), BusquedaActivity.class);
+
+                    intent.putExtra("empleados", listaEmpleados1);
+
+                    startActivity(intent);
+
+
+
+                }
+
+                @Override
+                public void onFailure(Call<ListaEmpleados> call, Throwable t) {
+
+                }
+            });
+
+
 
 
 
@@ -70,10 +117,6 @@ public class MainActivity extends Activity {
 
 
 
-
-        Intent intent = new Intent(this, BusquedaActivity.class);
-
-        startActivity(intent);
 
     }
 

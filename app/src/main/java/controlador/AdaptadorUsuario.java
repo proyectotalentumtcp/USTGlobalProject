@@ -14,6 +14,7 @@ import com.iuriX.ustglobalproject.DetalleActivity;
 
 import java.util.List;
 
+import modelo.busqueda.BusquedaJSON;
 import modelo.login.R;
 import modelo.Usuario;
 
@@ -22,7 +23,7 @@ import modelo.Usuario;
  */
 public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder>{
 
-    private List<Usuario> usuarios;
+    private List<BusquedaJSON> usuarios;
 
 
 
@@ -50,7 +51,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     }
 
 
-    public AdaptadorUsuario(List<Usuario> usuarios){
+    public AdaptadorUsuario(List<BusquedaJSON> usuarios){
 
         this.usuarios = usuarios;
 
@@ -70,11 +71,10 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     @Override
     public void onBindViewHolder(UsuarioViewHolder viewHolder, final int position) {
 
-        viewHolder.imagen.setImageResource(usuarios.get(position).getImagen());
         viewHolder.nombre.setText(usuarios.get(position).getNombre());
-//        viewHolder.apellido1.setText(usuarios.get(position).getApellido1());
-//        viewHolder.apellido2.setText(usuarios.get(position).getApellido2());
         viewHolder.apellidos.setText(usuarios.get(position).getApellidos());
+        viewHolder.imagen.setImageResource(usuarios.get(position).getId());
+;
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){
 
@@ -84,15 +84,14 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
                 Context contexto = v.getContext();
                 Intent intent = new Intent(contexto, DetalleActivity.class);
-                // La llamada al servicio Rest se hará en la siguiente actividad.
+                // Aqui va la llamada al servicio Rest que completa la vista del detalle
+                // tienes que pasar en un intent los datos a la siguiente vista
 
-                Usuario user = new Usuario();
+                /*suario user = new Usuario();
 
                 user.setNombre(usuarios.get(position).getNombre());
-//                user.setApellido1(usuarios.get(position).getApellido1());
-//                user.setApellido2(usuarios.get(position).getApellido2());
                 user.setApellidos(usuarios.get(position).getApellidos());
-                user.setImagen(usuarios.get(position).getImagen());
+                user.setImagen(usuarios.get(position).getId());
                 user.setTelefonoDirecto(usuarios.get(position).getTelefonoDirecto());
                 user.setTelefonoMovil(usuarios.get(position).getTelefonoMovil());
                 user.setCorreo(usuarios.get(position).getCorreo());
@@ -102,11 +101,10 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 user.setCentralita(usuarios.get(position).getCentralita());
                 user.setLocalizacion(usuarios.get(position).getLocalizacion());
                 user.setArea(usuarios.get(position).getArea());
-                user.setEmpresa(usuarios.get(position).getEmpresa());
+                user.setEmpresa(usuarios.get(position).getEmpresa());*/
 
-                intent.putExtra("usuario", user);
 
-                contexto.startActivity(intent);
+
             }
         });
 

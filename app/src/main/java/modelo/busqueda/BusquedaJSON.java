@@ -1,6 +1,5 @@
 package modelo.busqueda;
 
-
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
  */
