@@ -160,9 +160,6 @@
                     android:src="@drawable/llamada2"
                     android:id="@+id/telefonoMovilBoton"
                     android:background="#ffffff"
-                    android:backgroundTintMode="src_over"
-
-
                     />
 
             </LinearLayout>
@@ -208,16 +205,14 @@
 
             </LinearLayout>
 
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="Correo:"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Correo:"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -251,15 +246,15 @@
 
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="Correo Alternativo:"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Correo Alternativo:"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -285,8 +280,9 @@
                     android:layout_height="32dp"
                     android:src="@drawable/correo"
                     android:id="@+id/correoAlternativoBoton"
-                    android:layout_marginLeft="20dp"/>
-            </LinearLayout>
+                    android:layout_marginLeft="20dp"
+                    />
+                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
