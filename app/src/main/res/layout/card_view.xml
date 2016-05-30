@@ -50,7 +50,6 @@
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/llamada2"
                 android:id="@+id/telefonoMovilBoton"
-
                 android:layout_gravity="center_vertical"
                 android:background="#ffffff"
                 />
