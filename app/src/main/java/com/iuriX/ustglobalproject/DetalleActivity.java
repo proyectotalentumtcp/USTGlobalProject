@@ -13,9 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.app.Activity;
-import com.iuriX.ustglobalproject.R;
-//import R;
 
+
+import Modelo.Login.R;
 import Modelo.Usuario;
 
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {

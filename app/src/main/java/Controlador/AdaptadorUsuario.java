@@ -12,10 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iuriX.ustglobalproject.DetalleActivity;
-import com.iuriX.ustglobalproject.R;
+
 
 import java.util.List;
 
+import Modelo.Login.R;
 import Modelo.Usuario;
 
 /**
