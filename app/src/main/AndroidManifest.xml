@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.iuriX.ustglobalproject">
+    package="Modelo.Login">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -16,16 +16,16 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name="Modelo.Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BusquedaActivity" />
-        <activity android:name=".DetalleActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.iuriX.ustglobalproject.BusquedaActivity" />
+        <activity android:name="com.iuriX.ustglobalproject.DetalleActivity"></activity>
+        <activity android:name="com.iuriX.ustglobalproject.MainActivity" />
 
     </application>
 

@@ -4,10 +4,6 @@
     <string name="telefonoMovil">Llamar</string>
     <string name="correo">EnviarCorreo</string>
     <string name="guardar">GuardarContacto</string>
-<<<<<<< HEAD
-    <string name="api_url">http://ec2-52-19-159-183.eu-west-1.compute.amazonaws.com:8088/</string>
-=======
-    <string name="api_url">http://ec2-52-19-159-183.eu-west-1.compute.amazonaws.com:8088/restservices/rest/services/</string>
->>>>>>> 9e97a04b3e115ae53e679b48f852d7046096cc1b
 
+    <string name="api_url">http://ec2-52-19-159-183.eu-west-1.compute.amazonaws.com:8088/</string>
 </resources>
