@@ -52,11 +52,14 @@
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/llamada2"
                 android:id="@+id/telefonoMovilBoton"
+<<<<<<< HEAD
+=======
                 android:tag="@string/telefonoMovil"
                 android:clickable="true"
                 android:longClickable="true"
                 android:onClick="onClick"
 
+>>>>>>> 3b3681223c81e65b6f13b217e34ea3fcd80965f2
                 android:layout_gravity="center_vertical"
                 android:background="#ffffff"
                 />

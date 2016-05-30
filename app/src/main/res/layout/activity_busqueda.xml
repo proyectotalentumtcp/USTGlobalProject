@@ -94,4 +94,11 @@
         android:scrollbars="vertical"
         />
     </LinearLayout>
+    <a
+        href="#">
+        <img border="0"
+            style="position:fixed; top:0; right:0;"
+            src="@drawable/botonarriba" title="Ir arriba"
+            />
+    </a>
 </LinearLayout>
