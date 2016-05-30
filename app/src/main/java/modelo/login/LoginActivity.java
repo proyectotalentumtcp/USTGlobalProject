@@ -15,6 +15,7 @@ import com.iuriX.ustglobalproject.BusquedaActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import modelo.Session;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,7 +44,6 @@ public class LoginActivity extends Activity {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) { attemptLogin();}});
 
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.api_url))
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -56,7 +56,7 @@ public class LoginActivity extends Activity {
         mUser.setError(null);
         mPass.setError(null);
 
-        String username = mUser.getText().toString();
+        String login = mUser.getText().toString();
         String password = mPass.getText().toString();
 
         boolean cancel = false;
@@ -68,19 +68,18 @@ public class LoginActivity extends Activity {
             cancel = true;
         }
 
-        if (username.equals("")) {
+        if (login.equals("")) {
             mUser.setError("Campo vacío");
             focusView = mUser;
             cancel = true;
         }
-
 
         if (cancel) {
             focusView.requestFocus();
         }else {
             final TokenRequest tokenRequest = new TokenRequest();
 
-            tokenRequest.setUsername(username);
+            tokenRequest.setlogin(login);
             tokenRequest.setPassword(password);
 
             Call<TokenResponse> tokenResponseCall = service.getTokenAccess(tokenRequest);
@@ -92,14 +91,11 @@ public class LoginActivity extends Activity {
                     TokenResponse tokenResponse = response.body();
 
                     Log.d("LoginActivity","onResponse: " + statusCode);
+                    Session.getInstance().setSessionId(tokenResponse.getSession_id());
 
-
-                    Toast.makeText(getApplicationContext(), tokenResponse.getSession_id() ,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(), tokenResponse.getError_code() ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
 
                     if (tokenResponse.getError_code().equals("0")) {
-
                         Intent ventanaSearch = new Intent(getApplicationContext(), BusquedaActivity.class);
                         startActivity(ventanaSearch);
                     }

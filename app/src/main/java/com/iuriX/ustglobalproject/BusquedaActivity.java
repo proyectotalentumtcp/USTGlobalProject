@@ -1,6 +1,7 @@
 package com.iuriX.ustglobalproject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,6 +36,9 @@ public class BusquedaActivity extends Activity {
 
         ListaEmpleados listaEmpleados = new ListaEmpleados();
 
+        Intent intent = getIntent();
+
+        getIntent().getSerializableExtra("empleados");
 
 
 
