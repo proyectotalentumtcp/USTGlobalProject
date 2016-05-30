@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package modelo.Busqueda;
+=======
+package Modelo.busqueda;
+>>>>>>> 1956714dc4a55cc59aba8b359a40bffae3717710
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -10,8 +14,6 @@ import retrofit2.http.POST;
  */
 public interface BusquedaInterface {
 
-    String URL = "http://ec2-52-19-159-183.eu-west-1.compute.amazonaws.com:8088/restservices/rest/services/";
-
-    @POST("get_ust_workers")
-    Call<PeticionBusquedaJSON> postBusqueda(@Body PeticionBusquedaJSON peticionBusquedaJSON, Callback<ListaEmpleados> empleados);
+    @POST("restservices/rest/services/get_ust_workers")
+    Call<PeticionBusquedaJSON> getPeticionBusquedaJSON(@Body PeticionBusquedaJSON peticionBusquedaJSON, Callback<ListaEmpleados> empleados);
 }
