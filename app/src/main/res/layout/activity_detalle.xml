@@ -159,6 +159,10 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/llamada2"
                     android:id="@+id/telefonoMovilBoton"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick"
+                    android:tag="@string/telefonoMovil"
                     android:background="#ffffff"
                     />
 
@@ -201,6 +205,10 @@
                     android:id="@+id/telefonoDirectoBoton"
                     android:background="#ffffff"
                     android:layout_marginLeft="20dp"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick"
+                    android:tag="@string/telefonoDirecto"
                     />
 
             </LinearLayout>
@@ -240,11 +248,13 @@
                     android:id="@+id/correoBoton"
                     android:background="#ffffff"
                     android:layout_marginLeft="50dp"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick"
+                    android:tag="@string/correo"
                     />
 
             </LinearLayout>
-
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -272,7 +282,7 @@
                     android:longClickable="true"
                     android:onClick="onClick"
                     android:id="@+id/correoAlternativoDetalle"
-                    android:tag="@string/correo"
+                    android:tag="@string/correoAlternativo"
                     />
 
                 <ImageButton
@@ -280,7 +290,11 @@
                     android:layout_height="32dp"
                     android:src="@drawable/correo"
                     android:id="@+id/correoAlternativoBoton"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick"
                     android:layout_marginLeft="20dp"
+                    android:tag="@string/correoAlternativo"
                     />
                 </LinearLayout>
 
