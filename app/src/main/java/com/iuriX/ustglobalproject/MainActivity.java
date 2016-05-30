@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import controlador.AdaptadorUsuario;
+import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.ListaEmpleados;
 import modelo.busqueda.PeticionBusquedaJSON;
@@ -80,7 +81,7 @@ public class MainActivity extends Activity {
             final ListaEmpleados listaEmpleados = new ListaEmpleados();
 
             peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
-            //peticionBusquedaJSON.setSessionId(session.getSessionId);
+            peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
 
             Call<ListaEmpleados> listaEmpleadosCall = service.getListaEmpleados(peticionBusquedaJSON);
             listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
@@ -94,6 +95,7 @@ public class MainActivity extends Activity {
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
+
 
 
                         Intent intentBusqueda = new Intent(getApplicationContext(), BusquedaActivity.class);

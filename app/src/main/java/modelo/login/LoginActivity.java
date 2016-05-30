@@ -15,6 +15,7 @@ import com.iuriX.ustglobalproject.BusquedaActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import modelo.Session;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -90,6 +91,7 @@ public class LoginActivity extends Activity {
                     TokenResponse tokenResponse = response.body();
 
                     Log.d("LoginActivity","onResponse: " + statusCode);
+                    Session.getInstance().setSessionId(tokenResponse.getSession_id());
 
                     Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
 
