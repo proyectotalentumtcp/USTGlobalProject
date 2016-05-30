@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import Modelo.busqueda.BusquedaInterface;
 import Modelo.Login.R;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -17,14 +20,10 @@ import Modelo.Login.R;
 
 public class MainActivity extends Activity {
 
-    public  static final String URL = "ec2-52-19-159-183.eu-west-1.compute.amazonnaws.com:8088/restservices/rest/services/";
-    /*Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-*/
+
     private Button buscar;
     private EditText textoBusqueda;
+    private BusquedaInterface service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,44 +38,35 @@ public class MainActivity extends Activity {
 
     public void buscar(View v){
 
-        //LLamada del servicio REST
-     /*  final Context context = v.getContext();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(getString(R.string.api_url))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        final BusquedaInterface busquedaInterface = retrofit.create(BusquedaInterface.class);
+        service = retrofit.create(BusquedaInterface.class);
 
-        PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON(textoBusqueda.getText().toString(), "id_session");
-        retrofit2.Call<PeticionBusquedaJSON> call = busquedaInterface.postBusqueda(peticionBusquedaJSON, new Callback<ListaEmpleados>() {
-            @Override
-            public void onResponse(retrofit2.Call<BusquedaJSON> call, Response<ListaEmpleados> response) {
+        textoBusqueda.setError(null);
 
-<<<<<<< HEAD
-                BusquedaJSON busquedaJSON = response.body();
-*/
-              /*  Intent intent = new Intent(this, BusquedaActivity.class);
-               // intent.putExtra("empleados",busquedaJSON);
+        String busqueda = textoBusqueda.getText().toString();
 
-                startActivity(intent);
-=======
-                ListaEmpleados listaEmpleados = response.body();
+        boolean cancel = false;
+        View focusView = null;
 
-                Intent intent = new Intent(context, BusquedaActivity.class);
-                intent.putExtra("empleados",listaEmpleados);
+        if (busqueda.equals("")){
 
-                context.startActivity(intent);
->>>>>>> 2b8c362c8ad36efb46511d3fe7c7def8a2f5a918
+            textoBusqueda.setError("Campo de busqueda vacío");
+            focusView = textoBusqueda;
+            cancel = true;
 
+        }
 
-
-            }
-
-            @Override
-            public void onFailure(retrofit2.Call<ListaEmpleados> call, Throwable t) {
-
-            }
-        });*/
+        if (cancel){
+            focusView.requestFocus();
+        }else{
 
 
 
+        }
 
 
 

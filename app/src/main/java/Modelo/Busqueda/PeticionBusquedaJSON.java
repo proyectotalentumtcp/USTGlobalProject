@@ -1,4 +1,4 @@
-package Modelo.Busqueda;
+package Modelo.busqueda;
 
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
@@ -16,12 +16,19 @@ public class PeticionBusquedaJSON {
     @Expose
     public String sessionId;
 
-    public PeticionBusquedaJSON (String busqueda, String sessionId){
-
+    public void setBusqueda(String busqueda) {
         this.busqueda = busqueda;
-        this.sessionId = sessionId;
-
-
     }
 
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public String getBusqueda() {
+        return busqueda;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
 }
