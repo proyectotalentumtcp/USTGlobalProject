@@ -1,4 +1,8 @@
 package modelo.busqueda;
+<<<<<<< HEAD:app/src/main/java/Modelo/Busqueda/BusquedaJSON.java
+=======
+
+>>>>>>> b58f7991faacda96cbb07f96fd41ffa5eccce55d:app/src/main/java/modelo/busqueda/BusquedaJSON.java
 
 /**
  * Created by Miguel Rodríguez on 26/05/2016.

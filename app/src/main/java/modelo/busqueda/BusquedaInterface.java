@@ -1,3 +1,8 @@
+<<<<<<< HEAD:app/src/main/java/Modelo/Busqueda/BusquedaInterface.java
+=======
+package modelo.busqueda;
+
+>>>>>>> b58f7991faacda96cbb07f96fd41ffa5eccce55d:app/src/main/java/modelo/busqueda/BusquedaInterface.java
 
 package modelo.busqueda;
 

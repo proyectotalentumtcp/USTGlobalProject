@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.BusquedaJSON;
 import modelo.busqueda.ListaEmpleados;
@@ -21,6 +22,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
+=======
+import modelo.login.R;
+
+import modelo.busqueda.BusquedaInterface;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+>>>>>>> b58f7991faacda96cbb07f96fd41ffa5eccce55d
 
 /**
  * Created by Ernesto Mediavilla on 23/05/2016.
