@@ -154,10 +154,16 @@
                     />
 
                 <ImageButton
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@mipmap/telefono"
-                    android:id="@+id/telefonoMovilBoton" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/llamada2"
+                    android:id="@+id/telefonoMovilBoton"
+                    android:background="#ffffff"
+                    android:backgroundTintMode="src_over"
+
+
+                    />
 
             </LinearLayout>
 
@@ -192,18 +198,17 @@
                     />
 
                 <ImageButton
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@mipmap/telefono"
-                    android:id="@+id/telefonoDirectoBoton" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/llamada2"
+                    android:id="@+id/telefonoDirectoBoton"
+                    android:background="#ffffff"
+                    android:layout_marginLeft="20dp"
+                    />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,10 +217,13 @@
                     android:text="Correo:"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-
                     />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -231,18 +239,17 @@
                     />
 
                 <ImageButton
-                    android:layout_width="32dp"
+                    android:layout_width="50dp"
                     android:layout_height="32dp"
-                    android:src="@mipmap/sobre"
-                    android:id="@+id/correoBoton" />
+                    android:src="@drawable/correo"
+                    android:id="@+id/correoBoton"
+                    android:background="#ffffff"
+                    android:layout_marginLeft="50dp"
+                    />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -253,7 +260,11 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
                     />
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -261,6 +272,7 @@
                     android:textSize="18sp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
                     android:clickable="true"
                     android:longClickable="true"
                     android:onClick="onClick"
@@ -269,10 +281,11 @@
                     />
 
                 <ImageButton
-                    android:layout_width="32dp"
+                    android:layout_width="50dp"
                     android:layout_height="32dp"
-                    android:src="@mipmap/sobre"
-                    android:id="@+id/correoAlternativoBoton" />
+                    android:src="@drawable/correo"
+                    android:id="@+id/correoAlternativoBoton"
+                    android:layout_marginLeft="20dp"/>
             </LinearLayout>
 
             <LinearLayout
