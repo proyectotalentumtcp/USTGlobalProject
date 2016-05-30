@@ -40,8 +40,6 @@ public class LoginActivity extends Activity {
             @Override public void onClick(View view) { attemptLogin();}});
 
 
-
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.api_url))
                 .addConverterFactory(GsonConverterFactory.create()).build();
