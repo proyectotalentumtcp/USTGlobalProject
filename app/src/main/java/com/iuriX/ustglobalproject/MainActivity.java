@@ -7,15 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-<<<<<<< HEAD
 import modelo.login.R;
-=======
-import Modelo.busqueda.BusquedaInterface;
-import Modelo.Login.R;
+
+import modelo.busqueda.BusquedaInterface;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
->>>>>>> 1956714dc4a55cc59aba8b359a40bffae3717710
-
 
 /**
  * Created by Ernesto Mediavilla on 23/05/2016.
