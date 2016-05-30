@@ -1,23 +1,21 @@
-package Controlador;
+package controlador;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.iuriX.ustglobalproject.DetalleActivity;
 
 
 import java.util.List;
 
-import Modelo.Login.R;
-import Modelo.Usuario;
+import modelo.login.R;
+import modelo.Usuario;
 
 /**
  * Created by Miguel Rodríguez on 23/05/2016.

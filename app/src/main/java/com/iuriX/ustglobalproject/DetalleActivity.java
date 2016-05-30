@@ -15,8 +15,8 @@ import android.widget.TextView;
 import android.app.Activity;
 
 
-import Modelo.Login.R;
-import Modelo.Usuario;
+import modelo.login.R;
+import modelo.Usuario;
 
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 

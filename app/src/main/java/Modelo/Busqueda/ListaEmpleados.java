@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+package modelo.Busqueda;
+=======
 package Modelo.busqueda;
+>>>>>>> 1956714dc4a55cc59aba8b359a40bffae3717710
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

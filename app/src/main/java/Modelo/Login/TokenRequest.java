@@ -1,4 +1,4 @@
-package Modelo.Login;
+package modelo.login;
 
 /**
  * Created by andreagudo3 on 29/05/2016.

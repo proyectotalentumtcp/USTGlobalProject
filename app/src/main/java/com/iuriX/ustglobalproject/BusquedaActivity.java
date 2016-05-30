@@ -8,9 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controlador.AdaptadorUsuario;
-import Modelo.Login.R;
-import Modelo.Usuario;
+import controlador.AdaptadorUsuario;
+import modelo.login.R;
+import modelo.Usuario;
 
 
 public class BusquedaActivity extends Activity {
