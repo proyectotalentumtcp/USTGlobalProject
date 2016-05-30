@@ -1,4 +1,4 @@
-package Modelo.Login;
+package modelo.login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

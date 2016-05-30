@@ -1,4 +1,4 @@
-package Modelo.Busqueda;
+package modelo.Busqueda;
 
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
