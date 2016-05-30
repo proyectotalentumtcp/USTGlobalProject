@@ -91,19 +91,29 @@ public class MainActivity extends Activity {
 
                     ListaEmpleados listaEmpleados1 = response.body();
 
-                    Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
+                    if (listaEmpleados1.getListaUsuarios().size() > 0) {
+
+                        Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
 
-                    Intent intentBusqueda = new Intent(getApplicationContext(), BusquedaActivity.class);
+                        Intent intentBusqueda = new Intent(getApplicationContext(), BusquedaActivity.class);
 
-                    Intent intentAdaptador = new Intent(getApplicationContext(), AdaptadorUsuario.class);
+                        Intent intentAdaptador = new Intent(getApplicationContext(), AdaptadorUsuario.class);
 
-                    intentAdaptador.putExtra("empleados", listaEmpleados1);
-                    intentBusqueda.putExtra("empleados", listaEmpleados1);
+                        intentAdaptador.putExtra("empleados", listaEmpleados1);
+                        intentBusqueda.putExtra("empleados", listaEmpleados1);
 
 
 
-                    startActivity(intentBusqueda);
+                        startActivity(intentBusqueda);
+
+
+                    } else {
+
+                        Toast.makeText(MainActivity.this, "Lista de empleados vacía", Toast.LENGTH_SHORT).show();
+
+                    }
+
 
 
 
