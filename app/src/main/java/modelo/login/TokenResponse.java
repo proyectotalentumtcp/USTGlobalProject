@@ -16,6 +16,7 @@ public class TokenResponse {
     private String error_description;
 
     @SerializedName("error_code")
+    @Expose
     private String error_code;
 
     public String getSession_id() {
