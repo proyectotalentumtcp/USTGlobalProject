@@ -1,8 +1,11 @@
 package com.iuriX.ustglobalproject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.content.Intent;
 import android.app.Activity;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import android.os.Handler;
 
 
 import modelo.login.R;
@@ -127,18 +131,39 @@ public class MainActivity extends Activity {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }
+
             });
-
-
-
 
 
         }
 
-
-
-
     }
 
+    boolean twice;
+    @Override
+    public void onBackPressed() {
 
+        Log.d("MainActivity","click");
+
+        if (twice == true) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+            System.exit(0);
+
+        }
+        twice = true;
+        Log.d("MainActivity", "twice: " + twice);
+
+       Toast.makeText(MainActivity.this,"Presiona de nuevo ATRÁS para salir", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                twice = false;
+                Log.d("MainActivity", "twice: " + twice);
+            }
+        },3000);
+    }
 }
