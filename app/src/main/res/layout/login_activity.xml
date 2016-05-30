@@ -86,9 +86,6 @@
             android:textColor="#ffffff"
             android:fontFamily="sans-serif-medium"
             />
-
-
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
