@@ -24,7 +24,6 @@ public class ListaEmpleados implements Serializable {
 
     public List<BusquedaJSON> getListaUsuarios() {
 
-
         return empleados;
     }
 }
