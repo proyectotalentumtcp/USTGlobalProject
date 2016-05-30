@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import controlador.AdaptadorUsuario;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.ListaEmpleados;
 import modelo.busqueda.PeticionBusquedaJSON;
@@ -93,11 +94,16 @@ public class MainActivity extends Activity {
                     Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
 
-                    Intent intent = new Intent(getApplicationContext(), BusquedaActivity.class);
+                    Intent intentBusqueda = new Intent(getApplicationContext(), BusquedaActivity.class);
 
-                    intent.putExtra("empleados", listaEmpleados1);
+                    Intent intentAdaptador = new Intent(getApplicationContext(), AdaptadorUsuario.class);
 
-                    startActivity(intent);
+                    intentAdaptador.putExtra("empleados", listaEmpleados1);
+                    intentBusqueda.putExtra("empleados", listaEmpleados1);
+
+
+
+                    startActivity(intentBusqueda);
 
 
 
@@ -105,6 +111,8 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void onFailure(Call<ListaEmpleados> call, Throwable t) {
+
+                    Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }
             });

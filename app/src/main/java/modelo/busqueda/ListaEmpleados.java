@@ -14,15 +14,17 @@ import java.util.List;
  */
 public class ListaEmpleados implements Serializable {
 
-    @SerializedName("listaUsuarios")
+    @SerializedName("empleados")
     @Expose
-    public List<BusquedaJSON> listaUsuarios;
+    public List<BusquedaJSON> empleados;
 
     public void setListaUsuarios(List<BusquedaJSON> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+        this.empleados = listaUsuarios;
     }
 
     public List<BusquedaJSON> getListaUsuarios() {
-        return listaUsuarios;
+
+
+        return empleados;
     }
 }

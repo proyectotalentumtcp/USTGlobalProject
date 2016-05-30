@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iuriX.ustglobalproject.DetalleActivity;
 
@@ -23,7 +24,8 @@ import modelo.Usuario;
  */
 public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder>{
 
-    private List<BusquedaJSON> usuarios;
+    public List<BusquedaJSON> usuarios;
+
 
 
 
@@ -36,6 +38,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         public ImageView imagen;
 
         public final View vista;
+
 
         public UsuarioViewHolder(View v){
             super(v);
@@ -57,6 +60,11 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
     }
 
+    @Override
+    public int getItemCount() {
+        return usuarios.size();
+    }
+
 
     @Override
     public UsuarioViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -74,7 +82,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         viewHolder.nombre.setText(usuarios.get(position).getNombre());
         viewHolder.apellidos.setText(usuarios.get(position).getApellidos());
         viewHolder.imagen.setImageResource(usuarios.get(position).getId());
-;
+
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){
 
@@ -83,7 +91,10 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             public void onClick(View v) {
 
                 Context contexto = v.getContext();
-                Intent intent = new Intent(contexto, DetalleActivity.class);
+               // Intent intent = new Intent(contexto, DetalleActivity.class);
+
+                Toast.makeText(contexto, "Esto Pasa a la siguiente activity", Toast.LENGTH_LONG).show();
+
                 // Aqui va la llamada al servicio Rest que completa la vista del detalle
                 // tienes que pasar en un intent los datos a la siguiente vista
 
@@ -112,8 +123,5 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
     }
 
-    @Override
-    public int getItemCount() {
-        return usuarios.size();
-    }
+
 }
