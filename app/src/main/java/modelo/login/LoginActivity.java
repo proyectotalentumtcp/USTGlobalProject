@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.iuriX.ustglobalproject.BusquedaActivity;
+import com.iuriX.ustglobalproject.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,7 +97,7 @@ public class LoginActivity extends Activity {
                     Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
 
                     if (tokenResponse.getError_code().equals("0")) {
-                        Intent ventanaSearch = new Intent(getApplicationContext(), BusquedaActivity.class);
+                        Intent ventanaSearch = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(ventanaSearch);
                     }
                 }
