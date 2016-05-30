@@ -10,9 +10,7 @@ import retrofit2.http.POST;
  */
 public interface DetallesInterface {
 
-    String URL = "http://ec2-52-19-159-183.eu-west-1.compute.amazonaws.com:8088/restservices/rest/services/";
-
-    @POST("get_ust_workers_details")
-    Call<PeticionDetallesJSON> postBusqueda(@Body PeticionDetallesJSON peticionDetallesJSON, Callback<DetallesEmpleado> detalles);
+    @POST("restservices/rest/services/get_ust_workers_details")
+    Call<DetallesEmpleado> getDetallesEmpleado(@Body PeticionDetallesJSON peticionDetallesJSON);
 
 }

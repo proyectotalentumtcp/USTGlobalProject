@@ -14,9 +14,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.app.Activity;
 
-
+import modelo.busqueda.BusquedaInterface;
+import modelo.login.LogEasyApi;
 import modelo.login.R;
 import modelo.Usuario;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
@@ -37,6 +40,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     Button agenda;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
+    private BusquedaInterface service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,14 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         //tv1.setOnClickListener(this);
 //        tv1.setOnLongClickListener(this);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(getString(R.string.api_url))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        service = retrofit.create(BusquedaInterface.class);
+        //startActivity(intent);
 
     }
 

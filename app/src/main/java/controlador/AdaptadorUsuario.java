@@ -1,5 +1,6 @@
 package controlador;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -10,23 +11,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.iuriX.ustglobalproject.DetalleActivity;
 
 
 import java.util.List;
 
+import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.BusquedaJSON;
+
 import modelo.login.R;
-import modelo.Usuario;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Miguel Rodríguez on 23/05/2016.
  */
-public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder>{
+public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
     public List<BusquedaJSON> usuarios;
-
-
 
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
@@ -52,6 +55,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         }
 
     }
+
 
 
     public AdaptadorUsuario(List<BusquedaJSON> usuarios){
@@ -91,14 +95,16 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             public void onClick(View v) {
 
                 Context contexto = v.getContext();
-               // Intent intent = new Intent(contexto, DetalleActivity.class);
+                Intent intent = new Intent(contexto, DetalleActivity.class);
 
                 Toast.makeText(contexto, "Esto Pasa a la siguiente activity", Toast.LENGTH_LONG).show();
 
                 // Aqui va la llamada al servicio Rest que completa la vista del detalle
                 // tienes que pasar en un intent los datos a la siguiente vista
 
-                /*suario user = new Usuario();
+                contexto.startActivity(intent);
+
+                /*usuario user = new Usuario();
 
                 user.setNombre(usuarios.get(position).getNombre());
                 user.setApellidos(usuarios.get(position).getApellidos());
