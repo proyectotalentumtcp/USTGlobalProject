@@ -4,15 +4,15 @@ package modelo.login;
  * Created by andreagudo3 on 29/05/2016.
  */
 public class TokenRequest {
-    private String username;
+    private String login;
     private String password;
 
-    public String getUsername() {
-        return username;
+    public String getlogin() {
+        return login;
     }
 
-    public void setUsername(String email) {
-        this.username = email;
+    public void setlogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
