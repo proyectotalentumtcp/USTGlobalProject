@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends Activity {
 
-    EditText mEmail, mPass;
+    EditText mUser, mPass;
     // int contador = 3;
     private LogEasyApi service;
 
@@ -37,10 +37,10 @@ public class LoginActivity extends Activity {
 
         ButterKnife.bind(this);
 
-        mEmail = (EditText) findViewById(R.id.usuario);
+        mUser = (EditText) findViewById(R.id.usuario);
         mPass = (EditText) findViewById(R.id.contra);
 
-        mPass.setOnClickListener(new View.OnClickListener() {
+        bLogin.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) { attemptLogin();}});
 
 
@@ -53,10 +53,10 @@ public class LoginActivity extends Activity {
 
     @OnClick(R.id.bLogin)
     public void attemptLogin() {
-        mEmail.setError(null);
+        mUser.setError(null);
         mPass.setError(null);
 
-        String email = mEmail.getText().toString();
+        String username = mUser.getText().toString();
         String password = mPass.getText().toString();
 
         boolean cancel = false;
@@ -68,9 +68,9 @@ public class LoginActivity extends Activity {
             cancel = true;
         }
 
-        if (email.equals("")) {
-            mEmail.setError("Campo vacío");
-            focusView = mEmail;
+        if (username.equals("")) {
+            mUser.setError("Campo vacío");
+            focusView = mUser;
             cancel = true;
         }
 
@@ -80,8 +80,8 @@ public class LoginActivity extends Activity {
         }else {
             final TokenRequest tokenRequest = new TokenRequest();
 
-            tokenRequest.setEmail(mEmail.getText().toString());
-            tokenRequest.setPassword(mPass.getText().toString());
+            tokenRequest.setUsername(username);
+            tokenRequest.setPassword(password);
 
             Call<TokenResponse> tokenResponseCall = service.getTokenAccess(tokenRequest);
             tokenResponseCall.enqueue(new Callback<TokenResponse>() {
@@ -95,11 +95,14 @@ public class LoginActivity extends Activity {
 
 
                     Toast.makeText(getApplicationContext(), tokenResponse.getSession_id() ,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_LONG).show();
                     Toast.makeText(getApplicationContext(), tokenResponse.getError_code() ,Toast.LENGTH_SHORT).show();
-                    
-                    Intent ventanaSearch = new Intent(getApplicationContext(), BusquedaActivity.class);
-                    startActivity(ventanaSearch);
+
+                    if (tokenResponse.getError_code().equals("0")) {
+
+                        Intent ventanaSearch = new Intent(getApplicationContext(), BusquedaActivity.class);
+                        startActivity(ventanaSearch);
+                    }
                 }
 
                 @Override
