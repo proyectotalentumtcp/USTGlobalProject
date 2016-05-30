@@ -14,7 +14,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.app.Activity;
 
+import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
+import modelo.busqueda.ListaEmpleados;
+import modelo.busqueda.PeticionBusquedaJSON;
 import modelo.login.LogEasyApi;
 import modelo.login.R;
 import modelo.Usuario;
@@ -92,6 +95,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         service = retrofit.create(BusquedaInterface.class);
         //startActivity(intent);
+
+        final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
+        peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
 
     }
 

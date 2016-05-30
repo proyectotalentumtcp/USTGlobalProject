@@ -53,111 +53,59 @@ public class DetallesJSON implements Serializable {
     @Expose
     private String imageBase64;
 
-    /**
-     * @return The id
-     */
+
     public Integer getId() {
         return id;
     }
 
-
-    /**
-     * @return The nombre
-     */
     public String getNombre() {
         return nombre;
     }
 
-
-    /**
-     * @return The apellidos
-     */
     public String getApellidos() {
         return apellidos;
     }
 
-
-    /**
-     * @return The correo
-     */
     public String getCorreo() {
         return correo;
     }
 
-    /**
-     * @return The correoAlternativo
-     */
     public String getCorreoAlternativo() {
         return correoAlternativo;
     }
 
-
-    /**
-     * @return The extension
-     */
     public String getExtension() {
         return extension;
     }
 
-    /**
-     * @return The telefonoDirecto
-     */
     public String getTelefonoDirecto() {
         return telefonoDirecto;
     }
 
-
-    /**
-     * @return The telefonoMovil
-     */
     public String getTelefonoMovil() {
         return telefonoMovil;
     }
 
-
-    /**
-     * @return The centralita
-     */
     public String getCentralita() {
         return centralita;
     }
 
-
-    /**
-     * @return The direccion
-     */
     public String getDireccion() {
         return direccion;
     }
 
-
-    /**
-     * @return The localizacion
-     */
     public String getLocalizacion() {
         return localizacion;
     }
 
-
-    /**
-     * @return The area
-     */
     public String getArea() {
         return area;
     }
 
-
-    /**
-     * @return The empresa
-     */
     public String getEmpresa() {
         return empresa;
     }
 
-
-    /**
-     * @return The imageBase64
-     */
     public String getImageBase64() {
         return imageBase64;
     }
