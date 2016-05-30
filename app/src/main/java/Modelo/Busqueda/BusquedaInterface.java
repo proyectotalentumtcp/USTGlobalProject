@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-package modelo.Busqueda;
-=======
-package Modelo.busqueda;
->>>>>>> 1956714dc4a55cc59aba8b359a40bffae3717710
 
+package modelo.busqueda;
+
+import modelo.busqueda.PeticionBusquedaJSON;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.Body;
@@ -15,5 +13,5 @@ import retrofit2.http.POST;
 public interface BusquedaInterface {
 
     @POST("restservices/rest/services/get_ust_workers")
-    Call<PeticionBusquedaJSON> getPeticionBusquedaJSON(@Body PeticionBusquedaJSON peticionBusquedaJSON, Callback<ListaEmpleados> empleados);
+    Call<ListaEmpleados> getListaEmpleados(@Body PeticionBusquedaJSON peticionBusquedaJSON);
 }
