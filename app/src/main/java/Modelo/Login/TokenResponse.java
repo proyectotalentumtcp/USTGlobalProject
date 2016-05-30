@@ -1,4 +1,4 @@
-package com.iuriX.ustglobalproject.login;
+package Modelo.Login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

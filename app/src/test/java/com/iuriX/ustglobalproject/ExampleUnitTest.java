@@ -1,4 +1,4 @@
-package ustglobalproject.iuriX.ustglobalproject;
+package com.iuriX.ustglobalproject;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.iuriX.ustglobalproject.login;
+package Modelo.Login;
 
 /**
  * Created by andreagudo3 on 29/05/2016.
