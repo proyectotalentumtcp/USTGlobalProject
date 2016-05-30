@@ -1,10 +1,7 @@
-<<<<<<< HEAD:app/src/main/java/Modelo/Busqueda/ListaEmpleados.java
 
 package modelo.busqueda;
 
-=======
-package modelo.busqueda;
->>>>>>> b58f7991faacda96cbb07f96fd41ffa5eccce55d:app/src/main/java/modelo/busqueda/ListaEmpleados.java
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
