@@ -4,6 +4,7 @@ import java.util.List;
 
 import modelo.busqueda.BusquedaJSON;
 import modelo.busqueda.ListaEmpleados;
+import modelo.detalles.DetallesEmpleado;
 
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
@@ -30,6 +31,8 @@ public class Session {
 
     public ListaEmpleados listaEmpleadosSession;
 
+    public DetallesEmpleado detallesEmpleadoSession;
+
     public String getSessionId() {
         return sessionId;
     }
@@ -54,5 +57,9 @@ public class Session {
 
     public void setListaEmpleadosSession(ListaEmpleados listaEmpleadosSession) {
         this.listaEmpleadosSession = listaEmpleadosSession;
+    }
+
+    public void setDetallesEmpleadoSession(DetallesEmpleado detallesEmpleadoSession) {
+        this.detallesEmpleadoSession = detallesEmpleadoSession;
     }
 }

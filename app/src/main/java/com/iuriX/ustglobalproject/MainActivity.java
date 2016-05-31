@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 
             textoBusqueda.setError("Campo de busqueda vacío");
             focusView = textoBusqueda;
-            cancel = true;
+            //cancel = true; //cancelado para aligerar testea
 
         }
 

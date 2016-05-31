@@ -114,7 +114,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
                 // Aqui va la llamada al servicio Rest que completa la vista del detalle
                 // tienes que pasar en un intent los datos a la siguiente vista
-                
+
                 contexto.startActivity(intent);
 
                 /*usuario user = new Usuario();
