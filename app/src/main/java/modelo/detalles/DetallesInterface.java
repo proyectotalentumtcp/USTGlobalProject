@@ -11,6 +11,6 @@ import retrofit2.http.POST;
 public interface DetallesInterface {
 
     @POST("restservices/rest/services/get_ust_worker_details")
-    Call<DetallesEmpleado> getDetallesEmpleado(@Body PeticionDetallesJSON peticionDetallesJSON);
+    Call<DetallesJSON> getDetallesEmpleado(@Body PeticionDetallesJSON peticionDetallesJSON);
 
 }

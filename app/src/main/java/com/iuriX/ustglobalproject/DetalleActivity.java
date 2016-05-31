@@ -13,14 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.app.Activity;
+import android.widget.Toast;
 
 import modelo.Session;
-import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.ListaEmpleados;
 import modelo.busqueda.PeticionBusquedaJSON;
+import modelo.detalles.DetallesInterface;
+import modelo.detalles.DetallesJSON;
+import modelo.detalles.PeticionDetallesJSON;
 import modelo.login.LogEasyApi;
 import modelo.login.R;
 import modelo.Usuario;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -43,7 +49,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     Button agenda;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
-    private BusquedaInterface service;
+    private DetallesInterface service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,24 +72,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
 
-        Usuario userDetalle = (Usuario)getIntent().getSerializableExtra("usuario");
-
-        nombreDetalle.setText(userDetalle.getNombre());
-//        apellido1Detalle.setText(userDetalle.getApellido1());
-//        apellido2Detalle.setText(userDetalle.getApellido2());
-        apellidosDetalle.setText(userDetalle.getApellidos());
-        telefonoMovilDetalle.setText(userDetalle.getTelefonoMovil());
-        telefonoDirectoDetalle.setText(userDetalle.getTelefonoDirecto());
-        correoDetalle.setText(userDetalle.getCorreo());
-        correoAlternativoDetalle.setText(userDetalle.getCorreoAlternativo());
-        direccionDetalle.setText(userDetalle.getDireccion());
-        extensionDetalle.setText(userDetalle.getExtension());
-        centralitaDetalle.setText(userDetalle.getCentralita());
-        localizacionDetalle.setText(userDetalle.getLocalizacion());
-        areaDetalle.setText(userDetalle.getArea());
-        empresaDetalle.setText(userDetalle.getEmpresa());
-
-        //TextView tv1 = (TextView) findViewById(R.id.telefonoDetalle);
 
         //tv1.setOnClickListener(this);
 //        tv1.setOnLongClickListener(this);
@@ -93,13 +81,51 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        service = retrofit.create(BusquedaInterface.class);
-        //startActivity(intent);
+        service = retrofit.create(DetallesInterface.class);
 
-        final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
-        peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
+
+            final PeticionDetallesJSON peticionDetallesJSON = new PeticionDetallesJSON();
+
+            peticionDetallesJSON.setIdEmpleado(Session.getInstance().getId_empleado_seleccionado());
+            peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
+
+
+            Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
+            detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
+
+
+                @Override
+                public void onResponse(Call<DetallesJSON> call, Response<DetallesJSON> response) {
+
+                    DetallesJSON detallesJSON = response.body();
+
+                    nombreDetalle.setText(detallesJSON.getNombre());
+                    apellidosDetalle.setText(detallesJSON.getApellidos());
+                    telefonoMovilDetalle.setText(detallesJSON.getTelefonoMovil());
+                    telefonoDirectoDetalle.setText(detallesJSON.getTelefonoDirecto());
+                    correoDetalle.setText(detallesJSON.getCorreo());
+                    correoAlternativoDetalle.setText(detallesJSON.getCorreoAlternativo());
+                    direccionDetalle.setText(detallesJSON.getDireccion());
+                    extensionDetalle.setText(detallesJSON.getExtension());
+                    centralitaDetalle.setText(detallesJSON.getCentralita());
+                    localizacionDetalle.setText(detallesJSON.getLocalizacion());
+                    areaDetalle.setText(detallesJSON.getArea());
+                    empresaDetalle.setText(detallesJSON.getEmpresa());
+
+
+                }
+
+                @Override
+                public void onFailure(Call<DetallesJSON> call, Throwable t) {
+
+                    Toast.makeText(DetalleActivity.this, "Detalles vacios", Toast.LENGTH_SHORT).show();
+
+                }
+
+            });
 
     }
+
 
     @Override
     public void onClick(View v) {
@@ -237,3 +263,4 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     }
 
 }
+
