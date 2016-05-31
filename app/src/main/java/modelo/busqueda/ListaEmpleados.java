@@ -3,6 +3,9 @@ package modelo.busqueda;
 
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -12,7 +15,7 @@ import java.util.List;
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
  */
-public class ListaEmpleados implements Serializable {
+public class ListaEmpleados implements Serializable{
 
     @SerializedName("empleados")
     @Expose
@@ -26,4 +29,5 @@ public class ListaEmpleados implements Serializable {
 
         return empleados;
     }
+
 }
