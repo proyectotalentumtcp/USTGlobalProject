@@ -87,6 +87,7 @@ public class MainActivity extends Activity {
             peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
             peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
 
+
             Call<ListaEmpleados> listaEmpleadosCall = service.getListaEmpleados(peticionBusquedaJSON);
             listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
                 @Override
@@ -96,11 +97,11 @@ public class MainActivity extends Activity {
 
                     ListaEmpleados listaEmpleados1 = response.body();
 
+                    //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
+
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
-
-
 
                         Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
 

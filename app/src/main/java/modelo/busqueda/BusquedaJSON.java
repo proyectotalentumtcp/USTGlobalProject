@@ -3,6 +3,9 @@ package modelo.busqueda;
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
  */
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -66,4 +69,37 @@ public class BusquedaJSON implements Serializable{
     public String getImageBase64() {
         return imageBase64;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setCorreoAlternativo(String correoAlternativo) {
+        this.correoAlternativo = correoAlternativo;
+    }
+
+    public void setTelefonoDirecto(String telefonoDirecto) {
+        this.telefonoDirecto = telefonoDirecto;
+    }
+
+    public void setTelefonoMovil(String telefonoMovil) {
+        this.telefonoMovil = telefonoMovil;
+    }
+
+    public void setImageBase64(String imageBase64) {
+        this.imageBase64 = imageBase64;
+    }
+
 }

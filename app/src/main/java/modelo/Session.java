@@ -21,6 +21,8 @@ public class Session {
 
     public String sessionId;
 
+    public int id_empleado_seleccionado;
+
     public String getSessionId() {
         return sessionId;
     }
@@ -29,5 +31,13 @@ public class Session {
 
         this.sessionId = sessionId;
 
+    }
+
+    public int getId_empleado_seleccionado() {
+        return id_empleado_seleccionado;
+    }
+
+    public void setId_empleado_seleccionado(int id_empleado_seleccionado) {
+        this.id_empleado_seleccionado = id_empleado_seleccionado;
     }
 }
