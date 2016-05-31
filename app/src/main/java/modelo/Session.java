@@ -37,7 +37,7 @@ public class Session {
         return sessionId;
     }
 
-    public void setSessionId(String sessionId){
+    public void setSessionId(String sessionId){ //se usa en Login (que es donde se define la sesion)
 
         this.sessionId = sessionId;
 

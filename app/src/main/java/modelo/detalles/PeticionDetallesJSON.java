@@ -15,18 +15,6 @@ public class PeticionDetallesJSON {
     @Expose
     public String sessionId;
 
-    public PeticionDetallesJSON (Integer idEmpleado, String sessionId){
-
-        this.idEmpleado = idEmpleado;
-        this.sessionId = sessionId;
-
-
-    }
-
-    public PeticionDetallesJSON() {
-
-    }
-
     public int getIdEmpleado() {
         return idEmpleado;
     }

@@ -89,6 +89,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         final DetallesEmpleado detallesEmpleado = new DetallesEmpleado();
 
         peticionDetallesJSON.setIdEmpleado(Session.getInstance().getId_empleado_seleccionado());
+        Log.i("empleado seleccionado",String.valueOf(Session.getInstance().getId_empleado_seleccionado()));
         peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
 
 

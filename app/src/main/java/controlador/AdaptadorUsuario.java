@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -107,7 +108,10 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             @Override
             public void onClick(View v) {
 
-                Context contexto = v.getContext();
+                Context contexto = v.getContext(); //com.iuriX.ustglobalproject.BusquedaActivity@7a87dca
+                ViewGroup.LayoutParams parametros = v.getLayoutParams();
+                Integer as = parametros.MATCH_PARENT;
+                Log.i("parametros",String.valueOf(parametros));
                 Intent intent = new Intent(contexto, DetalleActivity.class);
 
                 Toast.makeText(contexto, "Esto Pasa a la siguiente activity", Toast.LENGTH_LONG).show();
