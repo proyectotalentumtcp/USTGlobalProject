@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.iuriX.ustglobalproject.DetalleActivity;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import modelo.busqueda.BusquedaInterface;
@@ -90,14 +91,18 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         viewHolder.nombre.setText(usuarios.getListaUsuarios().get(position).getNombre());
         viewHolder.apellidos.setText(usuarios.getListaUsuarios().get(position).getApellidos());
 
+        byte[] decodedByte = Base64.decode(usuarios.getListaUsuarios().get(position).getImageBase64(), Base64.DEFAULT);
+        try {
+            String decodedString = new String(decodedByte, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        //Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        //viewHolder.imagen.setImageBitmap(decodedByte);
 
-        /*byte[] decodedString = Base64.decode(usuarios.getListaUsuarios().get(position).getImageBase64());
-        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-        viewHolder.imagen.setImageBitmap(decodedByte);*/
-
+        //viewHolder.imagen.setImageBitmap();
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){
-
 
             @Override
             public void onClick(View v) {
@@ -128,14 +133,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 user.setArea(usuarios.get(position).getArea());
                 user.setEmpresa(usuarios.get(position).getEmpresa());*/
 
-
-
             }
         });
 
-
-
     }
-
 
 }
