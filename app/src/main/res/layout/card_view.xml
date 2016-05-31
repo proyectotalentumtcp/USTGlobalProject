@@ -54,6 +54,8 @@
                 android:id="@+id/telefonoMovilBoton"
                 android:tag="@string/telefonoMovil"
                 android:clickable="true"
+
+
                 android:longClickable="true"
                 android:onClick="onClick"
                 android:layout_gravity="center_vertical"
