@@ -11,32 +11,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.iuriX.ustglobalproject.BusquedaActivity;
 import com.iuriX.ustglobalproject.DetalleActivity;
-import com.iuriX.ustglobalproject.MainActivity;
 
 
 import java.util.List;
 
-import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.BusquedaJSON;
 
 import modelo.busqueda.ListaEmpleados;
 import modelo.busqueda.PeticionBusquedaJSON;
-import modelo.detalles.DetallesEmpleado;
-import modelo.detalles.DetallesInterface;
 import modelo.detalles.PeticionDetallesJSON;
 import modelo.login.R;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -46,8 +37,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
     public ListaEmpleados usuarios;
-    private EditText textoDetalles;
-    private DetallesInterface servicio;
+
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
 
@@ -124,45 +114,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
                 // Aqui va la llamada al servicio Rest que completa la vista del detalle
                 // tienes que pasar en un intent los datos a la siguiente vista
-
-                final PeticionDetallesJSON peticionDetallesJSON = new PeticionDetallesJSON();
-                final DetallesEmpleado detallesEmpleado = new DetallesEmpleado();
-
-                peticionDetallesJSON.setIdEmpleado(Session.getInstance().getId_empleado_seleccionado());
-                peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
-
-                Call<DetallesEmpleado> detallesEmpleadoCall = servicio.getDetallesEmpleado(peticionDetallesJSON);
-                detallesEmpleadoCall.enqueue(new Callback<DetallesEmpleado>() {
-                    @Override
-                    public void onResponse(Call<DetallesEmpleado> call, Response<DetallesEmpleado> response) {
-
-                        int statusCode = response.code();
-
-                        DetallesEmpleado detallesEmpleado1 = response.body();
-
-                        Log.d("DetallesEmpleado", "onResponse" + statusCode + " " + detallesEmpleado1);
-
-                        Intent intentDetalles = new Intent(AdaptadorUsuario.this, DetallesEmpleado.class);
-
-                        Session.getInstance().setListaEmpleadosSession(detallesEmpleado1);
-
-                        startActivity(intentDetalles);
-
-
-
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<DetallesEmpleado> call, Throwable t) {
-
-                        Log.d("LoginActivity", "onFailure: " + t.getMessage());
-
-                    }
-
-                });
-
-
+                
                 contexto.startActivity(intent);
 
                 /*usuario user = new Usuario();
