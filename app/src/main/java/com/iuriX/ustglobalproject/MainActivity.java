@@ -102,11 +102,8 @@ public class MainActivity extends Activity {
 
 
 
-                        Intent intentBusqueda = new Intent(getApplicationContext(), BusquedaActivity.class);
+                        Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
 
-                        Intent intentAdaptador = new Intent(getApplicationContext(), AdaptadorUsuario.class);
-
-                        intentAdaptador.putExtra("empleados", listaEmpleados1);
                         intentBusqueda.putExtra("empleados", listaEmpleados1);
 
 
