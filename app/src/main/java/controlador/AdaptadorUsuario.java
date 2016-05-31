@@ -3,7 +3,10 @@ package controlador;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,7 +89,11 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
         viewHolder.nombre.setText(usuarios.getListaUsuarios().get(position).getNombre());
         viewHolder.apellidos.setText(usuarios.getListaUsuarios().get(position).getApellidos());
-        //viewHolder.imagen.setImageResource(usuarios.getListaUsuarios().get(position).getId());
+
+
+        /*byte[] decodedString = Base64.decode(usuarios.getListaUsuarios().get(position).getImageBase64());
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        viewHolder.imagen.setImageBitmap(decodedByte);*/
 
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){
