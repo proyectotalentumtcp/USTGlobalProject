@@ -142,7 +142,11 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
             Log.i("ShortClick","mail");
             //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
             mail(tv);
-        } else if (v.getTag().toString().equals("GuardarContacto")) {
+        } else if (v.getTag().toString().equals("Ubicar")) {
+            Log.i("ShortClick","map");
+            //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            memorizar(tv);
+        }else if (v.getTag().toString().equals("GuardarContacto")) {
             Log.i("ShortClick","save");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
             memorizar(tv);
@@ -196,6 +200,13 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         //emailIntent.putExtra(Intent.EXTRA_TEXT, "texto del correo"); //opcional
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {(String) tv.getText()}); //ok
         startActivity(emailIntent);
+    }
+
+    private void map(TextView tv){ //https://developers.google.com/maps/documentation/android-api/intents#busqueda_categorica
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + tv.getText());
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
     }
 
     //Función de llamada
