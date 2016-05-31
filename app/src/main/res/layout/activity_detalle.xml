@@ -48,7 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="center_horizontal"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,30 +84,6 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="20dp"
                     />
-
-                <!--TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="Apellido1"
-                    android:textStyle="bold"
-                    android:textColor="#666"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/apellido1Detalle"
-                    android:layout_toRightOf="@+id/nombreDetalle"
-                    android:layout_alignParentTop="true"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="Apellido2"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/apellido2Detalle"
-                    android:layout_alignParentTop="true"
-                    /-->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -376,6 +353,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -406,6 +384,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -436,8 +415,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -451,6 +430,7 @@
                     android:id="@+id/areaDetalle"
                     android:tag="@string/correo"
                     />
+
             </LinearLayout>
 
             <LinearLayout
