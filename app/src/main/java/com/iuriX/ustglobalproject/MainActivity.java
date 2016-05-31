@@ -105,8 +105,7 @@ public class MainActivity extends Activity {
 
                         Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
 
-                        intentBusqueda.putExtra("empleados", listaEmpleados1);
-
+                        Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
 
                         startActivity(intentBusqueda);

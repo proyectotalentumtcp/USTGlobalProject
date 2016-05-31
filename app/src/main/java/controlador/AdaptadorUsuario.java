@@ -20,6 +20,7 @@ import java.util.List;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.BusquedaJSON;
 
+import modelo.busqueda.ListaEmpleados;
 import modelo.login.R;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -29,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
-    public List<BusquedaJSON> usuarios;
+    public ListaEmpleados usuarios;
 
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
@@ -58,7 +59,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
 
 
-    public AdaptadorUsuario(List<BusquedaJSON> usuarios){
+    public AdaptadorUsuario(ListaEmpleados usuarios){
 
         this.usuarios = usuarios;
 
@@ -66,7 +67,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
     @Override
     public int getItemCount() {
-        return usuarios.size();
+        return usuarios.getListaUsuarios().size();
     }
 
 
@@ -83,9 +84,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     @Override
     public void onBindViewHolder(UsuarioViewHolder viewHolder, final int position) {
 
-        viewHolder.nombre.setText(usuarios.get(position).getNombre());
-        viewHolder.apellidos.setText(usuarios.get(position).getApellidos());
-        viewHolder.imagen.setImageResource(usuarios.get(position).getId());
+        viewHolder.nombre.setText(usuarios.getListaUsuarios().get(position).getNombre());
+        viewHolder.apellidos.setText(usuarios.getListaUsuarios().get(position).getApellidos());
+        //viewHolder.imagen.setImageResource(usuarios.getListaUsuarios().get(position).getId());
 
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){

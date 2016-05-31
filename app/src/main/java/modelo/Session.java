@@ -1,5 +1,10 @@
 package modelo;
 
+import java.util.List;
+
+import modelo.busqueda.BusquedaJSON;
+import modelo.busqueda.ListaEmpleados;
+
 /**
  * Created by Miguel Rodríguez on 26/05/2016.
  */
@@ -23,6 +28,8 @@ public class Session {
 
     public int id_empleado_seleccionado;
 
+    public ListaEmpleados listaEmpleadosSession;
+
     public String getSessionId() {
         return sessionId;
     }
@@ -39,5 +46,13 @@ public class Session {
 
     public void setId_empleado_seleccionado(int id_empleado_seleccionado) {
         this.id_empleado_seleccionado = id_empleado_seleccionado;
+    }
+
+    public ListaEmpleados getListaEmpleadosSession() {
+        return listaEmpleadosSession;
+    }
+
+    public void setListaEmpleadosSession(ListaEmpleados listaEmpleadosSession) {
+        this.listaEmpleadosSession = listaEmpleadosSession;
     }
 }
