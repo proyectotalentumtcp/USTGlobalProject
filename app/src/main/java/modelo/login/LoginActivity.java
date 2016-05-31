@@ -22,6 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends Activity {
 
+    // Referencias
     EditText mUser, mPass;
     private LogEasyApi service;
 
@@ -35,6 +36,7 @@ public class LoginActivity extends Activity {
 
         ButterKnife.bind(this);
 
+        // Creando la forma del login
         mUser = (EditText) findViewById(R.id.usuario);
         mPass = (EditText) findViewById(R.id.contra);
 
@@ -48,17 +50,27 @@ public class LoginActivity extends Activity {
         service = retrofit.create(LogEasyApi.class);
     }
 
+    /**
+     * Intento de login con la forma especificada
+     * Si existe algún error o campo vacío, se muestran
+     * los errores y no se realiza el login
+     */
+
     @OnClick(R.id.bLogin)
     public void attemptLogin() {
+
+        // Reiniciando errores
         mUser.setError(null);
         mPass.setError(null);
 
+        // Almacenar los valores en el momento del intento de conexión
         String login = mUser.getText().toString();
         String password = mPass.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
+        //Comprobación de que los campos están rellenos
         if (password.equals("")) {
             mPass.setError("Campo vacío");
             focusView = mPass;
@@ -72,13 +84,17 @@ public class LoginActivity extends Activity {
         }
 
         if (cancel) {
+
+            //Si existe algún error, no intentar el login
             focusView.requestFocus();
         }else {
-            final TokenRequest tokenRequest = new TokenRequest();
+
+            //Realización del envío de datos al servidor y recogida de la respuesta en forma JSON
+            TokenRequest tokenRequest = new TokenRequest();
 
             tokenRequest.setlogin(login);
             tokenRequest.setPassword(password);
-            
+
             Call<TokenResponse> tokenResponseCall = service.getTokenAccess(tokenRequest);
             tokenResponseCall.enqueue(new Callback<TokenResponse>() {
                 @Override
@@ -103,7 +119,6 @@ public class LoginActivity extends Activity {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
                 }
             });
-
         }
     }
 }
