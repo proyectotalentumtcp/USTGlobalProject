@@ -190,7 +190,7 @@
                     android:text="698848484"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/telefonoDirectoDetalle"
                     android:tag="@string/telefonoDirecto"
                     android:clickable="true"

@@ -9,10 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.iuriX.ustglobalproject.BusquedaActivity;
 import com.iuriX.ustglobalproject.MainActivity;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,8 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends Activity {
 
+    // Referencias
     EditText mUser, mPass;
-    // int contador = 3;
     private LogEasyApi service;
 
     @BindView(R.id.bLogin)
@@ -39,6 +36,7 @@ public class LoginActivity extends Activity {
 
         ButterKnife.bind(this);
 
+        // Creando la forma del login
         mUser = (EditText) findViewById(R.id.usuario);
         mPass = (EditText) findViewById(R.id.contra);
 
@@ -52,17 +50,27 @@ public class LoginActivity extends Activity {
         service = retrofit.create(LogEasyApi.class);
     }
 
+    /**
+     * Intento de login con la forma especificada
+     * Si existe algún error o campo vacío, se muestran
+     * los errores y no se realiza el login
+     */
+
     @OnClick(R.id.bLogin)
     public void attemptLogin() {
+
+        // Reiniciando errores
         mUser.setError(null);
         mPass.setError(null);
 
+        // Almacenar los valores en el momento del intento de conexión
         String login = mUser.getText().toString();
         String password = mPass.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
+        //Comprobación de que los campos están rellenos
         if (password.equals("")) {
             mPass.setError("Campo vacío");
             focusView = mPass;
@@ -76,9 +84,13 @@ public class LoginActivity extends Activity {
         }
 
         if (cancel) {
+
+            // Si existe algún error, no intentar el login
             focusView.requestFocus();
         }else {
-            final TokenRequest tokenRequest = new TokenRequest();
+
+            // Realización del envío de datos al servidor y recogida de la respuesta en forma JSON
+            TokenRequest tokenRequest = new TokenRequest();
 
             tokenRequest.setlogin(login);
             tokenRequest.setPassword(password);
@@ -107,31 +119,7 @@ public class LoginActivity extends Activity {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
                 }
             });
-
         }
     }
 }
-    /*blogin.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            if(ed1.getText().toString().equals("admin") && ed2.getText().toString().equals("admin")) {
-                Toast.makeText(getApplicationContext(), "Cargando...",Toast.LENGTH_SHORT).show();
-                Intent ventanaSearch = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(ventanaSearch);
-
-            }
-            else{
-                Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos",Toast.LENGTH_SHORT).show();
-
-                contador--;
-
-
-                if (contador == 0) {
-                    Toast.makeText(getApplicationContext(), "Demasiados intentos, login deshabilitado",Toast.LENGTH_SHORT).show();
-                    blogin.setEnabled(false);
-                }
-            }
-        }
-    });*/
 
