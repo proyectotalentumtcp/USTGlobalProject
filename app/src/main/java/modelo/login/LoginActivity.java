@@ -9,10 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.iuriX.ustglobalproject.BusquedaActivity;
 import com.iuriX.ustglobalproject.MainActivity;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,7 +23,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends Activity {
 
     EditText mUser, mPass;
-    // int contador = 3;
     private LogEasyApi service;
 
     @BindView(R.id.bLogin)
@@ -83,6 +79,11 @@ public class LoginActivity extends Activity {
             tokenRequest.setlogin(login);
             tokenRequest.setPassword(password);
 
+            for (int x=0; x < login.length(); x++) {
+                if (login.charAt(x) != ' ')
+                    NoWhite += login.charAt(x);
+            }
+
             Call<TokenResponse> tokenResponseCall = service.getTokenAccess(tokenRequest);
             tokenResponseCall.enqueue(new Callback<TokenResponse>() {
                 @Override
@@ -111,27 +112,4 @@ public class LoginActivity extends Activity {
         }
     }
 }
-    /*blogin.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            if(ed1.getText().toString().equals("admin") && ed2.getText().toString().equals("admin")) {
-                Toast.makeText(getApplicationContext(), "Cargando...",Toast.LENGTH_SHORT).show();
-                Intent ventanaSearch = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(ventanaSearch);
-
-            }
-            else{
-                Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos",Toast.LENGTH_SHORT).show();
-
-                contador--;
-
-
-                if (contador == 0) {
-                    Toast.makeText(getApplicationContext(), "Demasiados intentos, login deshabilitado",Toast.LENGTH_SHORT).show();
-                    blogin.setEnabled(false);
-                }
-            }
-        }
-    });*/
 

@@ -157,7 +157,7 @@ public class MainActivity extends Activity {
         twice = true;
         Log.d("MainActivity", "twice: " + twice);
 
-       Toast.makeText(MainActivity.this,"Presiona de nuevo ATRÁS para salir", Toast.LENGTH_SHORT).show();
+       Toast.makeText(MainActivity.this,"Presiona ATRÁS de nuevo para salir", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
