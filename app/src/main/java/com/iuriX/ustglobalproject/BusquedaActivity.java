@@ -20,7 +20,6 @@ public class BusquedaActivity extends Activity {
     private RecyclerView listaUsuarios;
     private RecyclerView.Adapter adaptador;
     private RecyclerView.LayoutManager lManager;
-    List usuarios = new ArrayList();
 
 
     @Override
@@ -34,12 +33,7 @@ public class BusquedaActivity extends Activity {
         lManager = new LinearLayoutManager(this);
         listaUsuarios.setLayoutManager(lManager);
 
-        ListaEmpleados listaEmpleados = new ListaEmpleados();
-
-        Intent intent = getIntent();
-
-        getIntent().getSerializableExtra("empleados");
-
+        ListaEmpleados listaEmpleados = (ListaEmpleados)getIntent().getSerializableExtra("empleados");
 
 
         adaptador = new AdaptadorUsuario(listaEmpleados.getListaUsuarios());
