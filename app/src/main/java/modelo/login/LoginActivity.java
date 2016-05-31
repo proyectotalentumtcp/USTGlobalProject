@@ -85,11 +85,11 @@ public class LoginActivity extends Activity {
 
         if (cancel) {
 
-            //Si existe algún error, no intentar el login
+            // Si existe algún error, no intentar el login
             focusView.requestFocus();
         }else {
 
-            //Realización del envío de datos al servidor y recogida de la respuesta en forma JSON
+            // Realización del envío de datos al servidor y recogida de la respuesta en forma JSON
             TokenRequest tokenRequest = new TokenRequest();
 
             tokenRequest.setlogin(login);
