@@ -78,12 +78,7 @@ public class LoginActivity extends Activity {
 
             tokenRequest.setlogin(login);
             tokenRequest.setPassword(password);
-
-            for (int x=0; x < login.length(); x++) {
-                if (login.charAt(x) != ' ')
-                    NoWhite += login.charAt(x);
-            }
-
+            
             Call<TokenResponse> tokenResponseCall = service.getTokenAccess(tokenRequest);
             tokenResponseCall.enqueue(new Callback<TokenResponse>() {
                 @Override
