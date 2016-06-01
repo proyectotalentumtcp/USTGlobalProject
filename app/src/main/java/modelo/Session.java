@@ -1,5 +1,8 @@
 package modelo;
 
+import java.util.List;
+
+import modelo.busqueda.BusquedaJSON;
 import modelo.busqueda.ListaEmpleados;
 import modelo.detalles.DetallesEmpleado;
 

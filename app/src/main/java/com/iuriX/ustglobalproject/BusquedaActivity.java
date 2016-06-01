@@ -41,7 +41,7 @@ public class BusquedaActivity extends Activity {
         lManager = new LinearLayoutManager(this);
         listaUsuarios.setLayoutManager(lManager);
 
-        buscarBusqueda = (TextView)findViewById(R.id.buscarBusqueda);
+
 
         adaptador = new AdaptadorUsuario(Session.getInstance().getListaEmpleadosSession());
         listaUsuarios.setAdapter(adaptador);
@@ -56,6 +56,8 @@ public class BusquedaActivity extends Activity {
 
         service = retrofit.create(BusquedaInterface.class);
 
+        //buscarBusqueda.setError(null);
+
         String busqueda = buscarBusqueda.getText().toString();
 
         boolean cancel = false;
@@ -65,7 +67,8 @@ public class BusquedaActivity extends Activity {
 
             buscarBusqueda.setError("Campo de busqueda vacío");
             focusView = buscarBusqueda;
-            cancel = true; //cancelado para aligerar testea
+            //cancel = true; //cancelado para aligerar testea
+
         }
 
         if (cancel){
@@ -86,20 +89,28 @@ public class BusquedaActivity extends Activity {
 
                     int statusCode = response.code();
 
-                    ListaEmpleados listaEmpleadosActualizada = response.body();
+                    ListaEmpleados listaEmpleados1 = response.body();
 
-                    if (listaEmpleadosActualizada.getListaUsuarios().size() > 0) {
-                        Toast.makeText(BusquedaActivity.this, "Clickado busqueda",Toast.LENGTH_SHORT).show();
+                    //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
 
-                        Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleadosActualizada);
+                    if (listaEmpleados1.getListaUsuarios().size() > 0) {
+
+                        Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
+
+
+                        Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
                         adaptador.notifyDataSetChanged();
-                        Session.getInstance().setListaEmpleadosSession(listaEmpleadosActualizada);
+
 
                     } else {
 
                         Toast.makeText(BusquedaActivity.this, "Lista de empleados vacía", Toast.LENGTH_SHORT).show();
 
                     }
+
+
+
+
                 }
 
                 @Override
@@ -108,9 +119,15 @@ public class BusquedaActivity extends Activity {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }
+
             });
+
+
         }
+
     }
+
+
 }
 
 

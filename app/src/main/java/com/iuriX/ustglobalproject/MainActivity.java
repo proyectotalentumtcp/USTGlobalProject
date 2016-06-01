@@ -97,6 +97,8 @@ public class MainActivity extends Activity {
 
                     ListaEmpleados listaEmpleados1 = response.body();
 
+                    //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
+
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
@@ -105,22 +107,33 @@ public class MainActivity extends Activity {
 
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
+
                         startActivity(intentBusqueda);
+
 
                     } else {
 
                         Toast.makeText(MainActivity.this, "Lista de empleados vacía", Toast.LENGTH_SHORT).show();
 
                     }
+
+
+
+
                 }
 
                 @Override
                 public void onFailure(Call<ListaEmpleados> call, Throwable t) {
 
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
+
                 }
+
             });
+
+
         }
+
     }
 
     boolean twice;

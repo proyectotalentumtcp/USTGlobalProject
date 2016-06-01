@@ -17,13 +17,13 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             >
 
        <ImageView
            android:layout_width="60dp"
-           android:layout_height="60dp"
+           android:layout_height="match_parent"
            android:id="@+id/imagen"
            android:src="@drawable/usuario3"
            />
@@ -47,35 +47,41 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="right"
+                >
 
-            <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/llamada1"
                 android:id="@+id/telefonoMovilBoton"
-                android:layout_gravity="center"
                 android:tag="@string/telefonoMovil"
                 android:clickable="true"
                 android:longClickable="true"
-                android:onClick="onClick"
+                android:onClick="onClick2"
+                android:layout_gravity="center_vertical"
                 android:background="#ffffff"
                 />
 
-             <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="32dp"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:src="@drawable/correo"
-                android:elevation="4dp"
-                android:layout_gravity="center"
                 android:id="@+id/correoBoton"
                 android:tag="@string/correo"
                 android:clickable="true"
+                android:layout_marginLeft="10dp"
                 android:longClickable="true"
-                android:onClick="onClick"
+                android:onClick="onClick2"
                 />
 
-
+            </LinearLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

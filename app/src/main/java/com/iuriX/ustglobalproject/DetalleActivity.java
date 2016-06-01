@@ -14,6 +14,9 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import android.widget.ImageButton;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,10 +31,14 @@ import modelo.detalles.DetallesEmpleado;
 import modelo.detalles.DetallesInterface;
 import modelo.detalles.DetallesJSON;
 import modelo.detalles.PeticionDetallesJSON;
+<<<<<<< HEAD
 import modelo.login.LoginActivity;
 import modelo.login.R;
 import modelo.login.TokenRequest;
 import modelo.login.TokenResponse;
+=======
+import modelo.login.R;
+>>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,6 +48,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
     TextView nombreDetalle;
+<<<<<<< HEAD
+=======
+    //    TextView apellido1Detalle;
+//    TextView apellido2Detalle;
+>>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
     TextView apellidosDetalle;
     TextView telefonoMovilDetalle;
     TextView telefonoDirectoDetalle;
@@ -53,13 +65,18 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     TextView areaDetalle;
     TextView empresaDetalle;
     Button agenda;
+<<<<<<< HEAD
 
     @BindView(R.id.logout)
     LinearLayout logout;
 
+=======
+    ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton;
+>>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
+    LinearLayout logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +98,20 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         areaDetalle = (TextView)findViewById(R.id.areaDetalle);
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
+<<<<<<< HEAD
+=======
+        imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
+        imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
+        correoBoton = (ImageView)findViewById(R.id.correoBoton);
+        logout = (LinearLayout)findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DetalleActivity.this, "He clickado para ir al logout", Toast.LENGTH_SHORT ).show();
+            }
+        });
+>>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
 
         imagenUsuarioDetalle.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) { logout1();}});
@@ -95,7 +126,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         service = retrofit.create(DetallesInterface.class);
 
-
         final PeticionDetallesJSON peticionDetallesJSON = new PeticionDetallesJSON();
         final DetallesEmpleado detallesEmpleado = new DetallesEmpleado();
 
@@ -103,48 +133,56 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         Log.i("empleado seleccionado",String.valueOf(Session.getInstance().getId_empleado_seleccionado()));
         peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
 
+<<<<<<< HEAD
             Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
             detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
+=======
 
 
-                @Override
-                public void onResponse(Call<DetallesJSON> call, Response<DetallesJSON> response) {
 
-                    int statusCode = response.code();
-                    DetallesJSON detallesEmpleado1 = response.body();
+        Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
+        detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
+>>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
 
-                    Log.d("MainActivity", "onResponse" + statusCode + " " + detallesEmpleado1);
 
-                    nombreDetalle.setText(detallesEmpleado1.getNombre());
-                    apellidosDetalle.setText(detallesEmpleado1.getApellidos());
-                    telefonoMovilDetalle.setText(detallesEmpleado1.getTelefonoMovil());
-                    telefonoDirectoDetalle.setText(detallesEmpleado1.getTelefonoDirecto());
-                    correoDetalle.setText(detallesEmpleado1.getCorreo());
-                    correoAlternativoDetalle.setText(detallesEmpleado1.getCorreoAlternativo());
-                    direccionDetalle.setText(detallesEmpleado1.getDireccion());
-                    extensionDetalle.setText(detallesEmpleado1.getExtension());
-                    centralitaDetalle.setText(detallesEmpleado1.getCentralita());
-                    localizacionDetalle.setText(detallesEmpleado1.getLocalizacion());
-                    areaDetalle.setText(detallesEmpleado1.getArea());
-                    empresaDetalle.setText(detallesEmpleado1.getEmpresa());
+            @Override
+            public void onResponse(Call<DetallesJSON> call, Response<DetallesJSON> response) {
 
-                    byte[] decodedString = Base64.decode(detallesEmpleado1.getImageBase64().getBytes(), Base64.URL_SAFE);
-                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                    imagenUsuarioLabel.setImageBitmap(decodedByte);
-                    imagenUsuarioDetalle.setImageBitmap(decodedByte);
+                int statusCode = response.code();
+                DetallesJSON detallesEmpleado1 = response.body();
 
-                    Session.getInstance().setDetallesEmpleadoSession(detallesEmpleado);
+                Log.d("MainActivity", "onResponse" + statusCode + " " + detallesEmpleado1);
 
-                }
+                nombreDetalle.setText(detallesEmpleado1.getNombre());
+                apellidosDetalle.setText(detallesEmpleado1.getApellidos());
+                telefonoMovilDetalle.setText(detallesEmpleado1.getTelefonoMovil());
+                telefonoDirectoDetalle.setText(detallesEmpleado1.getTelefonoDirecto());
+                correoDetalle.setText(detallesEmpleado1.getCorreo());
+                correoAlternativoDetalle.setText(detallesEmpleado1.getCorreoAlternativo());
+                direccionDetalle.setText(detallesEmpleado1.getDireccion());
+                extensionDetalle.setText(detallesEmpleado1.getExtension());
+                centralitaDetalle.setText(detallesEmpleado1.getCentralita());
+                localizacionDetalle.setText(detallesEmpleado1.getLocalizacion());
+                areaDetalle.setText(detallesEmpleado1.getArea());
+                empresaDetalle.setText(detallesEmpleado1.getEmpresa());
 
-                @Override
-                public void onFailure(Call<DetallesJSON> call, Throwable t) {
+                byte[] decodedString = Base64.decode(detallesEmpleado1.getImageBase64().getBytes(), Base64.URL_SAFE);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                imagenUsuarioLabel.setImageBitmap(decodedByte);
+                imagenUsuarioDetalle.setImageBitmap(decodedByte);
 
-                    Toast.makeText(DetalleActivity.this, "Detalles vacios", Toast.LENGTH_SHORT).show();
+                Session.getInstance().setDetallesEmpleadoSession(detallesEmpleado);
 
-                }
+            }
 
-            });
+            @Override
+            public void onFailure(Call<DetallesJSON> call, Throwable t) {
+
+                Toast.makeText(DetalleActivity.this, "Detalles vacios", Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
 
     }
 
@@ -161,25 +199,28 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         Session.getInstance().setSessionId("");
     }
 
+
+
+
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) { //texto
 
         int identificador;
         identificador = v.getId();
         TextView tv = (TextView) this.findViewById(identificador);
 
-        if (v.getTag().toString().equals("Llamar")) {
+        if (v.getTag().toString().equals("LlamarMovil") || v.getTag().toString().equals("Llamar")) {
             Log.i("ShortClick","call");
             //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
-            call(tv);
-        } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            //call(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreo") || v.getTag().toString().equals("EnviarCorreoAlt")) {
             Log.i("ShortClick","mail");
             //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
-            mail(tv);
+            //mail(tv);
         } else if (v.getTag().toString().equals("Ubicar")) {
             Log.i("ShortClick","map");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
-            map(tv);
+            //map(tv);
         }else if (v.getTag().toString().equals("GuardarContacto")) {
             Log.i("ShortClick","save");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
@@ -187,6 +228,56 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void onClick2(View v){ //boton
+        int identificador;
+        identificador = v.getId();
+        ImageButton btn = (ImageButton) this.findViewById(identificador);
+
+        if (v.getTag().toString().equals("LlamarMovil")) {
+            Log.i("ShortClick","call");
+            //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
+            TextView tv = this.telefonoMovilDetalle;
+            call(tv);
+        } else if (v.getTag().toString().equals("Llamar")) {
+            Log.i("ShortClick","call");
+            //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
+            TextView tv = this.telefonoDirectoDetalle;
+            call(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            Log.i("ShortClick","mail");
+            //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
+            TextView tv = this.correoDetalle;
+            mail(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreoAlt")) {
+            Log.i("ShortClick","mail");
+            //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
+            TextView tv = this.correoAlternativoDetalle;
+            mail(tv);
+        } else if (v.getTag().toString().equals("Ubicar")) {
+            Log.i("ShortClick","map");
+            //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            TextView tv = this.direccionDetalle;
+            map(tv);
+        }
+    }
+
+/*    @Override
+    public boolean onLongClick(View v) {
+
+        int identificador;
+        identificador = v.getId();
+        TextView tv = (TextView) this.findViewById(identificador);
+
+        Log.i("LongClick","ok");
+        // TODO Auto-generated method stub
+        Toast.makeText(getApplicationContext(), "LongClick", Toast.LENGTH_SHORT).show();
+        memorizar(tv);
+        return true;
+    }*/
+
+>>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
     private void memorizar(TextView tv){
         CharSequence Nombre = nombreDetalle.getText();
         CharSequence Apellidos = apellidosDetalle.getText();
