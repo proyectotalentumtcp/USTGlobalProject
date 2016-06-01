@@ -11,6 +11,7 @@ import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -269,6 +270,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
 
     //Función de llamada
     public void call(String ST) {
+        Log.i("estamos","en llamada");
         callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + ST));
         if (Build.VERSION.SDK_INT < 23) {
