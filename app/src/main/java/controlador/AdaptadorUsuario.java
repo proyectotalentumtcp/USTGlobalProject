@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.iuriX.ustglobalproject.DetalleActivity;
 import modelo.Session;
 import modelo.busqueda.ListaEmpleados;
@@ -30,6 +32,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         public TextView nombre;
         public TextView apellidos;
         public ImageView imagen;
+        ImageView botonLlamar, botonMail;
 
         public final View vista;
 
@@ -39,6 +42,27 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             nombre = (TextView)v.findViewById(R.id.nombre);
             apellidos = (TextView)v.findViewById(R.id.apellidos);
             imagen = (ImageView)v.findViewById(R.id.imagen);
+            botonLlamar = (ImageView)v.findViewById(R.id.telefonoMovilBotonC);
+            botonMail = (ImageView)v.findViewById(R.id.correoBotonC);
+
+            botonLlamar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(), "He clickado el boton LLAMAR", Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+            botonMail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(), "He clickado el boton MAIL", Toast.LENGTH_LONG).show();
+
+
+                }
+            });
 
         }
     }
