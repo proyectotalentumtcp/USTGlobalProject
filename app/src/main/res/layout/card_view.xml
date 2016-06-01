@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
     <android.support.v7.widget.CardView
@@ -71,7 +71,6 @@
                 android:id="@+id/correoBoton"
                 android:tag="@string/correo"
                 android:clickable="true"
-                gr
                 android:longClickable="true"
                 android:onClick="onClick"
                 />
