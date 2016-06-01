@@ -15,20 +15,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.Activity;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import modelo.Session;
-import modelo.busqueda.ListaEmpleados;
-import modelo.busqueda.PeticionBusquedaJSON;
 import modelo.detalles.DetallesEmpleado;
 import modelo.detalles.DetallesInterface;
 import modelo.detalles.DetallesJSON;
 import modelo.detalles.PeticionDetallesJSON;
-import modelo.login.LogEasyApi;
+import modelo.login.LoginActivity;
 import modelo.login.R;
-import modelo.Usuario;
+import modelo.login.TokenRequest;
+import modelo.login.TokenResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,8 +41,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
     TextView nombreDetalle;
-//    TextView apellido1Detalle;
-//    TextView apellido2Detalle;
     TextView apellidosDetalle;
     TextView telefonoMovilDetalle;
     TextView telefonoDirectoDetalle;
@@ -52,19 +53,22 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     TextView areaDetalle;
     TextView empresaDetalle;
     Button agenda;
-    ImageView imagenUsuarioLabel, imagenUsuarioDetalle;
+
+    @BindView(R.id.logout)
+    LinearLayout logout;
+
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ButterKnife.bind(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
 
         nombreDetalle = (TextView)findViewById(R.id.nombreDetalle);
-//        apellido1Detalle = (TextView)findViewById(R.id.apellido1Detalle);
-//        apellido2Detalle = (TextView)findViewById(R.id.apellido2Detalle);
         apellidosDetalle = (TextView)findViewById(R.id.apellidosDetalle);
         telefonoMovilDetalle = (TextView)findViewById(R.id.telefonoMovilDetalle);
         telefonoDirectoDetalle = (TextView)findViewById(R.id.telefonoDirectoDetalle);
@@ -77,12 +81,12 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         areaDetalle = (TextView)findViewById(R.id.areaDetalle);
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
-        imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
-        imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
 
+        imagenUsuarioDetalle.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) { logout1();}});
 
-        //tv1.setOnClickListener(this);
-//        tv1.setOnLongClickListener(this);
+        imagenUsuarioLabel.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) { logout2();}});
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.api_url))
@@ -98,9 +102,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         peticionDetallesJSON.setIdEmpleado(Session.getInstance().getId_empleado_seleccionado());
         Log.i("empleado seleccionado",String.valueOf(Session.getInstance().getId_empleado_seleccionado()));
         peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
-
-
-
 
             Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
             detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
@@ -147,6 +148,18 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
     }
 
+    @OnClick(R.id.imagenUsuarioDetalle)
+    public void logout1() {
+        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(logout);
+        Session.getInstance().setSessionId("");
+    }
+    @OnClick(R.id.imagenUsuarioLabel)
+    public void logout2() {
+        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(logout);
+        Session.getInstance().setSessionId("");
+    }
 
     @Override
     public void onClick(View v) {
@@ -174,24 +187,8 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         }
     }
 
-/*    @Override
-    public boolean onLongClick(View v) {
-
-        int identificador;
-        identificador = v.getId();
-        TextView tv = (TextView) this.findViewById(identificador);
-
-        Log.i("LongClick","ok");
-        // TODO Auto-generated method stub
-        Toast.makeText(getApplicationContext(), "LongClick", Toast.LENGTH_SHORT).show();
-        memorizar(tv);
-        return true;
-    }*/
-
     private void memorizar(TextView tv){
         CharSequence Nombre = nombreDetalle.getText();
-//        CharSequence Apellido1 = apellido1Detalle.getText();
-//        CharSequence Apellido2 = apellido2Detalle.getText();
         CharSequence Apellidos = apellidosDetalle.getText();
         CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
         CharSequence TelefonoDirecto = telefonoDirectoDetalle.getText();
@@ -201,7 +198,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         contactIntent = new Intent(Intent.ACTION_INSERT);
         contactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
-//        contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellido1) + " " + String.valueOf(Apellido2));
         contactIntent.putExtra(ContactsContract.Intents.Insert.NAME, String.valueOf(Nombre) + " " + String.valueOf(Apellidos));
         contactIntent.putExtra(ContactsContract.Intents.Insert.PHONE, String.valueOf(TelefonoMovil));
         contactIntent.putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, String.valueOf(TelefonoDirecto));
