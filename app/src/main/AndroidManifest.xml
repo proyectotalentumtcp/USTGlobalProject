@@ -28,7 +28,7 @@
         <activity android:name="com.iuriX.ustglobalproject.DetalleActivity">
 
         </activity>
-        <activity android:name="com.iuriX.ustglobalproject.MainActivity" />
+        <activity android:name="com.iuriX.ustglobalproject.MainActivity" android:windowSoftInputMode="stateHidden"/>
 
     </application>
 
