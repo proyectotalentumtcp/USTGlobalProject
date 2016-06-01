@@ -3,14 +3,18 @@ package com.iuriX.ustglobalproject;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.Activity;
 import android.widget.Toast;
@@ -48,6 +52,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     TextView areaDetalle;
     TextView empresaDetalle;
     Button agenda;
+    ImageView imagenUsuarioLabel, imagenUsuarioDetalle;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
@@ -72,6 +77,8 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         areaDetalle = (TextView)findViewById(R.id.areaDetalle);
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
+        imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
+        imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
 
 
         //tv1.setOnClickListener(this);
@@ -91,6 +98,8 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         peticionDetallesJSON.setIdEmpleado(Session.getInstance().getId_empleado_seleccionado());
         Log.i("empleado seleccionado",String.valueOf(Session.getInstance().getId_empleado_seleccionado()));
         peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
+
+
 
 
             Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
@@ -117,6 +126,11 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
                     localizacionDetalle.setText(detallesEmpleado1.getLocalizacion());
                     areaDetalle.setText(detallesEmpleado1.getArea());
                     empresaDetalle.setText(detallesEmpleado1.getEmpresa());
+
+                    byte[] decodedString = Base64.decode(detallesEmpleado1.getImageBase64().getBytes(), Base64.URL_SAFE);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    imagenUsuarioLabel.setImageBitmap(decodedByte);
+                    imagenUsuarioDetalle.setImageBitmap(decodedByte);
 
                     Session.getInstance().setDetallesEmpleadoSession(detallesEmpleado);
 
