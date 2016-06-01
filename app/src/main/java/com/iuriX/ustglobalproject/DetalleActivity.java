@@ -14,6 +14,9 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import android.widget.ImageButton;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,7 +38,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
     TextView nombreDetalle;
-//    TextView apellido1Detalle;
+    //    TextView apellido1Detalle;
 //    TextView apellido2Detalle;
     TextView apellidosDetalle;
     TextView telefonoMovilDetalle;
@@ -98,7 +101,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         service = retrofit.create(DetallesInterface.class);
 
-
         final PeticionDetallesJSON peticionDetallesJSON = new PeticionDetallesJSON();
         final DetallesEmpleado detallesEmpleado = new DetallesEmpleado();
 
@@ -109,48 +111,48 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
 
 
-            Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
-            detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
+        Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
+        detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
 
 
-                @Override
-                public void onResponse(Call<DetallesJSON> call, Response<DetallesJSON> response) {
+            @Override
+            public void onResponse(Call<DetallesJSON> call, Response<DetallesJSON> response) {
 
-                    int statusCode = response.code();
-                    DetallesJSON detallesEmpleado1 = response.body();
+                int statusCode = response.code();
+                DetallesJSON detallesEmpleado1 = response.body();
 
-                    Log.d("MainActivity", "onResponse" + statusCode + " " + detallesEmpleado1);
+                Log.d("MainActivity", "onResponse" + statusCode + " " + detallesEmpleado1);
 
-                    nombreDetalle.setText(detallesEmpleado1.getNombre());
-                    apellidosDetalle.setText(detallesEmpleado1.getApellidos());
-                    telefonoMovilDetalle.setText(detallesEmpleado1.getTelefonoMovil());
-                    telefonoDirectoDetalle.setText(detallesEmpleado1.getTelefonoDirecto());
-                    correoDetalle.setText(detallesEmpleado1.getCorreo());
-                    correoAlternativoDetalle.setText(detallesEmpleado1.getCorreoAlternativo());
-                    direccionDetalle.setText(detallesEmpleado1.getDireccion());
-                    extensionDetalle.setText(detallesEmpleado1.getExtension());
-                    centralitaDetalle.setText(detallesEmpleado1.getCentralita());
-                    localizacionDetalle.setText(detallesEmpleado1.getLocalizacion());
-                    areaDetalle.setText(detallesEmpleado1.getArea());
-                    empresaDetalle.setText(detallesEmpleado1.getEmpresa());
+                nombreDetalle.setText(detallesEmpleado1.getNombre());
+                apellidosDetalle.setText(detallesEmpleado1.getApellidos());
+                telefonoMovilDetalle.setText(detallesEmpleado1.getTelefonoMovil());
+                telefonoDirectoDetalle.setText(detallesEmpleado1.getTelefonoDirecto());
+                correoDetalle.setText(detallesEmpleado1.getCorreo());
+                correoAlternativoDetalle.setText(detallesEmpleado1.getCorreoAlternativo());
+                direccionDetalle.setText(detallesEmpleado1.getDireccion());
+                extensionDetalle.setText(detallesEmpleado1.getExtension());
+                centralitaDetalle.setText(detallesEmpleado1.getCentralita());
+                localizacionDetalle.setText(detallesEmpleado1.getLocalizacion());
+                areaDetalle.setText(detallesEmpleado1.getArea());
+                empresaDetalle.setText(detallesEmpleado1.getEmpresa());
 
-                    byte[] decodedString = Base64.decode(detallesEmpleado1.getImageBase64().getBytes(), Base64.URL_SAFE);
-                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                    imagenUsuarioLabel.setImageBitmap(decodedByte);
-                    imagenUsuarioDetalle.setImageBitmap(decodedByte);
+                byte[] decodedString = Base64.decode(detallesEmpleado1.getImageBase64().getBytes(), Base64.URL_SAFE);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                imagenUsuarioLabel.setImageBitmap(decodedByte);
+                imagenUsuarioDetalle.setImageBitmap(decodedByte);
 
-                    Session.getInstance().setDetallesEmpleadoSession(detallesEmpleado);
+                Session.getInstance().setDetallesEmpleadoSession(detallesEmpleado);
 
-                }
+            }
 
-                @Override
-                public void onFailure(Call<DetallesJSON> call, Throwable t) {
+            @Override
+            public void onFailure(Call<DetallesJSON> call, Throwable t) {
 
-                    Toast.makeText(DetalleActivity.this, "Detalles vacios", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetalleActivity.this, "Detalles vacios", Toast.LENGTH_SHORT).show();
 
-                }
+            }
 
-            });
+        });
 
     }
 
@@ -159,28 +161,61 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) { //texto
 
         int identificador;
         identificador = v.getId();
         TextView tv = (TextView) this.findViewById(identificador);
 
-        if (v.getTag().toString().equals("Llamar")) {
+        if (v.getTag().toString().equals("LlamarMovil") || v.getTag().toString().equals("Llamar")) {
             Log.i("ShortClick","call");
             //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
-            call(tv);
-        } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            //call(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreo") || v.getTag().toString().equals("EnviarCorreoAlt")) {
             Log.i("ShortClick","mail");
             //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
-            mail(tv);
+            //mail(tv);
         } else if (v.getTag().toString().equals("Ubicar")) {
             Log.i("ShortClick","map");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
-            map(tv);
+            //map(tv);
         }else if (v.getTag().toString().equals("GuardarContacto")) {
             Log.i("ShortClick","save");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
             memorizar(tv);
+        }
+    }
+
+    public void onClick2(View v){ //boton
+        int identificador;
+        identificador = v.getId();
+        ImageButton btn = (ImageButton) this.findViewById(identificador);
+
+        if (v.getTag().toString().equals("LlamarMovil")) {
+            Log.i("ShortClick","call");
+            //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
+            TextView tv = this.telefonoMovilDetalle;
+            call(tv);
+        } else if (v.getTag().toString().equals("Llamar")) {
+            Log.i("ShortClick","call");
+            //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
+            TextView tv = this.telefonoDirectoDetalle;
+            call(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            Log.i("ShortClick","mail");
+            //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
+            TextView tv = this.correoDetalle;
+            mail(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreoAlt")) {
+            Log.i("ShortClick","mail");
+            //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
+            TextView tv = this.correoAlternativoDetalle;
+            mail(tv);
+        } else if (v.getTag().toString().equals("Ubicar")) {
+            Log.i("ShortClick","map");
+            //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            TextView tv = this.direccionDetalle;
+            map(tv);
         }
     }
 
