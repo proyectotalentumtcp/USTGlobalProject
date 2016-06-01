@@ -482,14 +482,16 @@
                 android:layout_marginRight="10dp"
                 />
 
-            <ImageView android:id="@+id/agenda"
+            <ImageView
+                android:id="@+id/agenda"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
                 android:background="@drawable/oval3"
                 android:src="@drawable/ic_action_name3"
                 android:tag="@string/guardar"
-                android:onClick="onClick"
+                android:onClick="onClick2"
                 android:clickable="true"
+                android:longClickable="true"
                 android:layout_marginRight="10dp"
 
                 />
