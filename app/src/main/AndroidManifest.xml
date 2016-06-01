@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.iuriX.ustglobalproject.BusquedaActivity" />
+        <activity android:name="com.iuriX.ustglobalproject.BusquedaActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name="com.iuriX.ustglobalproject.DetalleActivity">
 
 
