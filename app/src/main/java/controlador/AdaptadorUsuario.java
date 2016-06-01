@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.iuriX.ustglobalproject.BusquedaActivity;
 import com.iuriX.ustglobalproject.DetalleActivity;
 
 import modelo.Session;
@@ -33,8 +34,8 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
     public ListaEmpleados usuarios;
     public static String correo;
     public static String movil;
-    public static TextView movil2;
 
+    private RecyclerView callback;
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder {
 
@@ -60,8 +61,8 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), "Llamada para: " + movil, Toast.LENGTH_SHORT).show();
                     Context context = v.getContext();
-
-                    ((com.iuriX.ustglobalproject.DetalleActivity) context).call(movil);
+                    Log.i("intento", "de llamada");
+                    ((BusquedaActivity)context).llamar("6666666");
 
                 }
             });

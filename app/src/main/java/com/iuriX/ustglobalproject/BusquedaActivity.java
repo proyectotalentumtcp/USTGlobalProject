@@ -27,6 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.iuriX.ustglobalproject.DetalleActivity;
 
 public class BusquedaActivity extends Activity {
 
@@ -80,6 +81,11 @@ public class BusquedaActivity extends Activity {
 
 
     }
+
+    public void llamar(String st){
+        //DetalleActivity.call(st);
+    }
+
     public void buscar(View v){
 
         Retrofit retrofit = new Retrofit.Builder()
