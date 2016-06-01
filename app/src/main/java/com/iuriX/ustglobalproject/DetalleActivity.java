@@ -65,7 +65,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
     LinearLayout logout;
 
 
-    ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton, telefonoMovilBoton, telefonoDirecto, correoAlternativoBoton;
+    ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton, telefonoMovilBoton, telefonoDirecto, correoAlternativoBoton, direccionBoton;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
@@ -91,6 +91,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (ImageView)findViewById(R.id.agenda);
         telefonoMovilBoton = (ImageView)findViewById(R.id.telefonoMovilBoton);
+        direccionBoton = (ImageView)findViewById(R.id.direccionBoton);
 
         imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
         imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
@@ -189,11 +190,11 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
             Log.i("ShortClick","map");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
             //map(tv);
-        }else if (v.getTag().toString().equals("GuardarContacto")) {
+        } else if (v.getTag().toString().equals("GuardarContacto")) {
             Log.i("ShortClick","save");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
-            memorizar(tv);
-        }
+            memorizar();
+        } else {Log.i("ShortClick","OTHER");}
     }
     public void onClick2(View v){ //boton
         int identificador;
@@ -225,11 +226,15 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
             TextView tv = this.direccionDetalle;
             map(tv);
-        }
+        } else if (v.getTag().toString().equals("GuardarContacto")) {
+            Log.i("ShortClick","save");
+            //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            memorizar();
+        } else {Log.i("ShortClick","OTHER");}
     }
 
 
-    private void memorizar(TextView tv){
+    private void memorizar(){
         CharSequence Nombre = nombreDetalle.getText();
         CharSequence Apellidos = apellidosDetalle.getText();
         CharSequence TelefonoMovil = telefonoMovilDetalle.getText();
