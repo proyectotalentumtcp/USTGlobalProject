@@ -77,6 +77,7 @@ public class BusquedaActivity extends Activity {
         }
 
         if (cancel){
+            // Funciona
             focusView.requestFocus();
         }else{
             final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
