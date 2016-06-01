@@ -309,7 +309,7 @@
                     android:longClickable="true"
                     android:onClick="onClick"
                     android:id="@+id/direccionDetalle"
-                    android:tag="@string/correo"
+                    android:tag="@string/direccion"
                     />
             </LinearLayout>
 
@@ -337,11 +337,7 @@
                     android:text="3"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
                     android:id="@+id/extensionDetalle"
-                    android:tag="@string/correo"
                     />
                 </LinearLayout>
 
@@ -369,11 +365,7 @@
                     android:textSize="18sp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
                     android:id="@+id/centralitaDetalle"
-                    android:tag="@string/correo"
                     />
             </LinearLayout>
 
@@ -401,11 +393,7 @@
                     android:text="3"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
                     android:id="@+id/localizacionDetalle"
-                    android:tag="@string/correo"
                     />
 
             </LinearLayout>
@@ -434,11 +422,7 @@
                     android:textSize="18sp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
                     android:id="@+id/areaDetalle"
-                    android:tag="@string/correo"
                     />
 
             </LinearLayout>
@@ -466,11 +450,7 @@
                     android:text="dfghj"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
                     android:id="@+id/empresaDetalle"
-                    android:tag="@string/correo"
                     />
             </LinearLayout>
 

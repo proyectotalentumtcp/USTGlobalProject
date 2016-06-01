@@ -3,7 +3,12 @@ package controlador;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +22,13 @@ import com.iuriX.ustglobalproject.DetalleActivity;
 
 import java.util.List;
 
+import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.BusquedaJSON;
 
+import modelo.busqueda.ListaEmpleados;
+import modelo.busqueda.PeticionBusquedaJSON;
+import modelo.detalles.PeticionDetallesJSON;
 import modelo.login.R;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -29,7 +38,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
-    public List<BusquedaJSON> usuarios;
+    public ListaEmpleados usuarios;
 
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
@@ -58,7 +67,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
 
 
-    public AdaptadorUsuario(List<BusquedaJSON> usuarios){
+    public AdaptadorUsuario(ListaEmpleados usuarios){
 
         this.usuarios = usuarios;
 
@@ -66,7 +75,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
     @Override
     public int getItemCount() {
-        return usuarios.size();
+        return usuarios.getListaUsuarios().size();
     }
 
 
@@ -83,18 +92,29 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     @Override
     public void onBindViewHolder(UsuarioViewHolder viewHolder, final int position) {
 
-        viewHolder.nombre.setText(usuarios.get(position).getNombre());
-        viewHolder.apellidos.setText(usuarios.get(position).getApellidos());
-        viewHolder.imagen.setImageResource(usuarios.get(position).getId());
+        viewHolder.nombre.setText(usuarios.getListaUsuarios().get(position).getNombre());
+        viewHolder.apellidos.setText(usuarios.getListaUsuarios().get(position).getApellidos());
 
+        String imageString = usuarios.getListaUsuarios().get(position).getImageBase64();
+        Log.i("imagen" + String.valueOf(position), imageString); //ok
+
+        byte[] decodedString = Base64.decode(imageString, Base64.DEFAULT); //OK
+        //Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length); //decoder->decode returned false
+
+         //viewHolder.imagen.setImageBitmap(decodedByte);
 
         viewHolder.vista.setOnClickListener(new View.OnClickListener(){
-
 
             @Override
             public void onClick(View v) {
 
-                Context contexto = v.getContext();
+
+                Context contexto = v.getContext(); //com.iuriX.ustglobalproject.BusquedaActivity@7a87dca
+                ViewGroup.LayoutParams parametros = v.getLayoutParams();
+                Session.getInstance().setId_empleado_seleccionado(usuarios.getListaUsuarios().get(position).getId());
+                Log.d("ID EMPLEADO", String.valueOf(usuarios.getListaUsuarios().get(position).getId()));
+
+                Log.i("parametros",String.valueOf(parametros));
                 Intent intent = new Intent(contexto, DetalleActivity.class);
 
                 Toast.makeText(contexto, "Esto Pasa a la siguiente activity", Toast.LENGTH_LONG).show();
@@ -120,14 +140,9 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 user.setArea(usuarios.get(position).getArea());
                 user.setEmpresa(usuarios.get(position).getEmpresa());*/
 
-
-
             }
         });
 
-
-
     }
-
 
 }

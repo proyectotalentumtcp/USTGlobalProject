@@ -14,4 +14,12 @@ public class DetallesEmpleado implements Serializable {
     @SerializedName("detallesUsuario")
     @Expose
     public List<DetallesJSON> detallesUsuario;
+
+    public void setDetallesUsuario(List<DetallesJSON> detallesUsuario) {
+        this.detallesUsuario = detallesUsuario;
+    }
+
+    public List<DetallesJSON> getDetallesUsuario() {
+        return detallesUsuario;
+    }
 }

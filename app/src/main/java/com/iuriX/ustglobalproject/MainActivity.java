@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 
             textoBusqueda.setError("Campo de busqueda vacío");
             focusView = textoBusqueda;
-            cancel = true;
+            //cancel = true; //cancelado para aligerar testea
 
         }
 
@@ -105,8 +105,7 @@ public class MainActivity extends Activity {
 
                         Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
 
-                        intentBusqueda.putExtra("empleados", listaEmpleados1);
-
+                        Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
 
                         startActivity(intentBusqueda);

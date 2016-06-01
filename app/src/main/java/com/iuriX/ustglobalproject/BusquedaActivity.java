@@ -10,6 +10,7 @@ import controlador.AdaptadorUsuario;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Session;
 import modelo.busqueda.ListaEmpleados;
 import modelo.login.R;
 import modelo.Usuario;
@@ -33,10 +34,9 @@ public class BusquedaActivity extends Activity {
         lManager = new LinearLayoutManager(this);
         listaUsuarios.setLayoutManager(lManager);
 
-        ListaEmpleados listaEmpleados = (ListaEmpleados)getIntent().getSerializableExtra("empleados");
 
 
-        adaptador = new AdaptadorUsuario(listaEmpleados.getListaUsuarios());
+        adaptador = new AdaptadorUsuario(Session.getInstance().getListaEmpleadosSession());
         listaUsuarios.setAdapter(adaptador);
 
     }
