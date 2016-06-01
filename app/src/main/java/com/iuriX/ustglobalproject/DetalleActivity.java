@@ -85,7 +85,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
         service = retrofit.create(DetallesInterface.class);
 
-
         final PeticionDetallesJSON peticionDetallesJSON = new PeticionDetallesJSON();
         final DetallesEmpleado detallesEmpleado = new DetallesEmpleado();
 
