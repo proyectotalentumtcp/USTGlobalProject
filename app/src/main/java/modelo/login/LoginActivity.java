@@ -4,9 +4,13 @@ package modelo.login;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.iuriX.ustglobalproject.MainActivity;
@@ -29,6 +33,8 @@ public class LoginActivity extends Activity {
     @BindView(R.id.bLogin)
     Button bLogin;
 
+    CheckBox mCbShowPwd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +45,21 @@ public class LoginActivity extends Activity {
         // Creando la forma del login
         mUser = (EditText) findViewById(R.id.usuario);
         mPass = (EditText) findViewById(R.id.contra);
+        mCbShowPwd = (CheckBox) findViewById(R.id.cbShowPwd);
 
+        mCbShowPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // checkbox status is changed from uncheck to checked.
+                if (!isChecked) {
+                    // show password
+                    mPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                } else {
+                    // hide password
+                    mPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+            }
+        });
 
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) { attemptLogin();}});
