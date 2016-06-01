@@ -63,7 +63,6 @@ public class BusquedaActivity extends Activity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BusquedaActivity.this, "He clickado para ir al logout", Toast.LENGTH_SHORT ).show();
                 Session.getInstance().setSessionId("");
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(logout);
