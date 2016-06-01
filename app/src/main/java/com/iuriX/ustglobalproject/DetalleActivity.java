@@ -15,20 +15,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.Activity;
 import android.widget.Toast;
 
 import modelo.Session;
-import modelo.busqueda.ListaEmpleados;
-import modelo.busqueda.PeticionBusquedaJSON;
 import modelo.detalles.DetallesEmpleado;
 import modelo.detalles.DetallesInterface;
 import modelo.detalles.DetallesJSON;
 import modelo.detalles.PeticionDetallesJSON;
-import modelo.login.LogEasyApi;
 import modelo.login.R;
-import modelo.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,10 +49,11 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     TextView areaDetalle;
     TextView empresaDetalle;
     Button agenda;
-    ImageView imagenUsuarioLabel, imagenUsuarioDetalle;
+    ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
+    LinearLayout logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +77,15 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         agenda = (Button)findViewById(R.id.agenda);
         imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
         imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
+        correoBoton = (ImageView)findViewById(R.id.correoBoton);
+        logout = (LinearLayout)findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DetalleActivity.this, "He clickado para ir al logout", Toast.LENGTH_SHORT ).show();
+            }
+        });
 
 
         //tv1.setOnClickListener(this);
@@ -146,6 +153,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
             });
 
     }
+
+
+
 
 
     @Override
