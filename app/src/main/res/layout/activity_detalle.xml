@@ -200,19 +200,7 @@
                     android:layout_marginRight="15dp"
                     />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:src="@drawable/correo2"
-                    android:id="@+id/correoBoton"
-                    android:background="#ffffff"
-                    android:layout_marginLeft="50dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick2"
-                    android:tag="@string/correo"
-                    android:layout_gravity="center"
-                    />
+
 
             </LinearLayout>
 
@@ -465,10 +453,21 @@
                 android:longClickable="true"
                 android:onClick="onClick2"
                 android:tag="@string/telefonoMovil"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 />
+                <ImageView
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:background="@drawable/oval2"
+                    android:src="@drawable/ic_action_name2"
+                    android:id="@+id/correoBoton"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick2"
+                    android:tag="@string/correo"
+                    />
 
-            <Button android:id="@+id/agenda"
+            <ImageView android:id="@+id/agenda"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
                 android:background="@drawable/oval3"
@@ -476,9 +475,10 @@
                 android:tag="@string/guardar"
                 android:onClick="onClick"
                 android:clickable="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
 
                 />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

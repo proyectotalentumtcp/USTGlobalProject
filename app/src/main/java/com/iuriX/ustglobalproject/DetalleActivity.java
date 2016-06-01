@@ -60,7 +60,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
     TextView localizacionDetalle;
     TextView areaDetalle;
     TextView empresaDetalle;
-    Button agenda;
+    ImageView agenda;
     LinearLayout logout;
 
 
@@ -88,7 +88,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
         localizacionDetalle = (TextView)findViewById(R.id.localizacionDetalle);
         areaDetalle = (TextView)findViewById(R.id.areaDetalle);
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
-        agenda = (Button)findViewById(R.id.agenda);
+        agenda = (ImageView)findViewById(R.id.agenda);
         telefonoMovilBoton = (ImageView)findViewById(R.id.telefonoMovilBoton);
 
         imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);

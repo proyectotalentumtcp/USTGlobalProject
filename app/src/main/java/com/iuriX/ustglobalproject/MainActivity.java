@@ -1,13 +1,11 @@
 package com.iuriX.ustglobalproject;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.content.Intent;
 import android.app.Activity;
-import android.provider.Settings;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -16,8 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
-import controlador.AdaptadorUsuario;
 import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.ListaEmpleados;
@@ -31,11 +27,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import android.os.Handler;
 
-
-import modelo.login.R;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Ernesto Mediavilla on 23/05/2016.
@@ -118,7 +109,7 @@ public class MainActivity extends Activity {
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
-                        Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
+                        Intent intentBusqueda = new Intent(MainActivity.this, DetalleActivity.class);
 
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
