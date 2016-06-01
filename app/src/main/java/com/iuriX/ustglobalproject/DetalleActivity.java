@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.app.Activity;
 import android.widget.Toast;
@@ -135,7 +136,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) { //texto
 
         int identificador;
         identificador = v.getId();
@@ -157,6 +158,30 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
             Log.i("ShortClick","save");
             //Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
             memorizar(tv);
+        }
+    }
+
+    public void onClick2(View v){ //boton
+        int identificador;
+        identificador = v.getId();
+        ImageButton btn = (ImageButton) this.findViewById(identificador);
+
+        if (v.getTag().toString().equals("Llamar")) {
+            Log.i("ShortClick","call");
+            Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
+            //call(tv);
+        } else if (v.getTag().toString().equals("EnviarCorreo")) {
+            Log.i("ShortClick","mail");
+            Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
+            //mail(tv);
+        } else if (v.getTag().toString().equals("Ubicar")) {
+            Log.i("ShortClick","map");
+            Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            //map(tv);
+        }else if (v.getTag().toString().equals("GuardarContacto")) {
+            Log.i("ShortClick","save");
+            Toast.makeText(getApplicationContext(), "ShortClick_save", Toast.LENGTH_SHORT).show();
+            //memorizar(tv);
         }
     }
 
