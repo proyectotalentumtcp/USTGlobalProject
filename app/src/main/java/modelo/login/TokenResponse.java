@@ -19,6 +19,10 @@ public class TokenResponse {
     @Expose
     private String error_code;
 
+    @SerializedName("imageBase64")
+    @Expose
+    private String imageBase64;
+
 
     public String getSession_id() {
         return session_id;
@@ -30,5 +34,9 @@ public class TokenResponse {
 
     public String getError_code() {
         return error_code;
+    }
+
+    public String getImageBase64() {
+        return imageBase64;
     }
 }

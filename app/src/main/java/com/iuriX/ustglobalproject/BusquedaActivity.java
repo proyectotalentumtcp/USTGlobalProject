@@ -2,11 +2,15 @@ package com.iuriX.ustglobalproject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +36,7 @@ public class BusquedaActivity extends Activity {
     private TextView buscarBusqueda;
     private BusquedaInterface service;
     LinearLayout logout;
+    ImageView imageUsuario;
 
 
     @Override
@@ -44,6 +49,8 @@ public class BusquedaActivity extends Activity {
 
         lManager = new LinearLayoutManager(this);
         listaUsuarios.setLayoutManager(lManager);
+
+        imageUsuario = (ImageView)findViewById(R.id.imageUsuario);
 
 
         adaptador = new AdaptadorUsuario(Session.getInstance().getListaEmpleadosSession());
@@ -62,6 +69,16 @@ public class BusquedaActivity extends Activity {
                 startActivity(logout);
             }
         });
+
+        if(Session.getInstance().getImagenBase64().equals("")){
+            Log.d("MainActivity", "Imagen vacía");
+
+        }else {
+            byte[] decodedString = Base64.decode(Session.getInstance().getImagenBase64().getBytes(), Base64.URL_SAFE);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            imageUsuario.setImageBitmap(decodedByte);
+        }
+
 
     }
     public void buscar(View v){

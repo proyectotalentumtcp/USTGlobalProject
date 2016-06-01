@@ -2,14 +2,18 @@ package com.iuriX.ustglobalproject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.content.Intent;
 import android.app.Activity;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -45,7 +49,7 @@ public class MainActivity extends Activity {
     private EditText textoBusqueda;
     private BusquedaInterface service;
     LinearLayout logout;
-
+    ImageView imageUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,7 @@ public class MainActivity extends Activity {
         buscar = (Button)findViewById(R.id.buscar);
         textoBusqueda = (EditText)findViewById(R.id.textoBusqueda);
         logout = (LinearLayout)findViewById(R.id.logout);
+        imageUsuario = (ImageView) findViewById(R.id.imageUsuario);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +70,16 @@ public class MainActivity extends Activity {
                 startActivity(logout);
             }
         });
+
+        if(Session.getInstance().getImagenBase64().equals("")){
+            Log.d("MainActivity", "Imagen vacía");
+
+        }else {
+            byte[] decodedString = Base64.decode(Session.getInstance().getImagenBase64().getBytes(), Base64.URL_SAFE);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            imageUsuario.setImageBitmap(decodedByte);
+        }
+
     }
 
     public void buscar(View v){
@@ -83,16 +98,6 @@ public class MainActivity extends Activity {
         boolean cancel = false;
         View focusView = null;
 
-        if (busqueda.equals("")){
-
-            textoBusqueda.setError("Campo de busqueda vacío");
-            focusView = textoBusqueda;
-            cancel = true; //cancelado para aligerar testea
-        }
-
-        if (cancel){
-            focusView.requestFocus();
-        }else{
             final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
             final ListaEmpleados listaEmpleados = new ListaEmpleados();
 
@@ -120,10 +125,11 @@ public class MainActivity extends Activity {
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
                         startActivity(intentBusqueda);
+                        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
                     } else {
 
-                        Toast.makeText(MainActivity.this, "Lista de empleados vacía", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Criterios no encontrados", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -135,7 +141,6 @@ public class MainActivity extends Activity {
                 }
             });
         }
-    }
 
     boolean twice;
     @Override

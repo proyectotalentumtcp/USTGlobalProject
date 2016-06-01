@@ -106,6 +106,8 @@ public class LoginActivity extends Activity {
 
                     Log.d("LoginActivity","onResponse: " + statusCode);
                     Session.getInstance().setSessionId(tokenResponse.getSession_id());
+                    Session.getInstance().setImagenBase64(tokenResponse.getImageBase64());
+                    Log.d("LoginActivity","Imagen: " + tokenResponse.getImageBase64());
 
                     Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
 
