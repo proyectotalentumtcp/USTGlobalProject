@@ -1,10 +1,13 @@
 package controlador;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iuriX.ustglobalproject.DetalleActivity;
+
 import modelo.Session;
 import modelo.busqueda.ListaEmpleados;
 import modelo.login.R;
@@ -23,13 +27,14 @@ import modelo.login.R;
 /**
  * Created by Miguel Rodríguez on 23/05/2016.
  */
-public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
+public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
     public ListaEmpleados usuarios;
     public static String correo;
+    public static String movil;
 
 
-    public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
+    public static class UsuarioViewHolder extends RecyclerView.ViewHolder {
 
         public TextView nombre;
         public TextView apellidos;
@@ -39,18 +44,34 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
         public final View vista;
 
-        public UsuarioViewHolder(View v){
+        public UsuarioViewHolder(View v) {
             super(v);
             vista = v;
-            nombre = (TextView)v.findViewById(R.id.nombre);
-            apellidos = (TextView)v.findViewById(R.id.apellidos);
-            imagen = (ImageView)v.findViewById(R.id.imagen);
-            botonLlamar = (ImageView)v.findViewById(R.id.telefonoMovilBotonC);
-            botonMail = (ImageView)v.findViewById(R.id.correoBotonC);
+            nombre = (TextView) v.findViewById(R.id.nombre);
+            apellidos = (TextView) v.findViewById(R.id.apellidos);
+            imagen = (ImageView) v.findViewById(R.id.imagen);
+            botonLlamar = (ImageView) v.findViewById(R.id.telefonoMovilBotonC);
+            botonMail = (ImageView) v.findViewById(R.id.correoBotonC);
 
             botonLlamar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "Llamada para: " + movil, Toast.LENGTH_SHORT).show();
+
+
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(movil));
+                    Context context = v.getContext();
+                    if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    context.startActivity(intent);
 
 
 
@@ -110,6 +131,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         viewHolder.apellidos.setText(usuarios.getListaUsuarios().get(position).getApellidos());
         String imageString = usuarios.getListaUsuarios().get(position).getImageBase64();
         correo = usuarios.getListaUsuarios().get(position).getCorreo();
+        movil = usuarios.getListaUsuarios().get(position).getTelefonoMovil();
         Log.i("imagen" + String.valueOf(position), imageString); //ok
 
 
