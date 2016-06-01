@@ -112,7 +112,7 @@ public class BusquedaActivity extends Activity {
 
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
-
+                        finish();
                         startActivity(intentBusqueda);
 
                     } else {
