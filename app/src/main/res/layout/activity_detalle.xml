@@ -443,7 +443,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
             <ImageView
                 android:layout_width="49dp"
                 android:layout_height="49dp"
@@ -469,19 +469,6 @@
                 android:layout_marginRight="10dp"
                 />
 
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="49dp"
-                android:background="@drawable/oval2"
-                android:src="@drawable/ic_action_name2"
-                android:id="@+id/direccionBoton"
-                android:tag="@string/direccion"
-                android:clickable="true"
-                android:longClickable="true"
-                android:onClick="onClick2"
-                android:layout_marginRight="10dp"
-                />
-
             <ImageView android:id="@+id/agenda"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
@@ -491,8 +478,18 @@
                 android:onClick="onClick"
                 android:clickable="true"
                 android:layout_marginRight="10dp"
-
                 />
+
+                <ImageView
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:background="@drawable/oval4"
+                    android:src="@drawable/ic_action_name4"
+                    android:id="@+id/direccionBoton"
+                    android:tag="@string/direccion"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick2" />
 
             </LinearLayout>
         </LinearLayout>
