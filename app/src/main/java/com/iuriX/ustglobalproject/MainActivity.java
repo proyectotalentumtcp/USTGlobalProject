@@ -117,6 +117,7 @@ public class MainActivity extends Activity {
                     //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
 
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
+                        Toast.makeText(getApplicationContext(), "Cargando..." ,Toast.LENGTH_SHORT).show();
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 

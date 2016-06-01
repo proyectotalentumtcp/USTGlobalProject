@@ -123,6 +123,8 @@ public class BusquedaActivity extends Activity {
 
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
 
+                        Toast.makeText(getApplicationContext(), "Cargando..." ,Toast.LENGTH_SHORT).show();
+
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
                         Intent intentBusqueda = new Intent(BusquedaActivity.this, BusquedaActivity.class);
