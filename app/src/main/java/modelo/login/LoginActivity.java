@@ -40,6 +40,7 @@ public class LoginActivity extends Activity {
         mUser = (EditText) findViewById(R.id.usuario);
         mPass = (EditText) findViewById(R.id.contra);
 
+
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) { attemptLogin();}});
 
