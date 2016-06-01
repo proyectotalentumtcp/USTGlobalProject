@@ -71,7 +71,6 @@
                 android:id="@+id/correoBoton"
                 android:tag="@string/correo"
                 android:clickable="true"
-                gr
                 android:longClickable="true"
                 android:onClick="onClick"
                 />

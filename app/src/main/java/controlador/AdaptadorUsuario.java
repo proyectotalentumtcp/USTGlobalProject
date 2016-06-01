@@ -39,6 +39,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             nombre = (TextView)v.findViewById(R.id.nombre);
             apellidos = (TextView)v.findViewById(R.id.apellidos);
             imagen = (ImageView)v.findViewById(R.id.imagen);
+
         }
     }
 
