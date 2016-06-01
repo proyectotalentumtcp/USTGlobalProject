@@ -1,10 +1,15 @@
 package com.iuriX.ustglobalproject;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
@@ -38,6 +43,8 @@ public class BusquedaActivity extends Activity {
     private BusquedaInterface service;
     LinearLayout logout;
     ImageView imageUsuario;
+    private static final int PHONE_CALL = 0;
+    Intent callIntent;
 
 
     @Override
@@ -82,9 +89,84 @@ public class BusquedaActivity extends Activity {
 
     }
 
-    public void llamar(String st) {
+    public void llamar(String st) { //hay que ver cómo llamar a la función call(st) de DetalleActivity
         //DetalleActivity.call(st);
+        callB(st);
     }
+
+    //Función de llamada
+    public void callB(String ST) {
+        Log.i("estamos","en llamada");
+        callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + ST));
+        if (Build.VERSION.SDK_INT < 23) {
+            startActivity(callIntent); //hasta la API 22
+        } else {
+            if (verifyCallPermission()) {
+                startActivity(callIntent); //ya tiene permisos
+            } else {
+                requestPermission();
+            }
+        }
+    }
+
+    //Paso 1. Verificar permisos
+    public boolean verifyCallPermission() {
+
+        // CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
+        // ADD_VOICEMAIL, USE_SIP y PROCESS_OUTGOING_CALLS porque pertenecen al mismo
+        // grupo de permisos
+
+        int callPermission = checkSelfPermission(Manifest.permission.CALL_PHONE); //no es problema pues solo se llama a partir de la API 23
+
+        if (callPermission != PackageManager.PERMISSION_GRANTED) { //no hay permiso previamente
+            return false;
+        } else { //ya dimos permiso con anterioridad
+            return true;
+        }
+    }
+
+    //Paso 2: Solicitar permiso
+    private void requestPermission() { //hasta aquí llega bien
+        //shouldShowRequestPermissionRationale es verdadero solamente si ya se había mostrado
+        //anteriormente el dialogo de permisos y el usuario lo negó
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CALL_PHONE)) {
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE},PHONE_CALL); //no es problema pues solo se llama a partir de la API 23
+            Log.i("Caso: ","Permisos previamente negados");
+        } else {
+            //y falso si es la primera vez se solicita el permiso directamente
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE},PHONE_CALL); //no es problema pues solo se llama a partir de la API 23
+            Log.i("Caso: ","Petición de permisos por primera vez");
+        }
+    }
+
+    //Paso 3: Procesar respuesta de usuario
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        //Si el requestCode corresponde al que usamos para solicitar el permiso y
+        //la respuesta del usuario fue positiva
+        //if (requestCode == PHONE_CALL) {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Log.i("Respuesta: ","Permiso concedido");
+            startActivity(callIntent);
+        } else {
+            Log.i("Respuesta: ","Permiso denegado");
+//                showSnackBar();
+        }
+        //}
+    }
+
+
+
+
+
+
+
+
+
 
     public void buscar(View v){
 
