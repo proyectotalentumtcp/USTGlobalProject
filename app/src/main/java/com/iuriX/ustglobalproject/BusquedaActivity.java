@@ -134,34 +134,6 @@ public class BusquedaActivity extends Activity {
 
     }
 
-    boolean twice;
-    @Override
-    public void onBackPressed() {
-
-        Log.d("BusquedaActivity","click");
-
-        if (twice == true) {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-            System.exit(0);
-
-        }
-        twice = true;
-        Log.d("MainActivity", "twice: " + twice);
-
-        Toast.makeText(BusquedaActivity.this,"Presiona ATRÁS de nuevo para salir", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                twice = false;
-                Log.d("MainActivity", "twice: " + twice);
-            }
-        },3000);
-    }
-
 
 }
 

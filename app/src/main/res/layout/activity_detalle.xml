@@ -33,6 +33,7 @@
             android:layout_marginLeft="80dp"
             android:src="@drawable/usuario3"
             android:layout_marginTop="5dp"
+            android:id="@+id/imagenUsuarioLabel"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -71,6 +72,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/usuario3"
+                    android:id="@+id/imagenUsuarioDetalle"
                     />
 
                 <TextView
