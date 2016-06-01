@@ -65,12 +65,13 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="32dp"
-                android:src="@drawable/correo2"
+                android:src="@drawable/correo"
                 android:elevation="4dp"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/correoBoton"
                 android:tag="@string/correo"
                 android:clickable="true"
+                gr
                 android:longClickable="true"
                 android:onClick="onClick"
                 />

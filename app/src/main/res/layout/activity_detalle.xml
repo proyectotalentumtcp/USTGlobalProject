@@ -139,6 +139,7 @@
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/llamada1"
                     android:id="@+id/telefonoMovilBoton"
+                    android:layout_gravity="right"
                     android:clickable="true"
                     android:longClickable="true"
                     android:onClick="onClick"
@@ -184,12 +185,14 @@
                     android:layout_height="50dp"
                     android:src="@drawable/llamada1"
                     android:id="@+id/telefonoDirectoBoton"
-                    android:background="#ffffff"
                     android:layout_marginLeft="20dp"
                     android:clickable="true"
                     android:longClickable="true"
                     android:onClick="onClick"
                     android:tag="@string/telefonoDirecto"
+                    android:layout_gravity="right"
+
+
                     />
 
             </LinearLayout>
@@ -234,6 +237,7 @@
                     android:longClickable="true"
                     android:onClick="onClick"
                     android:tag="@string/correo"
+                    android:layout_gravity="right"
                     />
 
             </LinearLayout>
@@ -278,6 +282,7 @@
                     android:onClick="onClick"
                     android:layout_marginLeft="20dp"
                     android:tag="@string/correoAlternativo"
+                    android:layout_gravity="right"
                     />
                 </LinearLayout>
 
