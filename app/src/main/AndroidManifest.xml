@@ -26,7 +26,6 @@
         <activity android:name="com.iuriX.ustglobalproject.BusquedaActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name="com.iuriX.ustglobalproject.DetalleActivity">
 
-
         </activity>
         <activity android:name="com.iuriX.ustglobalproject.MainActivity" />
 
