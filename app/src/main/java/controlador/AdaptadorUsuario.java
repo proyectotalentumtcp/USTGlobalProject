@@ -85,12 +85,16 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
                     Toast.makeText(v.getContext(), "Correo para: " + correo, Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setData(Uri.parse("mailto:"));
                     Context context = v.getContext();
-
-                    intent.putExtra(Intent.EXTRA_EMAIL, correo);
+//                    intent.setData(Uri.parse("mailto:"));
+//
+//                    intent.putExtra(Intent.EXTRA_EMAIL, correo);
+//                    intent.setType("message/rfc822");
+//                    context.startActivity(Intent.createChooser(intent, "Email"));
                     intent.setType("message/rfc822");
-                    context.startActivity(Intent.createChooser(intent, "Email"));
+
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] {correo}); //ok
+                    context.startActivity(intent);
 
                 }
             });
