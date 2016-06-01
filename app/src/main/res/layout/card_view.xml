@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:id="@+id/nombre"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="Apellidos"
                 android:id="@+id/apellidos"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 />
@@ -52,13 +52,13 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:gravity="right"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 >
 
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_action_name"
                 android:background="@drawable/oval"
                 android:id="@+id/telefonoMovilBotonC"
@@ -70,8 +70,8 @@
                 />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/ic_action_name2"
                 android:background="@drawable/oval2"
                 android:id="@+id/correoBotonC"

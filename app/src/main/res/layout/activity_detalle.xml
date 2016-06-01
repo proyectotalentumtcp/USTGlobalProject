@@ -466,6 +466,7 @@
                     android:longClickable="true"
                     android:onClick="onClick2"
                     android:tag="@string/correo"
+                    android:layout_marginRight="10dp"
                     />
 
             <ImageView android:id="@+id/agenda"
