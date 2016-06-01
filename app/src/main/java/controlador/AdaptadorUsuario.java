@@ -22,6 +22,7 @@ import com.iuriX.ustglobalproject.DetalleActivity;
 
 import java.util.List;
 
+import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.BusquedaJSON;
 
@@ -107,9 +108,12 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
             @Override
             public void onClick(View v) {
 
+
                 Context contexto = v.getContext(); //com.iuriX.ustglobalproject.BusquedaActivity@7a87dca
                 ViewGroup.LayoutParams parametros = v.getLayoutParams();
-                Integer as = parametros.MATCH_PARENT;
+                Session.getInstance().setId_empleado_seleccionado(usuarios.getListaUsuarios().get(position).getId());
+                Log.d("ID EMPLEADO", String.valueOf(usuarios.getListaUsuarios().get(position).getId()));
+
                 Log.i("parametros",String.valueOf(parametros));
                 Intent intent = new Intent(contexto, DetalleActivity.class);
 
