@@ -59,7 +59,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
     LinearLayout logout;
 
 
-    ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton;
+    ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton, telefonoMovilBoton, telefonoDirecto, correoAlternativoBoton;
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
@@ -84,6 +84,10 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
         areaDetalle = (TextView)findViewById(R.id.areaDetalle);
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
+        telefonoMovilBoton = (ImageView)findViewById(R.id.telefonoMovilBoton);
+        telefonoDirecto = (ImageView)findViewById(R.id.telefonoDirectoBoton);
+        correoAlternativoBoton = (ImageView)findViewById(R.id.correoAlternativoBoton);
+
 
         imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
         imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
