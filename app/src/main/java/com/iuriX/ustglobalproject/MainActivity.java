@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
-                        Intent intentBusqueda = new Intent(MainActivity.this, DetalleActivity.class);
+                        Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
 
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
