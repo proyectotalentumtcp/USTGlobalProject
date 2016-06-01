@@ -62,7 +62,8 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
                     Toast.makeText(v.getContext(), "Llamada para: " + movil, Toast.LENGTH_SHORT).show();
                     Context context = v.getContext();
                     Log.i("intento", "de llamada");
-                    ((BusquedaActivity)context).llamar("6666666");
+                    //((BusquedaActivity)context).llamar("6666666"); //ok
+                    ((BusquedaActivity)context).llamar(movil); //ok
                 }
             });
 
