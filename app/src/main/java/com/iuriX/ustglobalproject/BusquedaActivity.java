@@ -82,7 +82,7 @@ public class BusquedaActivity extends Activity {
 
     }
 
-    public void llamar(String st){
+    public void llamar(String st) {
         //DetalleActivity.call(st);
     }
 

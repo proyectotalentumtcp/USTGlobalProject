@@ -63,7 +63,6 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
                     Context context = v.getContext();
                     Log.i("intento", "de llamada");
                     ((BusquedaActivity)context).llamar("6666666");
-
                 }
             });
 
