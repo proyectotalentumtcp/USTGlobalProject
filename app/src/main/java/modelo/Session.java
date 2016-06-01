@@ -33,6 +33,16 @@ public class Session {
 
     public DetallesEmpleado detallesEmpleadoSession;
 
+    public String imagenBase64;
+
+    public String getImagenBase64() {
+        return imagenBase64;
+    }
+
+    public void setImagenBase64(String imagenBase64) {
+        this.imagenBase64 = imagenBase64;
+    }
+
     public String getSessionId() {
         return sessionId;
     }
