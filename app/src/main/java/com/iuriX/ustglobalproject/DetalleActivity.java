@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
@@ -187,7 +188,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
     public void onClick2(View v){ //boton
         int identificador;
         identificador = v.getId();
-        ImageButton btn = (ImageButton) this.findViewById(identificador);
+        ImageView btn = (ImageView) this.findViewById(identificador);
 
         if (v.getTag().toString().equals("LlamarMovil")) {
             Log.i("ShortClick","call");
