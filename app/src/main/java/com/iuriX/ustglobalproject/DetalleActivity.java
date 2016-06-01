@@ -41,6 +41,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Created by Ernesto Mediavilla on 18/05/2016.
+ * Edited by Miguel Rodríguez on 30/05/2016
+ */
+
 public class DetalleActivity extends Activity implements View.OnClickListener {
 
     TextView nombreDetalle;
@@ -201,12 +206,12 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
             Log.i("ShortClick","call");
             //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
             TextView tv = this.telefonoMovilDetalle;
-            call(tv);
+            call(tv.getText().toString());
         } else if (v.getTag().toString().equals("Llamar")) {
             Log.i("ShortClick","call");
             //Toast.makeText(getApplicationContext(), "ShortClick_call", Toast.LENGTH_SHORT).show();
             TextView tv = this.telefonoDirectoDetalle;
-            call(tv);
+            call(tv.getText().toString());
         } else if (v.getTag().toString().equals("EnviarCorreo")) {
             Log.i("ShortClick","mail");
             //Toast.makeText(getApplicationContext(), "ShortClick_mail", Toast.LENGTH_SHORT).show();
@@ -266,9 +271,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
     }
 
     //Función de llamada
-    private void call(TextView tv) {
+    public void call(String ST) {
         callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:" + tv.getText()));
+        callIntent.setData(Uri.parse("tel:" + ST));
         if (Build.VERSION.SDK_INT < 23) {
             startActivity(callIntent); //hasta la API 22
         } else {
@@ -281,7 +286,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
     }
 
     //Paso 1. Verificar permisos
-    private boolean verifyCallPermission() {
+    public boolean verifyCallPermission() {
 
         // CALL_PHONE tiene implícitos READ_PHONE_STATE, READ_CALL_LOG, WRITE_CALL_LOG,
         // ADD_VOICEMAIL, USE_SIP y PROCESS_OUTGOING_CALLS porque pertenecen al mismo
