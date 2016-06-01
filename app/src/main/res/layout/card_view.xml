@@ -52,33 +52,35 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:gravity="right"
+                android:layout_marginRight="10dp"
                 >
 
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/llamada1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_action_name"
+                android:background="@drawable/oval"
                 android:id="@+id/telefonoMovilBotonC"
                 android:tag="@string/telefonoCard"
                 android:clickable="true"
                 android:longClickable="true"
                 android:onClick="onClick"
                 android:layout_gravity="center_vertical"
-                android:background="#ffffff"
                 />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/correo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_action_name2"
+                android:background="@drawable/oval2"
                 android:id="@+id/correoBotonC"
                 android:tag="@string/correoCard"
                 android:clickable="true"
                 android:layout_marginLeft="10dp"
                 android:longClickable="true"
                 android:onClick="onClick"
+                android:layout_gravity="center_vertical"
                 />
 
             </LinearLayout>
