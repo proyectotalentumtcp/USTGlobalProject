@@ -35,11 +35,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
+public class DetalleActivity extends Activity implements View.OnClickListener {
 
     TextView nombreDetalle;
-    //    TextView apellido1Detalle;
-//    TextView apellido2Detalle;
     TextView apellidosDetalle;
     TextView telefonoMovilDetalle;
     TextView telefonoDirectoDetalle;
