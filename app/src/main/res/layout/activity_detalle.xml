@@ -18,32 +18,45 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Detalle de usuario"
             android:textSize="18sp"
             android:textStyle="normal"
             android:textColor="#000000"
-            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:layout_marginLeft="20dp"
             />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="80dp"
-            android:src="@drawable/usuario3"
-            android:layout_marginTop="5dp"
-            android:id="@+id/imagenUsuarioLabel"
-            />
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usuario"
-            android:textSize="18sp"
-            android:textColor="#00a8e6"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            />
+            android:orientation="horizontal"
+            android:id="@+id/logout"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/usuario3"
+                android:layout_marginTop="5dp"
+                android:id="@+id/imagenUsuarioLabel"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textSize="18sp"
+                android:textColor="#00a8e6"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                />
+
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <ScrollView
@@ -61,10 +74,10 @@
             >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 >
 
@@ -106,7 +119,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
@@ -117,9 +130,8 @@
                     android:textSize="18sp"
                     android:text="Teléfono Móvil:"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     />
 
                 <TextView
@@ -127,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:text="698848484"
                     android:textSize="18sp"
-                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:id="@+id/telefonoMovilDetalle"
                     android:tag="@string/telefonoMovil"
@@ -136,24 +148,37 @@
                     android:onClick="onClick"
                     />
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/llamada1"
+                    android:id="@+id/telefonoMovilBoton2"
+                    android:layout_gravity="right"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick2"
+                    android:tag="@string/telefonoMovil" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/llamada1"
                     android:id="@+id/telefonoMovilBoton"
                     android:layout_gravity="right"
                     android:clickable="true"
                     android:longClickable="true"
-                    android:onClick="onClick"
+                    android:onClick="onClick2"
                     android:tag="@string/telefonoMovil"
 
                     />
 
+
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
@@ -164,9 +189,8 @@
                     android:textSize="18sp"
                     android:text="Teléfono Directo:"
                     android:textStyle="bold"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     />
 
                 <TextView
@@ -174,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:text="698848484"
                     android:textSize="18sp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/telefonoDirectoDetalle"
                     android:tag="@string/telefonoDirecto"
@@ -183,15 +207,15 @@
                     android:onClick="onClick"
                     />
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
                     android:src="@drawable/llamada1"
                     android:id="@+id/telefonoDirectoBoton"
                     android:layout_marginLeft="20dp"
                     android:clickable="true"
                     android:longClickable="true"
-                    android:onClick="onClick"
+                    android:onClick="onClick2"
                     android:tag="@string/telefonoDirecto"
                     android:layout_gravity="right"
 
@@ -200,98 +224,120 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Correo:"
-                android:textStyle="bold"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                />
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="isabelyeves@"
                     android:textSize="18sp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
-                    android:id="@+id/correoDetalle"
-                    android:tag="@string/correo"
-                    android:layout_marginTop="10dp"
+                    android:text="Correo:"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     />
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="32dp"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
                     android:src="@drawable/correo2"
                     android:id="@+id/correoBoton"
                     android:background="#ffffff"
                     android:layout_marginLeft="50dp"
                     android:clickable="true"
                     android:longClickable="true"
-                    android:onClick="onClick"
+                    android:onClick="onClick2"
                     android:tag="@string/correo"
-                    android:layout_gravity="right"
+                    android:layout_gravity="center"
                     />
 
             </LinearLayout>
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="isabelyeves@"
                 android:textSize="18sp"
-                android:text="Correo Alternativo:"
-                android:textStyle="bold"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/correoDetalle"
+                android:tag="@string/correo"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
                 />
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Correo Alternativo:"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center"
+                    />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:src="@drawable/correo2"
+                    android:id="@+id/correoAlternativoBoton"
+                    android:clickable="true"
+                    android:longClickable="true"
+                    android:onClick="onClick2"
+                    android:layout_marginLeft="20dp"
+                    android:tag="@string/correoAlternativo"
+                    android:layout_gravity="center"
+                    />
+
+
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="vacio"
+                android:textSize="18sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:clickable="true"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:id="@+id/correoAlternativoDetalle"
+                android:tag="@string/correoAlternativo"
+                />
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="vacio"
-                    android:textSize="18sp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
-                    android:id="@+id/correoAlternativoDetalle"
-                    android:tag="@string/correoAlternativo"
-                    />
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/correo2"
-                    android:id="@+id/correoAlternativoBoton"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick"
-                    android:layout_marginLeft="20dp"
-                    android:tag="@string/correoAlternativo"
-                    android:layout_gravity="right"
-                    />
+
+
                 </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
 
@@ -303,7 +349,7 @@
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     />
 
                 <TextView
@@ -312,7 +358,7 @@
                     android:text="isla de arosa"
                     android:textSize="18sp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:clickable="true"
                     android:longClickable="true"
                     android:onClick="onClick"
@@ -322,8 +368,8 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
 
@@ -335,7 +381,7 @@
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     />
 
                 <TextView
@@ -344,14 +390,14 @@
                     android:textSize="18sp"
                     android:text="3"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:id="@+id/extensionDetalle"
                     />
                 </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
 
@@ -363,7 +409,7 @@
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     />
 
                 <TextView
@@ -372,14 +418,14 @@
                     android:text="000"
                     android:textSize="18sp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:id="@+id/centralitaDetalle"
                     />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
 
@@ -391,7 +437,7 @@
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     />
 
                 <TextView
@@ -400,15 +446,15 @@
                     android:textSize="18sp"
                     android:text="3"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:id="@+id/localizacionDetalle"
                     />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
 
@@ -420,7 +466,7 @@
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     />
 
                 <TextView
@@ -429,15 +475,15 @@
                     android:text="dfxh"
                     android:textSize="18sp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:id="@+id/areaDetalle"
                     />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
 
@@ -449,7 +495,7 @@
                     android:textStyle="bold"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -457,7 +503,7 @@
                     android:textSize="18sp"
                     android:text="dfghj"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:id="@+id/empresaDetalle"
                     />
             </LinearLayout>
