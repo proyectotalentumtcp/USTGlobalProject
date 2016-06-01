@@ -122,6 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:minHeight="45dp"
                 >
 
                 <TextView
@@ -147,22 +148,6 @@
                     android:longClickable="true"
                     android:onClick="onClick"
                     />
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/llamada1"
-                    android:id="@+id/telefonoMovilBoton"
-                    android:layout_gravity="right"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick2"
-                    android:tag="@string/telefonoMovil"
-
-                    />
-
 
             </LinearLayout>
 
@@ -196,23 +181,7 @@
                     android:onClick="onClick"
                     />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:src="@drawable/llamada1"
-                    android:id="@+id/telefonoDirectoBoton"
-                    android:layout_marginLeft="20dp"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick2"
-                    android:tag="@string/telefonoDirecto"
-                    android:layout_gravity="right"
-
-
-                    />
-
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -280,23 +249,6 @@
                     android:layout_marginRight="15dp"
                     android:layout_gravity="center"
                     />
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:src="@drawable/correo2"
-                    android:id="@+id/correoAlternativoBoton"
-                    android:clickable="true"
-                    android:longClickable="true"
-                    android:onClick="onClick2"
-                    android:layout_marginLeft="20dp"
-                    android:tag="@string/correoAlternativo"
-                    android:layout_gravity="center"
-                    />
-
-
-
 
             </LinearLayout>
             <TextView
@@ -497,22 +449,37 @@
                     />
             </LinearLayout>
 
-            <Button android:id="@+id/agenda"
-                android:layout_width="150dp"
-                android:background="#f61b40"
-                android:textStyle="bold"
-                android:layout_height="30dp"
-                android:tag="@string/guardar"
-                android:text="Agregar Contacto"
-                android:textColor="#ffffff"
-                android:fontFamily="sans-serif-medium"
-                android:onClick="onClick"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+            <ImageView
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:background="@drawable/oval"
+                android:src="@drawable/ic_action_name"
+                android:id="@+id/telefonoMovilBoton"
                 android:clickable="true"
-                android:layout_marginBottom="15dp"
+                android:longClickable="true"
+                android:onClick="onClick2"
+                android:tag="@string/telefonoMovil"
+                android:layout_marginRight="20dp"
                 />
 
+            <Button android:id="@+id/agenda"
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:background="@drawable/oval3"
+                android:src="@drawable/ic_action_name3"
+                android:tag="@string/guardar"
+                android:onClick="onClick"
+                android:clickable="true"
+                android:layout_marginRight="20dp"
+
+                />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

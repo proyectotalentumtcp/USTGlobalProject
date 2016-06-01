@@ -85,9 +85,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
         telefonoMovilBoton = (ImageView)findViewById(R.id.telefonoMovilBoton);
-        telefonoDirecto = (ImageView)findViewById(R.id.telefonoDirectoBoton);
-        correoAlternativoBoton = (ImageView)findViewById(R.id.correoAlternativoBoton);
-
 
         imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
         imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
