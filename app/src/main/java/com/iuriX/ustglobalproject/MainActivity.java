@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import controlador.AdaptadorUsuario;
@@ -17,6 +18,7 @@ import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.ListaEmpleados;
 import modelo.busqueda.PeticionBusquedaJSON;
+import modelo.login.LoginActivity;
 import modelo.login.R;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,6 +44,8 @@ public class MainActivity extends Activity {
     private Button buscar;
     private EditText textoBusqueda;
     private BusquedaInterface service;
+    LinearLayout logout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,16 @@ public class MainActivity extends Activity {
 
         buscar = (Button)findViewById(R.id.buscar);
         textoBusqueda = (EditText)findViewById(R.id.textoBusqueda);
+        logout = (LinearLayout)findViewById(R.id.logout);
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Session.getInstance().setSessionId("");
+                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(logout);
+            }
+        });
     }
 
     public void buscar(View v){
@@ -74,8 +87,7 @@ public class MainActivity extends Activity {
 
             textoBusqueda.setError("Campo de busqueda vacío");
             focusView = textoBusqueda;
-            //cancel = true; //cancelado para aligerar testea
-
+            cancel = true; //cancelado para aligerar testea
         }
 
         if (cancel){
@@ -107,19 +119,12 @@ public class MainActivity extends Activity {
 
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
-
                         startActivity(intentBusqueda);
-
 
                     } else {
 
                         Toast.makeText(MainActivity.this, "Lista de empleados vacía", Toast.LENGTH_SHORT).show();
-
                     }
-
-
-
-
                 }
 
                 @Override
@@ -128,12 +133,8 @@ public class MainActivity extends Activity {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }
-
             });
-
-
         }
-
     }
 
     boolean twice;
@@ -149,7 +150,6 @@ public class MainActivity extends Activity {
             startActivity(intent);
             finish();
             System.exit(0);
-
         }
         twice = true;
         Log.d("MainActivity", "twice: " + twice);

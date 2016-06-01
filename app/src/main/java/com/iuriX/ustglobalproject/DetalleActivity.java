@@ -31,14 +31,9 @@ import modelo.detalles.DetallesEmpleado;
 import modelo.detalles.DetallesInterface;
 import modelo.detalles.DetallesJSON;
 import modelo.detalles.PeticionDetallesJSON;
-<<<<<<< HEAD
 import modelo.login.LoginActivity;
 import modelo.login.R;
-import modelo.login.TokenRequest;
-import modelo.login.TokenResponse;
-=======
-import modelo.login.R;
->>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -48,11 +43,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetalleActivity extends Activity implements View.OnClickListener { //}, View.OnLongClickListener {
 
     TextView nombreDetalle;
-<<<<<<< HEAD
-=======
-    //    TextView apellido1Detalle;
-//    TextView apellido2Detalle;
->>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
     TextView apellidosDetalle;
     TextView telefonoMovilDetalle;
     TextView telefonoDirectoDetalle;
@@ -65,18 +55,13 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
     TextView areaDetalle;
     TextView empresaDetalle;
     Button agenda;
-<<<<<<< HEAD
-
-    @BindView(R.id.logout)
     LinearLayout logout;
 
-=======
+
     ImageView imagenUsuarioLabel, imagenUsuarioDetalle, correoBoton;
->>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
     private static final int PHONE_CALL = 0;
     Intent callIntent, emailIntent, contactIntent;
     private DetallesInterface service;
-    LinearLayout logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,26 +83,21 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         areaDetalle = (TextView)findViewById(R.id.areaDetalle);
         empresaDetalle = (TextView)findViewById(R.id.empresaDetalle);
         agenda = (Button)findViewById(R.id.agenda);
-<<<<<<< HEAD
-=======
+
         imagenUsuarioLabel = (ImageView)findViewById(R.id.imagenUsuarioLabel);
         imagenUsuarioDetalle = (ImageView)findViewById(R.id.imagenUsuarioDetalle);
         correoBoton = (ImageView)findViewById(R.id.correoBoton);
         logout = (LinearLayout)findViewById(R.id.logout);
 
         logout.setOnClickListener(new View.OnClickListener() {
+            // Logout
             @Override
             public void onClick(View v) {
-                Toast.makeText(DetalleActivity.this, "He clickado para ir al logout", Toast.LENGTH_SHORT ).show();
+                Session.getInstance().setSessionId("");
+                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(logout);
             }
         });
->>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
-
-        imagenUsuarioDetalle.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) { logout1();}});
-
-        imagenUsuarioLabel.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) { logout2();}});
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.api_url))
@@ -133,17 +113,9 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         Log.i("empleado seleccionado",String.valueOf(Session.getInstance().getId_empleado_seleccionado()));
         peticionDetallesJSON.setSessionId(Session.getInstance().getSessionId());
 
-<<<<<<< HEAD
+
             Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
             detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
-=======
-
-
-
-        Call<DetallesJSON> detallesJSONCall = service.getDetallesEmpleado(peticionDetallesJSON);
-        detallesJSONCall.enqueue(new Callback<DetallesJSON>() {
->>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
-
 
             @Override
             public void onResponse(Call<DetallesJSON> call, Response<DetallesJSON> response) {
@@ -186,18 +158,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
 
     }
 
-    @OnClick(R.id.imagenUsuarioDetalle)
-    public void logout1() {
-        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(logout);
-        Session.getInstance().setSessionId("");
-    }
-    @OnClick(R.id.imagenUsuarioLabel)
-    public void logout2() {
-        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(logout);
-        Session.getInstance().setSessionId("");
-    }
 
 
 
@@ -227,9 +187,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
             memorizar(tv);
         }
     }
-
-<<<<<<< HEAD
-=======
     public void onClick2(View v){ //boton
         int identificador;
         identificador = v.getId();
@@ -263,21 +220,7 @@ public class DetalleActivity extends Activity implements View.OnClickListener { 
         }
     }
 
-/*    @Override
-    public boolean onLongClick(View v) {
 
-        int identificador;
-        identificador = v.getId();
-        TextView tv = (TextView) this.findViewById(identificador);
-
-        Log.i("LongClick","ok");
-        // TODO Auto-generated method stub
-        Toast.makeText(getApplicationContext(), "LongClick", Toast.LENGTH_SHORT).show();
-        memorizar(tv);
-        return true;
-    }*/
-
->>>>>>> 4c76f19ff8daed87608394202e3aef913051828a
     private void memorizar(TextView tv){
         CharSequence Nombre = nombreDetalle.getText();
         CharSequence Apellidos = apellidosDetalle.getText();

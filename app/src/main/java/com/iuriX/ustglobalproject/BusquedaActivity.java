@@ -1,11 +1,13 @@
 package com.iuriX.ustglobalproject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import controlador.AdaptadorUsuario;
@@ -13,6 +15,7 @@ import modelo.Session;
 import modelo.busqueda.BusquedaInterface;
 import modelo.busqueda.ListaEmpleados;
 import modelo.busqueda.PeticionBusquedaJSON;
+import modelo.login.LoginActivity;
 import modelo.login.R;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +31,7 @@ public class BusquedaActivity extends Activity {
     private RecyclerView.LayoutManager lManager;
     private TextView buscarBusqueda;
     private BusquedaInterface service;
+    LinearLayout logout;
 
 
     @Override
@@ -42,9 +46,22 @@ public class BusquedaActivity extends Activity {
         listaUsuarios.setLayoutManager(lManager);
 
 
-
         adaptador = new AdaptadorUsuario(Session.getInstance().getListaEmpleadosSession());
         listaUsuarios.setAdapter(adaptador);
+
+        buscarBusqueda = (TextView)findViewById(R.id.buscarBusqueda);
+
+        logout = (LinearLayout)findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BusquedaActivity.this, "He clickado para ir al logout", Toast.LENGTH_SHORT ).show();
+                Session.getInstance().setSessionId("");
+                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(logout);
+            }
+        });
 
     }
     public void buscar(View v){
@@ -56,8 +73,6 @@ public class BusquedaActivity extends Activity {
 
         service = retrofit.create(BusquedaInterface.class);
 
-        //buscarBusqueda.setError(null);
-
         String busqueda = buscarBusqueda.getText().toString();
 
         boolean cancel = false;
@@ -67,10 +82,9 @@ public class BusquedaActivity extends Activity {
 
             buscarBusqueda.setError("Campo de busqueda vacío");
             focusView = buscarBusqueda;
-            //cancel = true; //cancelado para aligerar testea
+            cancel = true; //cancelado para aligerar testea
 
         }
-
         if (cancel){
             // Funciona
             focusView.requestFocus();
@@ -81,7 +95,6 @@ public class BusquedaActivity extends Activity {
             peticionBusquedaJSON.setBusqueda(buscarBusqueda.getText().toString());
             peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
 
-
             Call<ListaEmpleados> listaEmpleadosCall = service.getListaEmpleados(peticionBusquedaJSON);
             listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
                 @Override
@@ -91,26 +104,22 @@ public class BusquedaActivity extends Activity {
 
                     ListaEmpleados listaEmpleados1 = response.body();
 
-                    //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
-
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
+                        Intent intentBusqueda = new Intent(BusquedaActivity.this, BusquedaActivity.class);
 
                         Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
-                        adaptador.notifyDataSetChanged();
 
+
+                        startActivity(intentBusqueda);
 
                     } else {
 
                         Toast.makeText(BusquedaActivity.this, "Lista de empleados vacía", Toast.LENGTH_SHORT).show();
 
                     }
-
-
-
-
                 }
 
                 @Override
@@ -119,15 +128,9 @@ public class BusquedaActivity extends Activity {
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }
-
             });
-
-
         }
-
     }
-
-
 }
 
 
