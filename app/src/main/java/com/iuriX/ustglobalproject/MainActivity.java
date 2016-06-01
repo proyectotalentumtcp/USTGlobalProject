@@ -93,13 +93,10 @@ public class MainActivity extends Activity {
 
         textoBusqueda.setError(null);
 
-        String busqueda = textoBusqueda.getText().toString();
-
         boolean cancel = false;
         View focusView = null;
 
             final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
-            final ListaEmpleados listaEmpleados = new ListaEmpleados();
 
             peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
             peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
