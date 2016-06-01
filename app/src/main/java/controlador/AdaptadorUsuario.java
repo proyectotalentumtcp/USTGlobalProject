@@ -86,11 +86,6 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
 
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     Context context = v.getContext();
-//                    intent.setData(Uri.parse("mailto:"));
-//
-//                    intent.putExtra(Intent.EXTRA_EMAIL, correo);
-//                    intent.setType("message/rfc822");
-//                    context.startActivity(Intent.createChooser(intent, "Email"));
                     intent.setType("message/rfc822");
 
                     intent.putExtra(Intent.EXTRA_EMAIL, new String[] {correo}); //ok
