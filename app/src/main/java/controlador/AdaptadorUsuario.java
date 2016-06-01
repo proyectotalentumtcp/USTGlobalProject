@@ -97,7 +97,6 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         String imageString = usuarios.getListaUsuarios().get(position).getImageBase64();
         Log.i("imagen" + String.valueOf(position), imageString); //ok
 
-
         byte[] decodedString = Base64.decode(imageString, Base64.DEFAULT); //OK
         //Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length); //decoder->decode returned false
 
