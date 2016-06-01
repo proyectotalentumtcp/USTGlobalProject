@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
@@ -25,6 +26,7 @@ import modelo.login.R;
 public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
     public ListaEmpleados usuarios;
+    public static String correo;
 
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder{
@@ -32,6 +34,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
         public TextView nombre;
         public TextView apellidos;
         public ImageView imagen;
+
         ImageView botonLlamar, botonMail;
 
         public final View vista;
@@ -49,7 +52,7 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 @Override
                 public void onClick(View v) {
 
-                    Toast.makeText(v.getContext(), "He clickado el boton LLAMAR", Toast.LENGTH_LONG).show();
+
 
                 }
             });
@@ -58,8 +61,15 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
                 @Override
                 public void onClick(View v) {
 
-                    Toast.makeText(v.getContext(), "He clickado el boton MAIL", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), "Correo para: " + correo, Toast.LENGTH_SHORT).show();
 
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setData(Uri.parse("mailto:"));
+                    Context context = v.getContext();
+
+                    intent.putExtra(Intent.EXTRA_EMAIL, correo);
+                    intent.setType("message/rfc822");
+                    context.startActivity(Intent.createChooser(intent, "Email"));
 
                 }
             });
@@ -70,6 +80,10 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
     public AdaptadorUsuario(ListaEmpleados usuarios){
 
         this.usuarios = usuarios;
+
+    }
+
+    private void mail(TextView tv){
 
     }
 
@@ -94,8 +108,8 @@ public class AdaptadorUsuario  extends RecyclerView.Adapter<AdaptadorUsuario.Usu
 
         viewHolder.nombre.setText(usuarios.getListaUsuarios().get(position).getNombre());
         viewHolder.apellidos.setText(usuarios.getListaUsuarios().get(position).getApellidos());
-
         String imageString = usuarios.getListaUsuarios().get(position).getImageBase64();
+        correo = usuarios.getListaUsuarios().get(position).getCorreo();
         Log.i("imagen" + String.valueOf(position), imageString); //ok
 
 
