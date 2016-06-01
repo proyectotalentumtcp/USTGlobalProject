@@ -60,11 +60,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/llamada1"
-                android:id="@+id/telefonoMovilBoton"
-                android:tag="@string/telefonoMovil"
+                android:id="@+id/telefonoMovilBotonC"
+                android:tag="@string/telefonoCard"
                 android:clickable="true"
                 android:longClickable="true"
-                android:onClick="onClick2"
+                android:onClick="onClick"
                 android:layout_gravity="center_vertical"
                 android:background="#ffffff"
                 />
@@ -73,12 +73,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/correo"
-                android:id="@+id/correoBoton"
-                android:tag="@string/correo"
+                android:id="@+id/correoBotonC"
+                android:tag="@string/correoCard"
                 android:clickable="true"
                 android:layout_marginLeft="10dp"
                 android:longClickable="true"
-                android:onClick="onClick2"
+                android:onClick="onClick"
                 />
 
             </LinearLayout>

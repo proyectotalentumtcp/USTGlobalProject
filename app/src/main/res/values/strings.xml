@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">IuriX</string>
     <string name="telefonoDirecto">Llamar</string>
-    <string name="telefonoMovil">Llamar</string>
+    <string name="telefonoMovil">LlamarMovil</string>
+    <string name="telefonoCard">LlamarCard</string>
     <string name="correo">EnviarCorreo</string>
-    <string name="correoAlternativo">EnviarCorreo</string>
+    <string name="correoAlternativo">EnviarCorreoAlt</string>
+    <string name="correoCard">EnviarCorreoCard</string>
     <string name="direccion">Ubicar</string>
     <string name="guardar">GuardarContacto</string>
 
