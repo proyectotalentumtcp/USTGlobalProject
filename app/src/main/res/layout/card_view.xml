@@ -52,7 +52,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/llamada2"
+                android:src="@drawable/llamada1"
                 android:id="@+id/telefonoMovilBoton"
                 android:tag="@string/telefonoMovil"
                 android:clickable="true"
@@ -65,7 +65,7 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="32dp"
-                android:src="@drawable/correo"
+                android:src="@drawable/correo2"
                 android:elevation="4dp"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/correoBoton"
