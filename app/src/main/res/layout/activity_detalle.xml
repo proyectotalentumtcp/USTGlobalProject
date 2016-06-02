@@ -469,25 +469,8 @@
                 android:layout_marginRight="10dp"
                 />
 
-<<<<<<< HEAD
-            <ImageView android:id="@+id/agenda"
-=======
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="49dp"
-                android:background="@drawable/oval2"
-                android:src="@drawable/ic_action_name2"
-                android:id="@+id/direccionBoton"
-                android:tag="@string/direccion"
-                android:clickable="true"
-                android:longClickable="true"
-                android:onClick="onClick2"
-                android:layout_marginRight="10dp"
-                />
-
             <ImageView
                 android:id="@+id/agenda"
->>>>>>> 849886f81e15f9e756d6ec4f368b0f49af7f2452
                 android:layout_width="49dp"
                 android:layout_height="49dp"
                 android:background="@drawable/oval3"
