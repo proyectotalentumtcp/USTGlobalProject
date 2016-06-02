@@ -59,7 +59,6 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
             botonLlamar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Llamada para: " + movil, Toast.LENGTH_SHORT).show();
                     Context context = v.getContext();
                     Log.i("intento", "de llamada");
                     //((BusquedaActivity)context).llamar("6666666"); //ok
@@ -71,8 +70,6 @@ public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.Usua
             botonMail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Toast.makeText(v.getContext(), "Correo para: " + correo, Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     Context context = v.getContext();

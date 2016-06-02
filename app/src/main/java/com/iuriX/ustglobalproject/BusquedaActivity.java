@@ -160,14 +160,6 @@ public class BusquedaActivity extends Activity {
     }
 
 
-
-
-
-
-
-
-
-
     public void buscar(View v){
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -179,20 +171,7 @@ public class BusquedaActivity extends Activity {
 
         String busqueda = buscarBusqueda.getText().toString();
 
-        boolean cancel = false;
-        View focusView = null;
 
-        if (busqueda.equals("")){
-
-            buscarBusqueda.setError("Campo de busqueda vacío");
-            focusView = buscarBusqueda;
-            cancel = true; //cancelado para aligerar testea
-
-        }
-        if (cancel){
-            // Funciona
-            focusView.requestFocus();
-        }else{
             final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
             final ListaEmpleados listaEmpleados = new ListaEmpleados();
 
@@ -237,6 +216,6 @@ public class BusquedaActivity extends Activity {
             });
         }
     }
-}
+
 
 
