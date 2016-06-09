@@ -135,8 +135,12 @@ public class LoginActivity extends Activity {
                     Session.getInstance().setImagenBase64(tokenResponse.getImageBase64());
                     Log.d("LoginActivity","Imagen Usuario: " + tokenResponse.getImageBase64());
 
-                    Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
-
+                    if ( tokenResponse.getError_code().equals("0")) {
+                        ;
+                    }else{
+                        Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
+                    }
+                    
                     if (tokenResponse.getError_code().equals("0")) {
                         Intent ventanaSearch = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(ventanaSearch);
