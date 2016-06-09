@@ -1,14 +1,9 @@
 package controlador;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
@@ -17,18 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.iuriX.ustglobalproject.BusquedaActivity;
 import com.iuriX.ustglobalproject.DetalleActivity;
-
 import modelo.Session;
 import modelo.busqueda.ListaEmpleados;
 import modelo.login.R;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Miguel Rodríguez on 23/05/2016.
- */
 public class AdaptadorUsuario extends RecyclerView.Adapter<AdaptadorUsuario.UsuarioViewHolder> {
 
     public ListaEmpleados usuarios;

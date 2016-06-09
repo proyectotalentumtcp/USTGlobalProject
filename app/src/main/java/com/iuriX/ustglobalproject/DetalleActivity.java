@@ -42,11 +42,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Ernesto Mediavilla on 18/05/2016.
- * Edited by Miguel Rodríguez on 30/05/2016
- */
-
 public class DetalleActivity extends Activity implements View.OnClickListener {
 
     TextView nombreDetalle;

@@ -27,12 +27,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import android.os.Handler;
 
-
-/**
- * Created by Ernesto Mediavilla on 23/05/2016.
- * Edited by Miguel Rodríguez on 23/05/2016
- */
-
 public class MainActivity extends Activity {
 
 

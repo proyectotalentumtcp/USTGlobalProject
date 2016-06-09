@@ -2,6 +2,7 @@ package modelo.login;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
@@ -88,6 +89,10 @@ public class LoginActivity extends Activity {
         String login = mUser.getText().toString();
         String password = mPass.getText().toString();
 
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Comprobando...");
+        progressDialog.show();
+
         boolean cancel = false;
         View focusView = null;
 
@@ -120,6 +125,7 @@ public class LoginActivity extends Activity {
             tokenResponseCall.enqueue(new Callback<TokenResponse>() {
                 @Override
                 public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
+                    progressDialog.dismiss();
                     int statusCode = response.code();
 
                     TokenResponse tokenResponse = response.body();
@@ -139,6 +145,7 @@ public class LoginActivity extends Activity {
 
                 @Override
                 public void onFailure(Call<TokenResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
                 }
             });
