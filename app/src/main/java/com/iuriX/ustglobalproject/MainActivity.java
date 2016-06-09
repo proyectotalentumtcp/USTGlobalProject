@@ -1,6 +1,7 @@
 package com.iuriX.ustglobalproject;
 
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -69,6 +70,10 @@ public class MainActivity extends Activity {
 
     public void buscar(View v){
 
+        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.api_url))
                 .addConverterFactory(GsonConverterFactory.create())
@@ -91,6 +96,7 @@ public class MainActivity extends Activity {
             listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
                 @Override
                 public void onResponse(Call<ListaEmpleados> call, Response<ListaEmpleados> response) {
+                    progressDialog.dismiss();
 
                     int statusCode = response.code();
 
@@ -99,7 +105,6 @@ public class MainActivity extends Activity {
                     //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
 
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
-                        Toast.makeText(getApplicationContext(), "Cargando..." ,Toast.LENGTH_SHORT).show();
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
@@ -118,7 +123,8 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void onFailure(Call<ListaEmpleados> call, Throwable t) {
-
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Error de conexión con el servidor",Toast.LENGTH_SHORT).show();
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }

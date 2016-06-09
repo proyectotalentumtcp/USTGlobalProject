@@ -140,7 +140,7 @@ public class LoginActivity extends Activity {
                     }else{
                         Toast.makeText(getApplicationContext(), tokenResponse.getError_description() ,Toast.LENGTH_SHORT).show();
                     }
-                    
+
                     if (tokenResponse.getError_code().equals("0")) {
                         Intent ventanaSearch = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(ventanaSearch);
@@ -150,6 +150,7 @@ public class LoginActivity extends Activity {
                 @Override
                 public void onFailure(Call<TokenResponse> call, Throwable t) {
                     progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Error de conexión con el servidor",Toast.LENGTH_SHORT).show();
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
                 }
             });
