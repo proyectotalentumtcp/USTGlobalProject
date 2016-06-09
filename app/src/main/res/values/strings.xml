@@ -8,6 +8,10 @@
     <string name="correoCard">EnviarCorreoCard</string>
     <string name="direccion">Ubicar</string>
     <string name="guardar">GuardarContacto</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
 
     <string name="api_url">http://ec2-52-19-159-183.eu-west-1.compute.amazonaws.com:8088/</string>
 </resources>
