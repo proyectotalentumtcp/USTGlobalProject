@@ -133,6 +133,7 @@ public class MainActivity extends Activity {
     }
 
     public void buscarFoto(View view) {
+        //testeando...
         Intent fotoSearch = new Intent(getApplicationContext(), FaceTrackerActivity.class);
         startActivity(fotoSearch);
     }
