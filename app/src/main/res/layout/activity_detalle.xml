@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.iuriX.ustglobalproject.DetalleActivity"
-    android:background="#ffffff"
-    >
+    android:background="#ffffff">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -34,13 +33,15 @@
             android:id="@+id/logout"
             >
 
-            <ImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="80dp"
                 android:src="@drawable/usuario3"
                 android:layout_marginTop="5dp"
                 android:id="@+id/imagenUsuarioLabel"
+                app:civ_border_color="#050D57"
+                app:civ_border_width="2dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -81,9 +82,9 @@
                 android:layout_marginLeft="20dp"
                 >
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:src="@drawable/usuario3"
                     android:id="@+id/imagenUsuarioDetalle"
                     />

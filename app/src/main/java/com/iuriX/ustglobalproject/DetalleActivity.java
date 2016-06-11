@@ -1,6 +1,9 @@
 package com.iuriX.ustglobalproject;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -97,9 +100,27 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
             // Logout
             @Override
             public void onClick(View v) {
-                Session.getInstance().setSessionId("");
-                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(logout);
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetalleActivity.this);
+
+                builder.setTitle("")
+                        .setMessage("¿Está seguro de que desea salir?")
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Session.getInstance().setSessionId("");
+                                        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                                        startActivity(logout);
+                                    }
+                                })
+                        .setNegativeButton("CANCELAR",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        ;
+                                    }});
+                builder.show();
             }
         });
 
@@ -144,7 +165,11 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
 
                 byte[] decodedString = Base64.decode(detallesEmpleado1.getImageBase64().getBytes(), Base64.URL_SAFE);
                 Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                imagenUsuarioLabel.setImageBitmap(decodedByte);
+
+                byte[] decodedString2 = Base64.decode(Session.getInstance().getImagenBase64().getBytes(), Base64.URL_SAFE);
+                Bitmap decodedByte2 = BitmapFactory.decodeByteArray(decodedString2, 0, decodedString2.length);
+
+                imagenUsuarioLabel.setImageBitmap(decodedByte2);
                 imagenUsuarioDetalle.setImageBitmap(decodedByte);
 
                 Session.getInstance().setDetallesEmpleadoSession(detallesEmpleado);
@@ -161,10 +186,6 @@ public class DetalleActivity extends Activity implements View.OnClickListener {
         });
 
     }
-
-
-
-
 
     @Override
     public void onClick(View v) { //texto

@@ -2,6 +2,9 @@ package com.iuriX.ustglobalproject;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -71,9 +74,27 @@ public class BusquedaActivity extends Activity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Session.getInstance().setSessionId("");
-                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(logout);
+                AlertDialog.Builder builder = new AlertDialog.Builder(BusquedaActivity.this);
+
+                builder.setTitle("")
+                        .setMessage("¿Está seguro de que desea salir?")
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Session.getInstance().setSessionId("");
+                                        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                                        startActivity(logout);
+                                    }
+                                })
+                        .setNegativeButton("CANCELAR",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        ;
+                                    }});
+                builder.show();
             }
         });
 
@@ -162,6 +183,11 @@ public class BusquedaActivity extends Activity {
 
     public void buscar(View v){
 
+        final ProgressDialog progressDialog = new ProgressDialog(BusquedaActivity.this);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.api_url))
                 .addConverterFactory(GsonConverterFactory.create())
@@ -183,13 +209,13 @@ public class BusquedaActivity extends Activity {
                 @Override
                 public void onResponse(Call<ListaEmpleados> call, Response<ListaEmpleados> response) {
 
+                    progressDialog.dismiss();
+
                     int statusCode = response.code();
 
                     ListaEmpleados listaEmpleados1 = response.body();
 
                     if (listaEmpleados1.getListaUsuarios().size() > 0) {
-
-                        Toast.makeText(getApplicationContext(), "Cargando..." ,Toast.LENGTH_SHORT).show();
 
                         Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
@@ -209,7 +235,8 @@ public class BusquedaActivity extends Activity {
 
                 @Override
                 public void onFailure(Call<ListaEmpleados> call, Throwable t) {
-
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Error de conexión con el servidor",Toast.LENGTH_SHORT).show();
                     Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
                 }

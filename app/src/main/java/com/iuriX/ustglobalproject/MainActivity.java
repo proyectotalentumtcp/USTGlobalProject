@@ -1,7 +1,9 @@
 package com.iuriX.ustglobalproject;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -51,9 +53,27 @@ public class MainActivity extends Activity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Session.getInstance().setSessionId("");
-                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(logout);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                builder.setTitle("")
+                        .setMessage("¿Está seguro de que desea salir?")
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Session.getInstance().setSessionId("");
+                                        Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                                        startActivity(logout);
+                                    }
+                                })
+                        .setNegativeButton("CANCELAR",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        ;
+                                    }});
+                builder.show();
             }
         });
 

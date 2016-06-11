@@ -88,10 +88,17 @@ public class LoginActivity extends Activity {
         // Almacenar los valores en el momento del intento de conexión
         String login = mUser.getText().toString();
         String password = mPass.getText().toString();
-
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setMessage("Comprobando...");
-        progressDialog.show();
+
+        if (login.equals("") || password.equals("")) {
+            ;
+        }else {
+
+
+            progressDialog.setMessage("Comprobando...");
+            progressDialog.show();
+            progressDialog.setCancelable(false);
+        }
 
         boolean cancel = false;
         View focusView = null;

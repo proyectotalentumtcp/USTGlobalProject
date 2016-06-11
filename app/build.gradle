@@ -23,6 +23,9 @@ android {
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
     }
     dependencies {
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
@@ -42,4 +45,8 @@ dependencies {
     compile 'com.android.support:support-v4:23+'
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    compile 'com.mikhaellopez:circularimageview:3.0.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:design:23.0.1'
 }
