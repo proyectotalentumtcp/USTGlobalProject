@@ -30,6 +30,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import android.os.Handler;
 
+import com.iuriX.ustglobalproject.facetracker.FaceTrackerActivity;
+
 public class MainActivity extends Activity {
 
 
@@ -106,50 +108,55 @@ public class MainActivity extends Activity {
         boolean cancel = false;
         View focusView = null;
 
-            final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
+        final PeticionBusquedaJSON peticionBusquedaJSON = new PeticionBusquedaJSON();
 
-            peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
-            peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
+        peticionBusquedaJSON.setBusqueda(textoBusqueda.getText().toString());
+        peticionBusquedaJSON.setSessionId(Session.getInstance().getSessionId());
 
+        Call<ListaEmpleados> listaEmpleadosCall = service.getListaEmpleados(peticionBusquedaJSON);
+        listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
+            @Override
+            public void onResponse(Call<ListaEmpleados> call, Response<ListaEmpleados> response) {
+                progressDialog.dismiss();
 
-            Call<ListaEmpleados> listaEmpleadosCall = service.getListaEmpleados(peticionBusquedaJSON);
-            listaEmpleadosCall.enqueue(new Callback<ListaEmpleados>() {
-                @Override
-                public void onResponse(Call<ListaEmpleados> call, Response<ListaEmpleados> response) {
-                    progressDialog.dismiss();
+                int statusCode = response.code();
 
-                    int statusCode = response.code();
+                ListaEmpleados listaEmpleados1 = response.body();
 
-                    ListaEmpleados listaEmpleados1 = response.body();
+                //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
 
-                    //Session.getInstance().setId_empleado_seleccionado(listaEmpleados1.empleados.get().getId());
+                if (listaEmpleados1.getListaUsuarios().size() > 0) {
 
-                    if (listaEmpleados1.getListaUsuarios().size() > 0) {
+                    Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
 
-                        Log.d("MainActivity", "onResponse" + statusCode + " " + listaEmpleados1);
+                    Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
 
-                        Intent intentBusqueda = new Intent(MainActivity.this, BusquedaActivity.class);
+                    Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
 
-                        Session.getInstance().setListaEmpleadosSession(listaEmpleados1);
+                    startActivity(intentBusqueda);
+                    findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
-                        startActivity(intentBusqueda);
-                        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                } else {
 
-                    } else {
-
-                        Toast.makeText(MainActivity.this, "Criterios no encontrados", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(MainActivity.this, "Criterios no encontrados", Toast.LENGTH_SHORT).show();
                 }
+            }
 
-                @Override
-                public void onFailure(Call<ListaEmpleados> call, Throwable t) {
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Error de conexión con el servidor",Toast.LENGTH_SHORT).show();
-                    Log.d("LoginActivity", "onFailure: " + t.getMessage());
+            @Override
+            public void onFailure(Call<ListaEmpleados> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), "Error de conexión con el servidor",Toast.LENGTH_SHORT).show();
+                Log.d("LoginActivity", "onFailure: " + t.getMessage());
 
-                }
-            });
-        }
+            }
+        });
+    }
+
+    public void buscarFoto(View view) {
+        //testeando...
+        Intent fotoSearch = new Intent(getApplicationContext(), FaceTrackerActivity.class);
+        startActivity(fotoSearch);
+    }
 
     boolean twice;
     @Override

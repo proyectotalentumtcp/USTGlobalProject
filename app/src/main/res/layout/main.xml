@@ -9,14 +9,14 @@
     android:keepScreenOn="true">
 
   <com.iuriX.ustglobalproject.facetracker.camera.CameraSourcePreview
-      android:id="@+id/preview"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
+    android:id="@+id/preview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <com.google.android.gms.samples.vision.face.facetracker.camera.GraphicOverlay
-        android:id="@+id/faceOverlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <com.iuriX.ustglobalproject.facetracker.camera.GraphicOverlay
+      android:id="@+id/faceOverlay"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
 
   </com.iuriX.ustglobalproject.facetracker.camera.CameraSourcePreview>
 
